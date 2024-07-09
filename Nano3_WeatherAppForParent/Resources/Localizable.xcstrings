@@ -1,0 +1,25 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@ 1" : {
+
+    },
+    "Hello, World" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Halo dunia"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hej världen"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
