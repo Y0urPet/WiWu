@@ -12,6 +12,9 @@
 		2BA3DCE82C3BA9840042C618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BA3DCE72C3BA9840042C618 /* Assets.xcassets */; };
 		2BA3DCEB2C3BA9840042C618 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BA3DCEA2C3BA9840042C618 /* Preview Assets.xcassets */; };
 		A45A06922C3CDCD700797DE2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A45A06912C3CDCD700797DE2 /* Localizable.xcstrings */; };
+		A45A06942C3E29B300797DE2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A06932C3E29B300797DE2 /* CardView.swift */; };
+		A45A06962C3E29BD00797DE2 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A06952C3E29BD00797DE2 /* TestModel.swift */; };
+		A45A06982C3E29D000797DE2 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A06972C3E29D000797DE2 /* TestViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +44,9 @@
 		2BA3DCFA2C3BA9840042C618 /* Nano3_WeatherAppForParentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Nano3_WeatherAppForParentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45A068E2C3CDAFF00797DE2 /* Nano3_WeatherAppForParent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nano3_WeatherAppForParent.entitlements; sourceTree = "<group>"; };
 		A45A06912C3CDCD700797DE2 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		A45A06932C3E29B300797DE2 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		A45A06952C3E29BD00797DE2 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		A45A06972C3E29D000797DE2 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,7 @@
 		A45A06882C3CD9B000797DE2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A45A06952C3E29BD00797DE2 /* TestModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -116,6 +123,7 @@
 		A45A06892C3CD9B500797DE2 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A45A06972C3E29D000797DE2 /* TestViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -140,6 +148,7 @@
 		A45A068C2C3CD9E300797DE2 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A45A06932C3E29B300797DE2 /* CardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -289,7 +298,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BA3DCE62C3BA9820042C618 /* ContentView.swift in Sources */,
+				A45A06942C3E29B300797DE2 /* CardView.swift in Sources */,
+				A45A06982C3E29D000797DE2 /* TestViewModel.swift in Sources */,
 				2BA3DCE42C3BA9820042C618 /* Nano3_WeatherAppForParentApp.swift in Sources */,
+				A45A06962C3E29BD00797DE2 /* TestModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
