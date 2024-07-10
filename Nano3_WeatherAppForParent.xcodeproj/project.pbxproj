@@ -15,6 +15,9 @@
 		A45A06942C3E29B300797DE2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A06932C3E29B300797DE2 /* CardView.swift */; };
 		A45A06962C3E29BD00797DE2 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A06952C3E29BD00797DE2 /* TestModel.swift */; };
 		A45A06982C3E29D000797DE2 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A06972C3E29D000797DE2 /* TestViewModel.swift */; };
+		A45A069B2C3E2B8800797DE2 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A069A2C3E2B8800797DE2 /* ApiClient.swift */; };
+		A45A069D2C3E39DD00797DE2 /* DailySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A069C2C3E39DD00797DE2 /* DailySummary.swift */; };
+		A45A06A02C3E3C2A00797DE2 /* DailyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A069F2C3E3C2A00797DE2 /* DailyViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		A45A06932C3E29B300797DE2 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		A45A06952C3E29BD00797DE2 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		A45A06972C3E29D000797DE2 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
+		A45A069A2C3E2B8800797DE2 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		A45A069C2C3E39DD00797DE2 /* DailySummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummary.swift; sourceTree = "<group>"; };
+		A45A069F2C3E3C2A00797DE2 /* DailyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 				A45A068A2C3CD9BC00797DE2 /* View */,
 				A45A06892C3CD9B500797DE2 /* ViewModel */,
 				A45A06882C3CD9B000797DE2 /* Model */,
+				A45A06992C3E2B7A00797DE2 /* Networking */,
 				A45A068D2C3CDA1100797DE2 /* Resources */,
 			);
 			path = Nano3_WeatherAppForParent;
@@ -116,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				A45A06952C3E29BD00797DE2 /* TestModel.swift */,
+				A45A069C2C3E39DD00797DE2 /* DailySummary.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				A45A06972C3E29D000797DE2 /* TestViewModel.swift */,
+				A45A069F2C3E3C2A00797DE2 /* DailyViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -162,6 +171,14 @@
 				2BA3DCE92C3BA9840042C618 /* Preview Content */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A45A06992C3E2B7A00797DE2 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A45A069A2C3E2B8800797DE2 /* ApiClient.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,8 +317,11 @@
 				2BA3DCE62C3BA9820042C618 /* ContentView.swift in Sources */,
 				A45A06942C3E29B300797DE2 /* CardView.swift in Sources */,
 				A45A06982C3E29D000797DE2 /* TestViewModel.swift in Sources */,
+				A45A069D2C3E39DD00797DE2 /* DailySummary.swift in Sources */,
 				2BA3DCE42C3BA9820042C618 /* Nano3_WeatherAppForParentApp.swift in Sources */,
 				A45A06962C3E29BD00797DE2 /* TestModel.swift in Sources */,
+				A45A06A02C3E3C2A00797DE2 /* DailyViewModel.swift in Sources */,
+				A45A069B2C3E2B8800797DE2 /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
