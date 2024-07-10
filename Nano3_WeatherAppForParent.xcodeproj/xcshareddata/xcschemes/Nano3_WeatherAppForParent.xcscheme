@@ -74,6 +74,13 @@
             ReferencedContainer = "container:Nano3_WeatherAppForParent.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "OPENAI_API_KEY"
+            value = "sk-nano3-weather-app-73ZauTL43n4tKWsK3EW9T3BlbkFJiOvhTR6rAIfJLRRw8V2M"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
