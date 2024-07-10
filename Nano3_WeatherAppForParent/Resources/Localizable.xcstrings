@@ -1,10 +1,11 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "%@ 1" : {
+    "%@" : {
 
     },
     "Hello, World" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -19,6 +20,9 @@
           }
         }
       }
+    },
+    "San Francisco" : {
+
     }
   },
   "version" : "1.0"
