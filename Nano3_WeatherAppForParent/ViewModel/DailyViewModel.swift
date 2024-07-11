@@ -9,22 +9,26 @@ import Foundation
 
 @Observable
 class DailyViewModel {
-//    
-//    let apiClient = ApiClient.shared
-//    let dailySummary: DailySummary
-//    
-//    init() {
-//        self.dailySummary = DailySummary()
-//        let summaries = await Task.detached(priority: .userInitiated) {
-//            
-//        }
-//    }
-//    
-//    @discardableResult
-//    func getDailySummary() async -> DailySummary {
-//        let summary = await Task.detached(priority: .userInitiated) {
-//            let sum = try? await self.apiClient.getSummaries()
-//        }
-//    }
-//    
+    
+    let apiClient = ApiClient.shared
+    var dailySummary: DailySummary?
+    
+    init() async {
+        self.dailySummary = nil
+        Task {
+            await loadDailySummary()
+        }
+    }
+    
+    func loadDailySummary() async {
+        do {
+            let data = try await apiClient.fetchDailySummary()
+            DispatchQueue.main.async {
+                self.dailySummary = DailySummary(data: data)
+                debugPrint(self.dailySummary ?? "?")
+            }
+        } catch {
+            // Handle error
+        }
+    }
 }
