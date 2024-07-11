@@ -5,31 +5,40 @@
 //  Created by Timothy Andrian on 08/07/24.
 //
 
+
+
 import SwiftUI
+import CoreLocation
+import WeatherKit
 
 struct ContentView: View {
-    private var num = 1
-    @State private var dailyViewModel: DailyViewModel?
-    
+    @StateObject private var weatherManager = WeatherManager()
+
     var body: some View {
         VStack {
-            Image(systemName: "sun.rain.fill")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("\(String(localized: "Hello, World")) 1")
-            
-            if self.dailyViewModel != nil {
-                Text(self.dailyViewModel?.dailySummary?.morning ?? "Data not fetched")
+            if let currentWeather = weatherManager.currentWeather {
+                Text("Weather at \(weatherManager.locationName)")
+                    .font(.largeTitle)
+                    .padding()
+                
+                Text("\(Int(currentWeather.temperature.value))°C")
+                    .font(.system(size: 72))
+                    .fontWeight(.bold)
+                    .padding()
+                
+                Spacer()
+            } else {
+                Text("Loading...")
+                    .font(.largeTitle)
+                    .padding()
             }
         }
-        .padding()
         .onAppear {
-            Task {
-                self.dailyViewModel = await DailyViewModel()
-            }
+            weatherManager.locationManager.requestLocation()
         }
     }
 }
+
 
 #Preview {
     ContentView()
