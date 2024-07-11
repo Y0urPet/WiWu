@@ -1,7 +1,7 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "%@" : {
+    "%lld°C" : {
 
     },
     "Hello, World" : {
@@ -21,7 +21,10 @@
         }
       }
     },
-    "San Francisco" : {
+    "Loading..." : {
+
+    },
+    "Weather at %@" : {
 
     }
   },
