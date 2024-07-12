@@ -15,20 +15,20 @@ class DailyViewModel {
     
     init() async {
         self.dailySummary = nil
-        Task {
-            await loadDailySummary()
-        }
+//        Task {
+//            await loadDailySummary()
+//        }
     }
     
-    func loadDailySummary() async {
-        do {
-            let data = try await apiClient.fetchDailySummary()
-            DispatchQueue.main.async {
-                self.dailySummary = DailySummary(data: data)
-                debugPrint(self.dailySummary ?? "?")
-            }
-        } catch {
-            // Handle error
-        }
-    }
+//    func loadDailySummary() async {
+//        do {
+//            let data = try await apiClient.fetchDailySummary()
+//            DispatchQueue.main.async {
+//                self.dailySummary = DailySummary(data: data)
+//                debugPrint(self.dailySummary ?? "?")
+//            }
+//        } catch {
+//            // Handle error
+//        }
+//    }
 }

@@ -9,9 +9,16 @@ import Foundation
 import CoreLocation
 import WeatherKit
 
+enum WeatherError: Error {
+    case encodingFailed
+    case fetchingFailed
+    case filteringFailed
+}
+
 class WeatherManager: NSObject, ObservableObject {
     let locationManager = LocationManager()
     private let weatherService = WeatherService()
+    private let apiClient = ApiClient.shared
     
     @Published var currentWeather: CurrentWeather?
     @Published var locationName: String = "Current Location"
@@ -21,13 +28,78 @@ class WeatherManager: NSObject, ObservableObject {
     override init() {
         super.init()
         locationManager.locationUpdateHandler = { [weak self] location in
-            self?.fetchWeather(for: location)
+            do {
+                try self?.fetchWeather(for: location)
+            }
+            catch {
+                
+            }
         }
     }
     
-    func fetchWeather(for location: CLLocation) {
-            let queryDaily = WeatherQuery.daily(startDate: .now, endDate: .now + (3600*24*7))
-        let queryHourly = WeatherQuery.hourly(startDate: .now, endDate: .now + (3600 * 24))
+    func encodeHourlyWeather(hourlyWeather: [HourlyWeather]) throws -> String {
+        do {
+            let encoder = JSONEncoder()
+            encoder.dateEncodingStrategy = .iso8601
+            let jsonData = try encoder.encode(hourlyWeather)
+            let jsonString = String(data: jsonData, encoding: .utf8)
+            if let jsonString = jsonString {
+                return jsonString
+            }
+            print("Failed to encode")
+        } catch {
+            print("Failed to encode data: \(error.localizedDescription)")
+        }
+        
+        return ""
+    }
+    
+    func filterPerDay(date: Date) throws -> (DayWeather, [HourlyWeather]) {
+        // Get the calendar
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone.current
+
+        // Set the start of the provided day
+        let startOfDay = calendar.startOfDay(for: date)
+        // Set the end of the provided day (start of the next day minus one second)
+        let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)?.addingTimeInterval(-1)
+        
+        debugPrint("start: \(startOfDay) | end: \(String(describing: endOfDay))")
+
+        // Filter the HourlyWeather array
+        let todaysHourlyWeather: [HourlyWeather] = self.hourlyWeather.filter { weather in
+            guard let endOfDay = endOfDay else { return false }
+            return weather.date >= startOfDay && weather.date <= endOfDay
+        }
+
+        // Filter the DayWeather array
+        let todaysDayWeathers: [DayWeather] = self.dailyWeather.filter { weather in
+            return calendar.isDate(weather.date, inSameDayAs: date)
+        }
+        
+        let todaysDayWeather = todaysDayWeathers.first
+        
+        return (todaysDayWeather, todaysHourlyWeather)
+        
+        // Print the filtered array
+//        debugPrint("todaysHourlyWeather ->", todaysHourlyWeather.count, ": ", todaysHourlyWeather)
+//        debugPrint("todaysDayWeather", todaysDayWeather)
+//        
+//        let encoded = self.encodeHourlyWeather(hourlyWeather: todaysHourlyWeather)
+//        debugPrint(encoded)
+//        debugPrint("[WeatherKit]")
+//        
+//        Task {
+//            let sum = try await self.apiClient.fetchDailySummary(dataStr: encoded)
+//            debugPrint("[serializing]")
+//            let json: Any = try JSONSerialization.jsonObject(with: sum, options: [])
+//            debugPrint("[fetch]", json)
+//        }
+    }
+    
+    func fetchWeather(for location: CLLocation)  {
+            let queryDaily = WeatherQuery.daily(startDate: .now, endDate: .now + (3600 * 24 * 7))
+        let queryHourly = WeatherQuery.hourly(startDate: .now, endDate: .now + (3600 * 24 * 7))
             Task {
                 do {
                     let forecast = try await weatherService.weather(for: location, including: queryDaily)
@@ -40,6 +112,8 @@ class WeatherManager: NSObject, ObservableObject {
                         self.hourlyWeather = self.mapForecastToHourlyWeather(hourlyForecast)
 //                        print(self.hourlyWeather)
                         self.locationName = "\(location.coordinate.latitude), \(location.coordinate.longitude)"
+
+                        self.filterPerDay(date: .now + (3600 * 24 * 3))
                     }
 
                 } catch {
