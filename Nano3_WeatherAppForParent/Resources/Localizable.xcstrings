@@ -1,28 +1,37 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Amount: %lf mm" : {
+    " - 11" : {
 
     },
-    "Apparent Temperature: %lf °C" : {
+    "%@" : {
 
     },
-    "Chance: %lf%%" : {
+    "11" : {
 
     },
-    "Condition: %@" : {
+    "29°" : {
 
     },
-    "Current Location: %@" : {
+    "AM" : {
 
     },
-    "Date: %@" : {
+    "BEST DAYS THIS WEEK" : {
 
     },
-    "Dew Point: %lf °C" : {
+    "BEST TIMES TODAY" : {
 
     },
-    "Gust: %lf km/h" : {
+    "Clear Skies until 11" : {
+
+    },
+    "Clody, great for a walk" : {
+
+    },
+    "Fri" : {
+
+    },
+    "from 9" : {
 
     },
     "Hello, World" : {
@@ -42,55 +51,56 @@
         }
       }
     },
-    "High: %lf °C" : {
+    "HOURLY FORECAST" : {
 
     },
-    "Humidity: %lf%%" : {
+    "Mon" : {
 
     },
-    "Low: %lf °C" : {
+    "Now" : {
 
     },
-    "Precipitation: %@" : {
+    "Perfect for Outdoor Fun!" : {
 
     },
-    "Pressure Trend: %@" : {
+    "Perfect to go out" : {
 
     },
-    "Pressure: %lf mbar" : {
+    "Remember to use sunscreen" : {
 
     },
-    "Refresh Weather" : {
+    "Sampora" : {
 
     },
-    "Snowfall: %lf mm" : {
+    "Sat" : {
 
     },
-    "Temperature: %lf °C" : {
+    "Saturday, 13 July 2024" : {
 
     },
-    "UV Index: %lld (%@)" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "UV Index: %1$lld (%2$@)"
-          }
-        }
-      }
-    },
-    "Visibility: %lf m" : {
+    "Search" : {
 
     },
-    "Wind: %@ at %lf km/h" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Wind: %1$@ at %2$lf km/h"
-          }
-        }
-      }
+    "Stay hydrated thorought the day" : {
+
+    },
+    "Sun" : {
+
+    },
+    "THINGS TO PREPARE" : {
+
+    },
+    "Thu" : {
+
+    },
+    "Tue" : {
+
+    },
+    "Use breathable clothing" : {
+
+    },
+    "Wed" : {
+
     }
   },
   "version" : "1.0"
