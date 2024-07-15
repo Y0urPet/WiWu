@@ -36,7 +36,11 @@ class WeatherViewModel : WeatherManagerDelegate {
         processWeatherData()
     }
 
-    
+    func getHour(from date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH" // 24-hour format
+        return formatter.string(from: date)
+    }
     private func processWeatherData() {
         Task {
             for day in dailyWeather {

@@ -9,7 +9,7 @@ import Foundation
 
 struct HourlyWeather: Identifiable, Decodable, Encodable, Equatable {
     var id = UUID()
-    let date: Date
+    var date: Date
     let cloudCover: Double
 //        let cloudCoverLow: Double
 //        let cloudCoverMid: Double

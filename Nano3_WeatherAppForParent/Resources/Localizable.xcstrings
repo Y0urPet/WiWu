@@ -1,28 +1,10 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Amount: %lf mm" : {
-
-    },
-    "Apparent Temperature: %lf °C" : {
-
-    },
-    "Chance: %lf%%" : {
-
-    },
-    "Condition: %@" : {
-
-    },
     "DailyView" : {
 
     },
     "Date: %@" : {
-
-    },
-    "Dew Point: %lf °C" : {
-
-    },
-    "Gust: %lf km/h" : {
 
     },
     "Hello, World" : {
@@ -42,55 +24,11 @@
         }
       }
     },
-    "High: %lf °C" : {
-
-    },
-    "Humidity: %lf%%" : {
-
-    },
-    "Low: %lf °C" : {
-
-    },
-    "Precipitation: %@" : {
-
-    },
-    "Pressure Trend: %@" : {
-
-    },
-    "Pressure: %lf mbar" : {
-
-    },
     "Refresh Weather" : {
 
     },
-    "Snowfall: %lf mm" : {
+    "Weather Forecast" : {
 
-    },
-    "Temperature: %lf °C" : {
-
-    },
-    "UV Index: %lld (%@)" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "UV Index: %1$lld (%2$@)"
-          }
-        }
-      }
-    },
-    "Visibility: %lf m" : {
-
-    },
-    "Wind: %@ at %lf km/h" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Wind: %1$@ at %2$lf km/h"
-          }
-        }
-      }
     }
   },
   "version" : "1.0"

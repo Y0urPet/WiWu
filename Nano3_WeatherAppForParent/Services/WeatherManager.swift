@@ -73,7 +73,7 @@ class WeatherManager {
             }
         }
     }
-    
+
     func encodeWeatherData(dailyWeather: DayWeather, hourlyWeather: [HourlyWeather]) -> String {
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
