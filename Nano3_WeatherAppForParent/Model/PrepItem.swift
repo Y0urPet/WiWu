@@ -20,4 +20,6 @@ struct PrepItem: Identifiable, Codable {
     var category: PrepCategory
     var icon: String
     var priority: UInt16?
+    var image: String?
 }
+

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import WeatherKit
 
 extension WeatherManager {
     
@@ -65,7 +66,8 @@ extension WeatherManager {
             return "Unknown"
         }
     }
-    private func mapForecastToDayWeather(_ forecast: Forecast<WeatherKit.DayWeather>) -> [DayWeather] {
+    
+    func mapForecastToDayWeather(_ forecast: Forecast<WeatherKit.DayWeather>) -> [DayWeather] {
         return forecast.map { weatherKitDayWeather in
             DayWeather(
                 date: weatherKitDayWeather.date,
@@ -107,7 +109,7 @@ extension WeatherManager {
             )
         }
     }
-    private func mapForecastToHourlyWeather(_ forecast: Forecast<WeatherKit.HourWeather>) -> [HourlyWeather] {
+    func mapForecastToHourlyWeather(_ forecast: Forecast<WeatherKit.HourWeather>) -> [HourlyWeather] {
            return forecast.map { weatherKitHourWeather in
                HourlyWeather(
                    date: weatherKitHourWeather.date,

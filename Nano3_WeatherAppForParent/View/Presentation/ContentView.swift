@@ -12,14 +12,12 @@ import CoreLocation
 import WeatherKit
 
 struct ContentView: View {
-    @StateObject private var weatherManager = WeatherManager()
+    private var weatherManager = WeatherManager.shared
+    @State private var weather = WeatherViewModel()
 
     var body: some View {
             VStack {
-                Text("Current Location: \(weatherManager.locationName)")
-                    .padding()
-
-                List(weatherManager.dailyWeather) { day in
+                List(weather.dailyWeather) { day in
                     VStack(alignment: .leading) {
                         Text("Date: \(day.date)")
                         Text("Condition: \(day.condition)")
@@ -35,7 +33,7 @@ struct ContentView: View {
                 }
                 .padding()
 
-                List(weatherManager.hourlyWeather) { hour in
+                List(weather.hourlyWeather) { hour in
                 VStack(alignment: .leading) {
                     Text("Date: \(hour.date)")
                     Text("Condition: \(hour.condition)")
@@ -58,11 +56,9 @@ struct ContentView: View {
                 .padding()
             }
             Button("Refresh Weather") {
-                weatherManager.locationManager.requestLocation()
+                weatherManager.fetch()
             }
             .padding()
-            
-            
         }
     }
 }

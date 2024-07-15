@@ -15,6 +15,12 @@ enum WeatherError: Error {
     case filteringFailed
 }
 
+enum WeatherFilter {
+    case daily
+    case hourly
+    case all
+}
+
 class WeatherManager {
     // Has a fetch function that gets the data from weather kit
     // Uses delegate to update the weather data in view model
@@ -29,15 +35,14 @@ class WeatherManager {
     
     init() {
         // Fetch update
+//        fetch()
     }
     
+    
+    // TODO: Handle different locations
     func fetch(numOfDays: Double = 7)  {
         // Fetch location first
         LocationManager.shared.requestLocation()
-        
-        // Make queries for weather (one week)
-        let queryDaily = WeatherQuery.daily(startDate: .now, endDate: .now + (3600 * 24 * numOfDays))
-        let queryHourly = WeatherQuery.hourly(startDate: .now, endDate: .now + (3600 * 24 * numOfDays))
         
         LocationManager.shared.locationUpdateHandler = { location in
             debugPrint("querying for location: \(location)")
@@ -49,8 +54,8 @@ class WeatherManager {
             Task {
                 do {
                     // Query WeatherKit
-                    let forecast = try await weatherService.weather(for: location, including: queryDaily)
-                    let hourlyForecast = try await weatherService.weather(for: location, including: queryHourly)
+                    let forecast = try await self.weatherService.weather(for: location, including: queryDaily)
+                    let hourlyForecast = try await self.weatherService.weather(for: location, including: queryHourly)
                     
                     DispatchQueue.main.async {
                         // Get dailyWeather
@@ -96,7 +101,7 @@ class WeatherManager {
         }
     }
     
-    func filterPerDay(dailyWeather: [DayWeather], hourlyWeather: [HourlyWeather], date: Date) -> (DayWeather?, [HourlyWeather]) {
+    func filterPerDay(filter: WeatherFilter = .all, dailyWeather: [DayWeather], hourlyWeather: [HourlyWeather], date: Date) -> (DayWeather?, [HourlyWeather]) {
 
         // Get the calendar
         var calendar = Calendar.current
@@ -109,6 +114,7 @@ class WeatherManager {
         
         debugPrint("start: \(startOfDay) | end: \(String(describing: endOfDay))")
 
+        
         // Filter the HourlyWeather array
         let todaysHourlyWeather: [HourlyWeather] = hourlyWeather.filter { weather in
             guard let endOfDay = endOfDay else { return false }
@@ -122,5 +128,6 @@ class WeatherManager {
         
         return (todaysDayWeather, todaysHourlyWeather)
     }
+   
 }
 
