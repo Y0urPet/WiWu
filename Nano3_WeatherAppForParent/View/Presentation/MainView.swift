@@ -90,6 +90,7 @@ struct MainView: View {
                                     }
                                 }
                             }
+                            .symbolRenderingMode(.monochrome)
                             .offset(y: -270)
                             
                             if selection.id == "item-8" {
@@ -260,21 +261,20 @@ struct MainView: View {
                                                             .fontWeight(.bold)
                                                     }
                                                 }
-//                                                .onAppear{
-//                                                    withAnimation {
-//                                                        if !isExpandedDays && isExpandedTimes && frameHeight == 1000 {
-//                                                            print("changing!")
-////                                                            frameHeight = 1100
-//                                                        }
-//                                                    }
-//                                                }
+                                                .onAppear{
+                                                    withAnimation {
+                                                        if !isExpandedDays && isExpandedTimes && frameHeight == 1000 {
+                                                            print("changing!")
+                                                            frameHeight = 1200
+                                                        }
+                                                    }
+                                                }
                                                 .onDisappear() {
                                                     withAnimation {
-//                                                        if !isExpandedDays && !isExpandedTimes && frameHeight != 1000 {
-//                                                            print("changing!")
-//                                                            frameHeight = 1000
-//                                                        } else 
-                                                        if isExpandedDays && !isExpandedTimes && frameHeight != 1000 {
+                                                        if !isExpandedDays && !isExpandedTimes && frameHeight != 1000 {
+                                                            print("changing!")
+                                                            frameHeight = 1000
+                                                        } else if isExpandedDays && !isExpandedTimes && frameHeight != 1000 {
                                                             frameHeight = 1300
                                                         }
                                                     }
@@ -282,6 +282,7 @@ struct MainView: View {
                                             }
                                         } header: {
                                             Text("HOURLY FORECAST")
+                                                .padding(.vertical, 16)
                                         }
                                     }
                                     // BEST DAYS THIS WEEK
@@ -323,7 +324,7 @@ struct MainView: View {
                                                 HStack(spacing: 10){
                                                     Text("Tue")
                                                     HStack {
-                                                        Image(systemName: "cloud.sun.fill")
+                                                        Image(systemName: "cloud.drizzle.fill")
                                                             .frame(width: 30,height: 30)
                                                         Text("Clody, great for a walk")
                                                     }
@@ -336,7 +337,7 @@ struct MainView: View {
                                                 HStack(spacing: 10){
                                                     Text("Wed")
                                                     HStack {
-                                                        Image(systemName: "cloud.sun.fill")
+                                                        Image(systemName: "cloud.rain.fill")
                                                             .frame(width: 30,height: 30)
                                                         Text("Clody, great for a walk")
                                                     }
@@ -349,7 +350,7 @@ struct MainView: View {
                                                 HStack(spacing: 10){
                                                     Text("Thu")
                                                     HStack {
-                                                        Image(systemName: "cloud.sun.fill")
+                                                        Image(systemName: "cloud.heavyrain.fill")
                                                             .frame(width: 30,height: 30)
                                                         Text("Clody, great for a walk")
                                                     }
@@ -362,7 +363,7 @@ struct MainView: View {
                                                 HStack(spacing: 10){
                                                     Text("Fri")
                                                     HStack {
-                                                        Image(systemName: "cloud.sun.fill")
+                                                        Image(systemName: "cloud.bolt.rain.fill")
                                                             .frame(width: 30,height: 30)
                                                         Text("Clody, great for a walk")
                                                     }
@@ -375,7 +376,7 @@ struct MainView: View {
                                                 HStack(spacing: 10){
                                                     Text("Sat")
                                                     HStack {
-                                                        Image(systemName: "cloud.sun.fill")
+                                                        Image(systemName: "cloud.sun.rain.fill")
                                                             .frame(width: 30,height: 30)
                                                         Text("Clody, great for a walk")
                                                     }
@@ -388,8 +389,9 @@ struct MainView: View {
                                                 HStack(spacing: 10){
                                                     Text("Sun")
                                                     HStack {
-                                                        Image(systemName: "cloud.sun.fill")
+                                                        Image(systemName: "cloud.sun.bolt.fill")
                                                             .frame(width: 30,height: 30)
+                                                        
                                                         Text("Clody, great for a walk")
                                                     }
                                                 }
@@ -415,7 +417,8 @@ struct MainView: View {
                                                 }
                                             }
                                         } header: {
-                                            Text("HOURLY FORECAST")
+                                            Text("WEEKLY FORECAST")
+                                                .padding(.vertical, 16)
                                         }
                                     }
                                 }
@@ -449,6 +452,8 @@ struct MainView: View {
 //                .searchable(text: $searchText)
 //                .toolbar(.hidden, for: .navigationBar)
             }
+            .symbolRenderingMode(.multicolor)
+            
         }
     }
 }
