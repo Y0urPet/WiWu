@@ -9,13 +9,8 @@ import Foundation
 import SwiftData
 import CoreLocation
 
-@Model
-class Location {
-    var name: String
-    var coords: CLLocation
-    
-    init(name: String, coords: CLLocation) {
-        self.name = name
-        self.coords = coords
-    }
+enum LocationType {
+    case currentLocation
+    case others
 }
+

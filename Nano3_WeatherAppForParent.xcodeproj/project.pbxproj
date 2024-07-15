@@ -8,21 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		1ADB537C2C3F8DC10011EE08 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADB537B2C3F8DC10011EE08 /* LocationManager.swift */; };
-		1ADB537E2C3F8F2C0011EE08 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADB537D2C3F8F2C0011EE08 /* WeatherManager.swift */; };
 		1ADB53802C3FD00A0011EE08 /* DayWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADB537F2C3FD00A0011EE08 /* DayWeather.swift */; };
 		1ADB53822C3FDC370011EE08 /* HourlyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADB53812C3FDC370011EE08 /* HourlyWeather.swift */; };
 		2BA3DCE42C3BA9820042C618 /* Nano3_WeatherAppForParentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA3DCE32C3BA9820042C618 /* Nano3_WeatherAppForParentApp.swift */; };
 		2BA3DCE62C3BA9820042C618 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA3DCE52C3BA9820042C618 /* ContentView.swift */; };
 		2BA3DCE82C3BA9840042C618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BA3DCE72C3BA9840042C618 /* Assets.xcassets */; };
 		2BA3DCEB2C3BA9840042C618 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BA3DCEA2C3BA9840042C618 /* Preview Assets.xcassets */; };
+		A406000F2C41961200A891EE /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A406000E2C41961200A891EE /* LocationViewModel.swift */; };
+		A40600112C41962700A891EE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40600102C41962700A891EE /* Location.swift */; };
+		A40600172C44A87E00A891EE /* PrepItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40600162C44A87E00A891EE /* PrepItem.swift */; };
 		A45A06922C3CDCD700797DE2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A45A06912C3CDCD700797DE2 /* Localizable.xcstrings */; };
 		A45A06942C3E29B300797DE2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A06932C3E29B300797DE2 /* CardView.swift */; };
 		A45A069B2C3E2B8800797DE2 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A069A2C3E2B8800797DE2 /* ApiClient.swift */; };
 		A45A069D2C3E39DD00797DE2 /* DailySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A069C2C3E39DD00797DE2 /* DailySummary.swift */; };
-		A45A06A02C3E3C2A00797DE2 /* DailyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A069F2C3E3C2A00797DE2 /* DailyViewModel.swift */; };
 		A483144A2C3F7CCD00F3D1AB /* ApiClient+GptRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48314492C3F7CCD00F3D1AB /* ApiClient+GptRequest.swift */; };
 		A483144F2C40E63B00F3D1AB /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A483144E2C40E63B00F3D1AB /* WeatherViewModel.swift */; };
 		A48314522C40E80800F3D1AB /* WeatherManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48314512C40E80800F3D1AB /* WeatherManagerDelegate.swift */; };
+		A48314542C41036700F3D1AB /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48314532C41036700F3D1AB /* DailyView.swift */; };
+		A48314742C41204600F3D1AB /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48314732C41204600F3D1AB /* WeatherManager.swift */; };
+		A48314762C41255D00F3D1AB /* WeatherManager+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48314752C41255D00F3D1AB /* WeatherManager+Parsing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,9 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1ADB53762C3F5AAE0011EE08 /* Nano3-WeatherAppForParent-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Nano3-WeatherAppForParent-Info.plist"; sourceTree = SOURCE_ROOT; };
 		1ADB537B2C3F8DC10011EE08 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		1ADB537D2C3F8F2C0011EE08 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		1ADB537F2C3FD00A0011EE08 /* DayWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWeather.swift; sourceTree = "<group>"; };
 		1ADB53812C3FDC370011EE08 /* HourlyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeather.swift; sourceTree = "<group>"; };
 		2BA3DCE02C3BA9820042C618 /* Nano3_WeatherAppForParent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nano3_WeatherAppForParent.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,15 +57,20 @@
 		2BA3DCEA2C3BA9840042C618 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2BA3DCF02C3BA9840042C618 /* Nano3_WeatherAppForParentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Nano3_WeatherAppForParentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA3DCFA2C3BA9840042C618 /* Nano3_WeatherAppForParentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Nano3_WeatherAppForParentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A406000E2C41961200A891EE /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		A40600102C41962700A891EE /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		A40600162C44A87E00A891EE /* PrepItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepItem.swift; sourceTree = "<group>"; };
 		A45A068E2C3CDAFF00797DE2 /* Nano3_WeatherAppForParent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nano3_WeatherAppForParent.entitlements; sourceTree = "<group>"; };
 		A45A06912C3CDCD700797DE2 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		A45A06932C3E29B300797DE2 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		A45A069A2C3E2B8800797DE2 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		A45A069C2C3E39DD00797DE2 /* DailySummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummary.swift; sourceTree = "<group>"; };
-		A45A069F2C3E3C2A00797DE2 /* DailyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewModel.swift; sourceTree = "<group>"; };
 		A48314492C3F7CCD00F3D1AB /* ApiClient+GptRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApiClient+GptRequest.swift"; sourceTree = "<group>"; };
 		A483144E2C40E63B00F3D1AB /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		A48314512C40E80800F3D1AB /* WeatherManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManagerDelegate.swift; sourceTree = "<group>"; };
+		A48314532C41036700F3D1AB /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
+		A48314732C41204600F3D1AB /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
+		A48314752C41255D00F3D1AB /* WeatherManager+Parsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherManager+Parsing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +119,6 @@
 		2BA3DCE22C3BA9820042C618 /* Nano3_WeatherAppForParent */ = {
 			isa = PBXGroup;
 			children = (
-				1ADB53762C3F5AAE0011EE08 /* Nano3-WeatherAppForParent-Info.plist */,
 				2BA3DCE32C3BA9820042C618 /* Nano3_WeatherAppForParentApp.swift */,
 				A45A068A2C3CD9BC00797DE2 /* View */,
 				A45A06892C3CD9B500797DE2 /* ViewModel */,
@@ -135,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				A45A069C2C3E39DD00797DE2 /* DailySummary.swift */,
+				A40600162C44A87E00A891EE /* PrepItem.swift */,
+				A40600102C41962700A891EE /* Location.swift */,
 				1ADB537F2C3FD00A0011EE08 /* DayWeather.swift */,
 				1ADB53812C3FDC370011EE08 /* HourlyWeather.swift */,
 			);
@@ -144,8 +152,8 @@
 		A45A06892C3CD9B500797DE2 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				A45A069F2C3E3C2A00797DE2 /* DailyViewModel.swift */,
 				A483144E2C40E63B00F3D1AB /* WeatherViewModel.swift */,
+				A406000E2C41961200A891EE /* LocationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -163,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				2BA3DCE52C3BA9820042C618 /* ContentView.swift */,
+				A48314532C41036700F3D1AB /* DailyView.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -198,7 +207,8 @@
 		A48314502C40E7D200F3D1AB /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				1ADB537D2C3F8F2C0011EE08 /* WeatherManager.swift */,
+				A48314732C41204600F3D1AB /* WeatherManager.swift */,
+				A48314752C41255D00F3D1AB /* WeatherManager+Parsing.swift */,
 				A48314512C40E80800F3D1AB /* WeatherManagerDelegate.swift */,
 				1ADB537B2C3F8DC10011EE08 /* LocationManager.swift */,
 				A45A06992C3E2B7A00797DE2 /* Networking */,
@@ -343,15 +353,19 @@
 				A483144F2C40E63B00F3D1AB /* WeatherViewModel.swift in Sources */,
 				A45A06942C3E29B300797DE2 /* CardView.swift in Sources */,
 				1ADB53822C3FDC370011EE08 /* HourlyWeather.swift in Sources */,
-				1ADB537E2C3F8F2C0011EE08 /* WeatherManager.swift in Sources */,
+				A48314542C41036700F3D1AB /* DailyView.swift in Sources */,
+				A406000F2C41961200A891EE /* LocationViewModel.swift in Sources */,
 				A48314522C40E80800F3D1AB /* WeatherManagerDelegate.swift in Sources */,
 				A45A069D2C3E39DD00797DE2 /* DailySummary.swift in Sources */,
 				2BA3DCE42C3BA9820042C618 /* Nano3_WeatherAppForParentApp.swift in Sources */,
+				A48314742C41204600F3D1AB /* WeatherManager.swift in Sources */,
 				A483144A2C3F7CCD00F3D1AB /* ApiClient+GptRequest.swift in Sources */,
-				A45A06A02C3E3C2A00797DE2 /* DailyViewModel.swift in Sources */,
 				1ADB53802C3FD00A0011EE08 /* DayWeather.swift in Sources */,
+				A40600172C44A87E00A891EE /* PrepItem.swift in Sources */,
+				A40600112C41962700A891EE /* Location.swift in Sources */,
 				A45A069B2C3E2B8800797DE2 /* ApiClient.swift in Sources */,
 				1ADB537C2C3F8DC10011EE08 /* LocationManager.swift in Sources */,
+				A48314762C41255D00F3D1AB /* WeatherManager+Parsing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
