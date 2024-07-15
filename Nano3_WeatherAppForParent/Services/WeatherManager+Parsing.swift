@@ -1,53 +1,14 @@
 //
-//  WeatherManager.swift
+//  WeatherManager+Parsing.swift
 //  Nano3_WeatherAppForParent
 //
-//  Created by Rama Eka Hartono on 11/07/24.
+//  Created by Althaf Nafi Anwar on 12/07/24.
 //
 
 import Foundation
-import CoreLocation
-import WeatherKit
 
-class WeatherManager: NSObject, ObservableObject {
-    let locationManager = LocationManager()
-    private let weatherService = WeatherService()
+extension WeatherManager {
     
-    @Published var currentWeather: CurrentWeather?
-    @Published var locationName: String = "Current Location"
-    @Published var dailyWeather: [DayWeather] = []
-    @Published var hourlyWeather: [HourlyWeather] = []
-    
-    override init() {
-        super.init()
-        locationManager.locationUpdateHandler = { [weak self] location in
-            self?.fetchWeather(for: location)
-        }
-    }
-    
-    func fetchWeather(for location: CLLocation) {
-            let queryDaily = WeatherQuery.daily(startDate: .now, endDate: .now + (3600*24*7))
-        let queryHourly = WeatherQuery.hourly(startDate: .now, endDate: .now + (3600 * 24))
-            Task {
-                do {
-                    let forecast = try await weatherService.weather(for: location, including: queryDaily)
-                    let hourlyForecast = try await weatherService.weather(for: location, including: queryHourly)
-                    DispatchQueue.main.async {
-//                        for day in forecast{
-//                            print(day)
-//                        }self.dailyWeather = self.mapForecastToDayWeather(dailyForecast)
-                        self.dailyWeather = self.mapForecastToDayWeather(forecast)
-                        self.hourlyWeather = self.mapForecastToHourlyWeather(hourlyForecast)
-//                        print(self.hourlyWeather)
-                        self.locationName = "\(location.coordinate.latitude), \(location.coordinate.longitude)"
-                    }
-
-                } catch {
-                    print("Failed to fetch weather: \(error.localizedDescription)")
-                }
-            }
-        }
-
     func temperatureToDouble(_ temperature: Measurement<UnitTemperature>) -> Double {
         return temperature.value
     }
