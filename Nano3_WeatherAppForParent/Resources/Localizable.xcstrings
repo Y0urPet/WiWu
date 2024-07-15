@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     " - 11" : {
 
     },
@@ -28,6 +31,9 @@
     "Clody, great for a walk" : {
 
     },
+    "Clothes" : {
+
+    },
     "Fri" : {
 
     },
@@ -52,6 +58,9 @@
       }
     },
     "HOURLY FORECAST" : {
+
+    },
+    "Items" : {
 
     },
     "Mon" : {
@@ -81,10 +90,25 @@
     "Search" : {
 
     },
+    "Short sleeved cotton or linen shirt" : {
+
+    },
     "Stay hydrated thorought the day" : {
 
     },
     "Sun" : {
+
+    },
+    "Thick soled shoes or sandals" : {
+
+    },
+    "Thigh to knee length pants" : {
+
+    },
+    "Thin and lightweight jacket" : {
+
+    },
+    "Things to prepare" : {
 
     },
     "THINGS TO PREPARE" : {
@@ -100,6 +124,9 @@
 
     },
     "Wed" : {
+
+    },
+    "Weekly Forecast" : {
 
     }
   },
