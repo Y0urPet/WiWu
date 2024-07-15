@@ -9,5 +9,5 @@ import Foundation
 import CoreLocation
 
 protocol WeatherManagerDelegate {
-    func getWeather()
+    func getWeather(daily: [DayWeather], hourly: [HourlyWeather])
 }

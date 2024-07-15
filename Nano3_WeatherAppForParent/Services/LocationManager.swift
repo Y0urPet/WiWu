@@ -11,6 +11,8 @@ import CoreLocation
 class LocationManager: NSObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
     var locationUpdateHandler: ((CLLocation) -> Void)?
+    
+    static let shared = LocationManager()
 
     override init() {
         super.init()

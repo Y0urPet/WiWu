@@ -24,7 +24,7 @@ extension ApiClient {
         switch languageCode {
             case "en": // English language
             prompt = """
-                Analyze the weather data today and provide a summary. Also, recommend the best time to go out from now until evening of today (8 PM). start_time and end_time should be 1 to 3 hours long.
+                Analyze the weather data today and provide a summary. Also, recommend the best times (could be multiple) to go out from now until evening of today (8 PM). start_time and end_time should be 1 to 3 hours long.
 
                 Output format:
                 {
