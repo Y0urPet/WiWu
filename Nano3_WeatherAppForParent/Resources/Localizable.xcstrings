@@ -1,28 +1,44 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Amount: %lf mm" : {
+    "" : {
 
     },
-    "Apparent Temperature: %lf °C" : {
+    " - 11" : {
 
     },
-    "Chance: %lf%%" : {
+    "%@" : {
 
     },
-    "Condition: %@" : {
+    "11" : {
 
     },
+    "29°" : {
     "DailyView" : {
 
     },
-    "Date: %@" : {
+    "AM" : {
 
     },
-    "Dew Point: %lf °C" : {
+    "BEST DAYS THIS WEEK" : {
 
     },
-    "Gust: %lf km/h" : {
+    "BEST TIMES TODAY" : {
+
+    },
+    "Clear Skies until 11" : {
+
+    },
+    "Clody, great for a walk" : {
+
+    },
+    "Clothes" : {
+
+    },
+    "Fri" : {
+
+    },
+    "from 9" : {
 
     },
     "Hello, World" : {
@@ -42,55 +58,80 @@
         }
       }
     },
-    "High: %lf °C" : {
+    "HOURLY FORECAST" : {
 
     },
-    "Humidity: %lf%%" : {
+    "Items" : {
 
     },
-    "Low: %lf °C" : {
+    "Mon" : {
 
     },
-    "Precipitation: %@" : {
+    "Now" : {
 
     },
-    "Pressure Trend: %@" : {
+    "Perfect for Outdoor Fun!" : {
 
     },
-    "Pressure: %lf mbar" : {
+    "Perfect to go out" : {
 
     },
-    "Refresh Weather" : {
+    "Remember to use sunscreen" : {
 
     },
-    "Snowfall: %lf mm" : {
+    "Sampora" : {
 
     },
-    "Temperature: %lf °C" : {
+    "Sat" : {
 
     },
-    "UV Index: %lld (%@)" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "UV Index: %1$lld (%2$@)"
-          }
-        }
-      }
-    },
-    "Visibility: %lf m" : {
+    "Saturday, 13 July 2024" : {
 
     },
-    "Wind: %@ at %lf km/h" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Wind: %1$@ at %2$lf km/h"
-          }
-        }
-      }
+    "Search" : {
+
+    },
+    "Short sleeved cotton or linen shirt" : {
+
+    },
+    "Stay hydrated thorought the day" : {
+
+    },
+    "Sun" : {
+
+    },
+    "Thick soled shoes or sandals" : {
+
+    },
+    "Thigh to knee length pants" : {
+
+    },
+    "Thin and lightweight jacket" : {
+
+    },
+    "Things to prepare" : {
+
+    },
+    "THINGS TO PREPARE" : {
+
+    },
+    "Thu" : {
+
+    },
+    "Tue" : {
+
+    },
+    "Use breathable clothing" : {
+
+    },
+    "Wed" : {
+
+    },
+    "Weekly Forecast" : {
+
+    },
+    "WEEKLY FORECAST" : {
+
     }
   },
   "version" : "1.0"
