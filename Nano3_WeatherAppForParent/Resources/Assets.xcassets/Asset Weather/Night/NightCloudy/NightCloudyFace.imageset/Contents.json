@@ -11,7 +11,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "NightCloudyFace.png",
+      "filename" : "Property 1=Cloudy - Night.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -22,6 +22,7 @@
           "value" : "dark"
         }
       ],
+      "filename" : "Property 1=Cloudy Night - Dark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
