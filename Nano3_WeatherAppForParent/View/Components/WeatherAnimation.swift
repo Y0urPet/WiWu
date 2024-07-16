@@ -134,6 +134,8 @@ struct SunnyDay: View {
                 Image("ClearFace")
             } else if !isHot && !isCloudy && isRain && !isClear {
                 Image("HeavyRainFace")
+            } else if !isHot && !isCloudy && !isRain && !isClear {
+                Image("DrizzleFace")
             }
         }
         .transition(.move(edge: .bottom))
