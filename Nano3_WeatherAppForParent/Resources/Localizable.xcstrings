@@ -103,7 +103,10 @@
     "Clothes" : {
 
     },
-    "DailyView" : {
+    "Condition: %@" : {
+
+    },
+    "Date: %@" : {
 
     },
     "Fri" : {

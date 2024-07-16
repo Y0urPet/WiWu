@@ -20,7 +20,7 @@ struct InfoView: View {
                     Text("Items").tag(1)
                 }
                 .pickerStyle(.segmented)
-                .background(.white)
+                .background(.pickerInfoBackground)
                 .clipShape(RoundedRectangle(cornerRadius: 7))
                 if selectedTips == 0 {
                     HStack {
@@ -36,7 +36,7 @@ struct InfoView: View {
                         }
                         .padding(.top, 16)
                         .padding(.bottom, 16)
-                        .background(.white)
+                        .background(.pickerInfoBackground)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         VStack {
                             Image(systemName: "tshirt.fill")
@@ -50,7 +50,7 @@ struct InfoView: View {
                         }
                         .padding(.top, 16)
                         .padding(.bottom, 16)
-                        .background(.white)
+                        .background(.pickerInfoBackground)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
                     HStack {
@@ -67,7 +67,7 @@ struct InfoView: View {
                         }
                         .padding(.top, 16)
                         .padding(.bottom, 16)
-                        .background(.white)
+                        .background(.pickerInfoBackground)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         VStack {
                             Image(systemName: "tshirt.fill")
@@ -81,7 +81,7 @@ struct InfoView: View {
                         }
                         .padding(.top, 16)
                         .padding(.bottom, 16)
-                        .background(.white)
+                        .background(.pickerInfoBackground)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
                 } else if selectedTips == 1 {
@@ -99,7 +99,7 @@ struct InfoView: View {
                         }
                         .padding(.top, 16)
                         .padding(.bottom, 16)
-                        .background(.white)
+                        .background(.pickerInfoBackground)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         VStack {
                             Image(systemName: "tshirt.fill")
@@ -113,7 +113,7 @@ struct InfoView: View {
                         }
                         .padding(.top, 16)
                         .padding(.bottom, 16)
-                        .background(.white)
+                        .background(.pickerInfoBackground)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
                 }
