@@ -7,7 +7,7 @@
 import Foundation
 
 
-struct BestTime: Decodable {
+struct BestTime: Decodable, Encodable, Equatable {
     let startTime: Date
     let endTime: Date
     
@@ -39,7 +39,17 @@ struct BestTime: Decodable {
 }
 
 
-struct DailySummary: Decodable {
+struct DailySummary:  Decodable, Encodable, Equatable {
+    static func == (lhs: DailySummary, rhs: DailySummary) -> Bool {
+        return lhs.morning == rhs.morning &&
+            lhs.afternoon == rhs.afternoon &&
+            lhs.evening == rhs.evening &&
+            lhs.scoreOutOfTen == rhs.scoreOutOfTen &&
+            lhs.bestTimes == rhs.bestTimes &&
+            lhs.summary == rhs.summary &&
+            lhs.summaryAlt == rhs.summaryAlt &&
+            lhs.prepItems == rhs.prepItems
+    }
     var morning: String?
     var afternoon: String?
     var evening: String?

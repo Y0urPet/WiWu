@@ -58,11 +58,8 @@ class WeatherManager {
                     let hourlyForecast = try await self.weatherService.weather(for: location, including: queryHourly)
                     
                     DispatchQueue.main.async {
-                        // Get dailyWeather
-                        let dailyWeather = self.mapForecastToDayWeather(forecast)
-                        // Get hourlyWeather
                         let hourlyWeather = self.mapForecastToHourlyWeather(hourlyForecast)
-                        
+                        let dailyWeather = self.mapForecastToDayWeather(forecast,hourlyWeather)
                         // Notify WeatherViewModel to save the data
                         self.delegate?.getWeather(daily: dailyWeather, hourly: hourlyWeather)
                     }

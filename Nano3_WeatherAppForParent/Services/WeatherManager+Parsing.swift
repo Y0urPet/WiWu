@@ -67,9 +67,24 @@ extension WeatherManager {
         }
     }
     
-    func mapForecastToDayWeather(_ forecast: Forecast<WeatherKit.DayWeather>) -> [DayWeather] {
+    func mapForecastToDayWeather(_ forecast: Forecast<WeatherKit.DayWeather>,_ hourlyWeather: [HourlyWeather]) -> [DayWeather] {
+        var calendar = Calendar.current
+                  calendar.timeZone = TimeZone.current
+                  
+                  // Function to filter hourly weather for a given date
+                  func filterHourlyWeather(for date: Date) -> [HourlyWeather] {
+                      let startOfDay = calendar.startOfDay(for: date)
+                      let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)?.addingTimeInterval(-1)
+                      
+                      return hourlyWeather.filter { weather in
+                          guard let endOfDay = endOfDay else { return false }
+                          return weather.date >= startOfDay && weather.date <= endOfDay
+                      }
+                  }
+        
         return forecast.map { weatherKitDayWeather in
-            DayWeather(
+            let todaysHourlyWeather = filterHourlyWeather(for: weatherKitDayWeather.date)
+            return DayWeather(
                 date: weatherKitDayWeather.date,
                 condition: weatherConditionToString(weatherKitDayWeather.condition),
                 symbolName: weatherKitDayWeather.symbolName,
@@ -105,7 +120,8 @@ extension WeatherManager {
                     direction: angleToDouble(weatherKitDayWeather.wind.direction),
                     speed: weatherKitDayWeather.wind.speed.value,
                     gust: weatherKitDayWeather.wind.gust?.value
-                )
+                ),
+                hourlyWeather: todaysHourlyWeather
             )
         }
     }

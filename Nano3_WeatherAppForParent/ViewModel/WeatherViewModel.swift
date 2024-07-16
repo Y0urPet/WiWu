@@ -36,41 +36,64 @@ class WeatherViewModel : WeatherManagerDelegate {
         processWeatherData()
     }
 
-    
     private func processWeatherData() {
-        Task {
-            dailySummaries = []
-            for day in dailyWeather {
-                
-                // Fetch todays weather in a list of weaather data
-                let (todaysDayWeather, todaysHourlyWeather) = weatherManager.filterPerDay(dailyWeather: dailyWeather, hourlyWeather: hourlyWeather, date: day.date)
-                
-                if let todaysDayWeather = todaysDayWeather {
-                    let encodedWeatherData = weatherManager.encodeWeatherData(dailyWeather: todaysDayWeather, hourlyWeather: todaysHourlyWeather)
-                    if var dailySummary = await fetchDailySummary(encodedWeatherData: encodedWeatherData, for: day.date) {
-                        
-                        // Generate prep items
-                        dailySummary.prepItems =  generatePrepItems(dayWeather: todaysDayWeather, hourlyWeather: todaysHourlyWeather)
-                        
-                        // Append to dailySummaries array
-                        dailySummaries?.append(dailySummary)
+            Task {
+                for day in dailyWeather {
+                    let (todaysDayWeather, todaysHourlyWeather) = weatherManager.filterPerDay(dailyWeather: dailyWeather, hourlyWeather: hourlyWeather, date: day.date)
+                    
+                    if let todaysDayWeather = todaysDayWeather {
+                        let encodedWeatherData = weatherManager.encodeWeatherData(dailyWeather: todaysDayWeather, hourlyWeather: todaysHourlyWeather)
+                        await fetchDailySummary(encodedWeatherData: encodedWeatherData, for: day.date)
                     }
                 }
             }
         }
-    }
+//    private func processWeatherData() {
+//        Task {
+//            dailySummaries = []
+//            for day in dailyWeather {
+//                
+//                // Fetch todays weather in a list of weaather data
+//                let (todaysDayWeather, todaysHourlyWeather) = weatherManager.filterPerDay(dailyWeather: dailyWeather, hourlyWeather: hourlyWeather, date: day.date)
+//                
+//                if let todaysDayWeather = todaysDayWeather {
+//                    let encodedWeatherData = weatherManager.encodeWeatherData(dailyWeather: todaysDayWeather, hourlyWeather: todaysHourlyWeather)
+//                    if var dailySummary = await fetchDailySummary(encodedWeatherData: encodedWeatherData, for: day.date) {
+//                        
+//                        // Generate prep items
+//                        dailySummary.prepItems =  generatePrepItems(dayWeather: todaysDayWeather, hourlyWeather: todaysHourlyWeather)
+//                        
+//                        // Append to dailySummaries array
+//                        dailySummaries?.append(dailySummary)
+//                    }
+//                }
+//            }
+//        }
+//    }
    
-    
-    private func fetchDailySummary(encodedWeatherData: String, for date: Date) async -> DailySummary? {
-        do {
-            let dailySummary: DailySummary = try await apiClient.fetchDailySummary(dataStr: encodedWeatherData)
-            print("Daily Summary for \(date): \(dailySummary)")
-            return dailySummary
-        } catch {
-            print("Failed to fetch daily summary for \(date): \(error.localizedDescription)")
-            return nil
-        }
-    }
+    private func fetchDailySummary(encodedWeatherData: String, for date: Date) async {
+               do {
+                   let dailySummary: DailySummary = try await apiClient.fetchDailySummary(dataStr: encodedWeatherData)
+                   
+                   if let index = dailyWeather.firstIndex(where: { Calendar.current.isDate($0.date, inSameDayAs: date) }) {
+                       dailyWeather[index].dailySummary = dailySummary
+                       print("Daily Summary for \(date): \(dailySummary)")
+                   }
+               } catch {
+                   print("Failed to fetch daily summary for \(date): \(error.localizedDescription)")
+               }
+           }
+   
+//    private func fetchDailySummary(encodedWeatherData: String, for date: Date) async -> DailySummary? {
+//        do {
+//            let dailySummary: DailySummary = try await apiClient.fetchDailySummary(dataStr: encodedWeatherData)
+//            print("Daily Summary for \(date): \(dailySummary)")
+//            return dailySummary
+//        } catch {
+//            print("Failed to fetch daily summary for \(date): \(error.localizedDescription)")
+//            return nil
+//        }
+//    }
     
     func generatePrepItems(dayWeather: DayWeather, hourlyWeather: [HourlyWeather]) -> [PrepItem] {
         var prepItems = [PrepItem]()
