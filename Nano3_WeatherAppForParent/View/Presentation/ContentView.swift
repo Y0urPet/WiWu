@@ -12,7 +12,8 @@ import CoreLocation
 import WeatherKit
 
 struct ContentView: View {
-    @StateObject private var weatherManager = WeatherManager()
+    private var weatherManager = WeatherManager.shared
+    @State private var weather = WeatherViewModel()
 
     var body: some View {
 //            VStack {

@@ -3,52 +3,65 @@
 //  Nano3_WeatherAppForParent
 //
 //  Created by Althaf Nafi Anwar on 10/07/24.
-//
 
 import Foundation
 
-struct DailySummary {
-    let morning: String
-    let afternoon: String
-    let evening: String
+
+struct BestTime: Decodable {
+    let startTime: Date
+    let endTime: Date
+    
+    enum CodingKeys: String, CodingKey {
+        case startTime = "start_time"
+        case endTime = "end_time"
+    }
+
+    // Custom decoding to parse the date strings
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let startTimeString = try container.decode(String.self, forKey: .startTime)
+        let endTimeString = try container.decode(String.self, forKey: .endTime)
+        
+        // Create a DateFormatter to parse the date strings
+        let dateFormatter = ISO8601DateFormatter()
+        
+        // Parse the start and end times
+        guard let startTime = dateFormatter.date(from: startTimeString),
+              let endTime = dateFormatter.date(from: endTimeString) else {
+            throw DecodingError.dataCorruptedError(forKey: .startTime,
+                                                   in: container,
+                                                   debugDescription: "Date string does not match format expected by formatter.")
+        }
+        
+        self.startTime = startTime
+        self.endTime = endTime
+    }
+}
+
+
+struct DailySummary: Decodable {
+    var morning: String?
+    var afternoon: String?
+    var evening: String?
+    var scoreOutOfTen: Int
+    var bestTimes: [BestTime]
+    var summary: String
+    var summaryAlt: String
+    var prepItems: [PrepItem] = []
     
     // Save a copy of ApiClient
     let apiClient = ApiClient.shared
     
-    // Do some data (type Data) parsing in init
-    init(data: Data) {
-        do {
-            let json: Any = try JSONSerialization.jsonObject(with: data, options: [])
-            
-            guard let dictionary = json as? [String: Any],
-                  let choices = dictionary["choices"] as? [[String: Any]],
-                  let firstChoice = choices.first,
-                  let message = firstChoice["message"] as? [String: Any],
-                  let content = message["content"] as? String,
-                  let weatherData = try? JSONSerialization.jsonObject(with: Data(content.utf8), options: []) as? [String: String] else {
-                
-                self.morning = ""
-                self.afternoon = ""
-                self.evening = ""
-                
-                return
-            }
-            
-            self.morning = weatherData["morning"] ?? ""
-            self.afternoon = weatherData["afternoon"] ?? ""
-            self.evening = weatherData["evening"] ?? ""
-        }
-        catch {
-            self.morning = ""
-            self.afternoon = ""
-            self.evening = ""
-            debugPrint("Error: Initializing DailySummary model")
-        }
+    enum CodingKeys: String, CodingKey {
+        case scoreOutOfTen = "score_out_of_ten"
+        case bestTimes = "best_times"
+        case summary = "summary"
+        case summaryAlt = "summary_alt"
     }
 }
 
 extension DailySummary: CustomStringConvertible {
     var description: String {
-        return "\nMorning: \(morning)\nAfternoon: \(afternoon)\nEvening: \(evening)\n"
+        return "\nsum:\(summary)\nalt:\(summaryAlt)\ntimes:\(bestTimes)"
     }
 }
