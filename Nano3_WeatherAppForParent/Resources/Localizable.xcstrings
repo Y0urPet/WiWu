@@ -133,6 +133,9 @@
     "PM" : {
 
     },
+    "Refresh Weather" : {
+
+    },
     "Remember to use sunscreen" : {
 
     },
@@ -157,7 +160,13 @@
     "Stay hydrated thorought the day" : {
 
     },
+    "Summary: %@" : {
+
+    },
     "Sun" : {
+
+    },
+    "Temperature: %.1f °C" : {
 
     },
     "Thick soled shoes or sandals" : {
@@ -178,10 +187,16 @@
     "Thu" : {
 
     },
+    "Time: %@" : {
+
+    },
     "Tue" : {
 
     },
     "Use breathable clothing" : {
+
+    },
+    "Weather Forecast" : {
 
     },
     "Wed" : {
