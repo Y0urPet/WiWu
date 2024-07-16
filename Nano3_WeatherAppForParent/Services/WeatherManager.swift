@@ -45,7 +45,7 @@ class WeatherManager {
         LocationManager.shared.requestLocation()
         
         LocationManager.shared.locationUpdateHandler = { location in
-            debugPrint("querying for location: \(location)")
+            
             // Make queries for weather (one week)
             let queryDaily = WeatherQuery.daily(startDate: .now, endDate: .now + (3600 * 24 * numOfDays))
             let queryHourly = WeatherQuery.hourly(startDate: .now, endDate: .now + (3600 * 24 * numOfDays))

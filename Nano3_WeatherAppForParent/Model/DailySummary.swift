@@ -41,22 +41,17 @@ struct BestTime: Decodable, Encodable, Equatable {
 
 struct DailySummary:  Decodable, Encodable, Equatable {
     static func == (lhs: DailySummary, rhs: DailySummary) -> Bool {
-        return lhs.morning == rhs.morning &&
-            lhs.afternoon == rhs.afternoon &&
-            lhs.evening == rhs.evening &&
-            lhs.scoreOutOfTen == rhs.scoreOutOfTen &&
+        return lhs.scoreOutOfTen == rhs.scoreOutOfTen &&
             lhs.bestTimes == rhs.bestTimes &&
             lhs.summary == rhs.summary &&
             lhs.summaryAlt == rhs.summaryAlt &&
             lhs.prepItems == rhs.prepItems
     }
-    var morning: String?
-    var afternoon: String?
-    var evening: String?
-    var scoreOutOfTen: Int
-    var bestTimes: [BestTime]
-    var summary: String
-    var summaryAlt: String
+
+    var scoreOutOfTen: Int = 0
+    var bestTimes: [BestTime] = []
+    var summary: String = ""
+    var summaryAlt: String = ""
     var prepItems: [PrepItem] = []
     
     // Save a copy of ApiClient

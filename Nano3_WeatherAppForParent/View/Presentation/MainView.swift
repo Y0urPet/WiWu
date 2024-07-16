@@ -16,6 +16,8 @@ struct MainView: View {
     @State var isReady: Bool = false
     var todaysWeather: String = "Clear"
     
+    @State private var weather = WeatherViewModel()
+    
     @State var selection = Item(id: "item-8", name: "Weather", image: "cloud.sun.fill")
     let weekDay: [Item] = [
         Item(id: "item-8", name: "Weather", image: "cloud.sun.fill"),
@@ -24,6 +26,8 @@ struct MainView: View {
     
     var body: some View {
         NavigationStack{
+            switch (weather.dataState) {
+            case .ready:
             ZStack{
                 if isReady {
                     WeatherAnimation(isViewingTips: isViewingTips, todaysWeather: todaysWeather)
@@ -106,7 +110,6 @@ struct MainView: View {
 //                            VStack(spacing:30){
 ////                                SearchBarView(searchText: $searchText)
 //                            }
-                            
                             if selection.id == "item-8" {
                                 if isReady {
                                     Text("Sampora")
@@ -230,12 +233,14 @@ struct MainView: View {
                                                     .padding(.vertical, 16)
                                             }
                                         }
+
                                         // BEST DAYS THIS WEEK
                                         Section {
                                             Text("BEST DAYS THIS WEEK")
                                                 .foregroundStyle(.header)
                                                 .fontWeight(.bold)
                                                 .padding(.top, 10)
+
                                             NavigationLink {
                                                 // Detail View
                                                 WeeklyWeatherView().navigationTitle("Weekly Forecast").navigationBarTitleDisplayMode(.inline)
@@ -448,8 +453,15 @@ struct MainView: View {
 //                    .animation(.none)
             }
 //            .symbolRenderingMode(.multicolor)
-            
+                
+            default:
+                Text("Loading")
+            }
         }
+        .onAppear{
+            weather.weatherManager.fetch()
+        }
+        
     }
 }
 

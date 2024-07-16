@@ -24,7 +24,7 @@ extension ApiClient {
         switch languageCode {
             case "en": // English language
             prompt = """
-                Analyze the weather data today and provide a summary. The summary should be one sentences like these, max 3 - 5 words (Perfect for outdoor fun! or Cozy up indoors). Also, recommend the best times (could be multiple) to go out from now until evening of today (8 PM). start_time and end_time should be 1 to 3 hours long. (Use ISO8601)
+                Analyze the weather data you are given and provide a summary. The summary should be one sentences like these, max 5 words (for example: Perfect for outdoor fun! or Cozy up indoors). Also, recommend the best times (could be multiple) to go out from now until evening of today (8 PM). start_time and end_time should be 1 to 3 hours long. (Use ISO8601)
 
                 Output format:
                 {

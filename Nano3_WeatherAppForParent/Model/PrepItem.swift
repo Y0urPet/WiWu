@@ -19,8 +19,8 @@ struct PrepItem: Identifiable, Codable,Equatable {
     var title: String
     var category: PrepCategory
     var icon: String
-    var priority: UInt16?
-    var image: String?
+    var priority: UInt16 = 1
+    var image: String = ""
 }
 
 struct PrepItemPresets {
