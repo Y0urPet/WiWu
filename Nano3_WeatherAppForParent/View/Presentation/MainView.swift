@@ -30,7 +30,7 @@ struct MainView: View {
             case .ready:
             ZStack{
                 if isReady {
-                    WeatherAnimation(isViewingTips: isViewingTips, todaysWeather: todaysWeather)
+                    WeatherAnimation(isViewingTips: isViewingTips, todaysWeather: todaysWeather, isNight: true)
                 } else {
                     ShimmerView()
                         .clipShape(Circle())
