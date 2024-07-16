@@ -53,7 +53,6 @@
 
     },
     "29°" : {
-    "DailyView" : {
 
     },
     "AM" : {
@@ -74,28 +73,14 @@
     "Clothes" : {
 
     },
+    "DailyView" : {
+
+    },
     "Fri" : {
 
     },
     "from 9" : {
 
-    },
-    "Hello, World" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Halo dunia"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hej världen"
-          }
-        }
-      }
     },
     "HOURLY FORECAST" : {
 
