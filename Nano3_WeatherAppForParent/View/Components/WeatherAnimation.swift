@@ -20,7 +20,7 @@ struct WeatherAnimation: View {
     var body: some View {
         switch todaysWeather {
         case "Clear":
-            LinearGradient(gradient: Gradient(colors: [.clearDayOne, .clearDayTwo]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
+            LinearGradient(gradient: Gradient(colors: [.clearTop, .clearBottom]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
             if !isViewingTips {
                 SunnyDay(isHot: false,isCloudy: false, isRain: false, isClear: true)
             } else {
