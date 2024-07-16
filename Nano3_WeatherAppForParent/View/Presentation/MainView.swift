@@ -23,7 +23,7 @@ struct MainView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                WeatherAnimation(isViewingTips: isViewingTips, todaysWeather: "Rain")
+                WeatherAnimation(isViewingTips: isViewingTips, todaysWeather: "Cloudy")
                 ScrollView {
                     ZStack {
                         CustomPickerForHome(items: weekDay, selection: $selection) { item in
