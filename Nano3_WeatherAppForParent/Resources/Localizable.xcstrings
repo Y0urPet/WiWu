@@ -59,10 +59,24 @@
 
     },
     "BEST DAYS THIS WEEK" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HARI TERBAIK MINGGU INI"
+          }
+        }
+      }
     },
     "BEST TIMES TODAY" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JAM TERBAIK HARI INI"
+          }
+        }
+      }
     },
     "Bring a hat" : {
 
@@ -101,28 +115,70 @@
 
     },
     "Clothes" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pakaian"
+          }
+        }
+      }
     },
     "DailyView" : {
 
     },
     "Fri" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jum"
+          }
+        }
+      }
     },
     "from 9" : {
 
     },
     "HOURLY FORECAST" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "RAMALAN HARI INI"
+          }
+        }
+      }
     },
     "Items" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Barang"
+          }
+        }
+      }
     },
     "Mon" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sen"
+          }
+        }
+      }
     },
     "Now" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saat ini"
+          }
+        }
+      }
     },
     "Perfect for Outdoor Fun!" : {
 
@@ -140,16 +196,37 @@
 
     },
     "Sampora" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sampora"
+          }
+        }
+      }
     },
     "Sat" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sab"
+          }
+        }
+      }
     },
     "Saturday, 13 July 2024" : {
 
     },
     "Search" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cari"
+          }
+        }
+      }
     },
     "Short sleeved cotton linen shirt" : {
       "extractionState" : "manual"
@@ -164,7 +241,14 @@
 
     },
     "Sun" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Min"
+          }
+        }
+      }
     },
     "Temperature: %.1f °C" : {
 
@@ -179,19 +263,47 @@
       "extractionState" : "manual"
     },
     "Things to prepare" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yang perlu disiapkan"
+          }
+        }
+      }
     },
     "THINGS TO PREPARE" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "YANG PERLU DISIAPKAN"
+          }
+        }
+      }
     },
     "Thu" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kam"
+          }
+        }
+      }
     },
     "Time: %@" : {
 
     },
     "Tue" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sel"
+          }
+        }
+      }
     },
     "Use breathable clothing" : {
 
@@ -200,13 +312,34 @@
 
     },
     "Wed" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rab"
+          }
+        }
+      }
     },
     "Weekly Forecast" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ramalan minggu ini"
+          }
+        }
+      }
     },
     "WEEKLY FORECAST" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "RAMALAN MINGGU INI"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
