@@ -11,9 +11,8 @@ struct MainView: View {
     @State var isExpandedTimes: Bool = false
     @State var isExpandedDays: Bool = false
     @State var searchText: String = ""
-    @State var frameHeight: CGFloat = 1000
+    @State var frameHeight: CGFloat = 1100
     @State var isViewingTips: Bool = false
-    let totalDuration = 1.0
     
     @State var selection = Item(id: "item-8", name: "Weather", image: "cloud.sun.fill")
     let weekDay: [Item] = [
@@ -24,89 +23,85 @@ struct MainView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                LinearGradient(gradient: Gradient(colors: [.clearDayOne, .clearDayTwo]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
+                WeatherAnimation(isViewingTips: isViewingTips, todaysWeather: "Rain")
                 ScrollView {
                     ZStack {
-                        if selection.id == "item-8" {
-//                            Image("sunny")
-                                
-                            WeatherAnimation()
-                                .position(CGPoint(x: UIScreen.main.bounds.width/2, y: 380))
-                                .transition(.scale)
-                                .keyframeAnimator(initialValue: AnimationProperties1(), repeating: true) { content, value in
-                                    content
-                                        .offset(y: value.yTranslation)
-                                } keyframes: { _ in
-                                    KeyframeTrack(\.yTranslation) {
-                                        CubicKeyframe(0, duration: totalDuration * 0.1)
-                                        CubicKeyframe(-20, duration: totalDuration * 2)
-                                        CubicKeyframe(0, duration: totalDuration * 2)
-                                    }
+                        CustomPickerForHome(items: weekDay, selection: $selection) { item in
+                            if selection == item {
+                                if selection.name == "Weather" {
+                                    Image(systemName: item.image)
+                                        .resizable()
+                                        .frame(width: 34,height: 25)
+                                        .foregroundStyle(.pickerIconHome)
+                                        .padding(.top, 5)
+                                        .padding(.bottom, 5)
+                                        .padding(.horizontal, 10)
+                                } else {
+                                    Image(systemName: item.image)
+                                        .resizable()
+                                        .frame(width: 25,height: 25)
+                                        .foregroundStyle(.pickerIconHome)
+                                        .padding(.top, 5)
+                                        .padding(.bottom, 5)
+                                        .padding(.horizontal, 10)
                                 }
-//                                .offset(y: backgroundOffset)
-                        } else {
-                            EmptyView()
+                            } else {
+                                if selection.name == "Weather" {
+                                    Image(systemName: item.image)
+                                        .resizable()
+                                        .frame(width: 25,height: 25)
+                                        .foregroundStyle(.defaultPickerHome)
+                                        .padding(.top, 5)
+                                        .padding(.bottom, 5)
+                                        .padding(.horizontal, 10)
+                                } else {
+                                    Image(systemName: item.image)
+                                        .resizable()
+                                        .frame(width: 34,height: 25)
+                                        .foregroundStyle(.defaultPickerHome)
+                                        .padding(.top, 5)
+                                        .padding(.bottom, 5)
+                                        .padding(.horizontal, 10)
+                                }
+                            }
                         }
+                        .symbolRenderingMode(.monochrome)
+                        .position(CGPoint(x: UIScreen.main.bounds.midX, y:50))
+                        VStack(spacing:0) {
+                            LinearGradient(gradient: Gradient(colors: [.clear, .mainInfo]), startPoint: .top, endPoint: .bottom)
+                                .frame(height: 80)
+                            Rectangle()
+                                .foregroundStyle(.mainInfo)
+                                .frame(height: 1100)
+                        }
+//                        .border(.black, width: 1)
+                        .position(CGPoint(x: UIScreen.main.bounds.midX, y: isViewingTips ? 770 : 1070))
+//                        .offset(y: 200)
+                        
                         VStack(spacing: 10) {
 //                            VStack(spacing:30){
 ////                                SearchBarView(searchText: $searchText)
 //                            }
-                            CustomPickerForHome(items: weekDay, selection: $selection) { item in
-                                if selection == item {
-                                    if selection.name == "Weather" {
-                                        Image(systemName: item.image)
-                                            .resizable()
-                                            .frame(width: 34,height: 25)
-                                            .foregroundStyle(.black)
-                                            .padding(.top, 5)
-                                            .padding(.bottom, 5)
-                                            .padding(.horizontal, 10)
-                                    } else {
-                                        Image(systemName: item.image)
-                                            .resizable()
-                                            .frame(width: 25,height: 25)
-                                            .foregroundStyle(.black)
-                                            .padding(.top, 5)
-                                            .padding(.bottom, 5)
-                                            .padding(.horizontal, 10)
-                                    }
-                                } else {
-                                    if selection.name == "Weather" {
-                                        Image(systemName: item.image)
-                                            .resizable()
-                                            .frame(width: 25,height: 25)
-                                            .foregroundStyle(.defaultPickerHome)
-                                            .padding(.top, 5)
-                                            .padding(.bottom, 5)
-                                            .padding(.horizontal, 10)
-                                    } else {
-                                        Image(systemName: item.image)
-                                            .resizable()
-                                            .frame(width: 34,height: 25)
-                                            .foregroundStyle(.defaultPickerHome)
-                                            .padding(.top, 5)
-                                            .padding(.bottom, 5)
-                                            .padding(.horizontal, 10)
-                                    }
-                                }
-                            }
-                            .symbolRenderingMode(.monochrome)
-                            .offset(y: -270)
                             
                             if selection.id == "item-8" {
                                 Text("Sampora")
                                     .font(.system(size: 20))
+                                    .foregroundStyle(.titleText)
                                 VStack(spacing: 5) {
                                     Text("Perfect for Outdoor Fun!")
+                                        .foregroundStyle(.titleText)
                                         .font(.system(size: 24))
                                         .fontWeight(.bold)
+                                    
                                     HStack(alignment: .bottom,spacing: 1) {
                                         Text("Clear Skies until 11")
                                             .font(.system(size: 24))
                                             .fontWeight(.bold)
+                                            .foregroundStyle(.titleText)
                                         Text("AM")
                                             .font(.system(size: 18))
                                             .fontWeight(.semibold)
+                                            .foregroundStyle(.titleText)
                                     }
                                 }
                                 List {
@@ -114,6 +109,7 @@ struct MainView: View {
                                         Text("BEST TIMES TODAY")
                                             .foregroundStyle(.header)
                                             .fontWeight(.bold)
+                                            .padding(.top, 10)
                                         HStack(spacing: 16){
                                             VStack {
                                                 Text("Now")
@@ -121,6 +117,7 @@ struct MainView: View {
                                                 Image(systemName: "sun.max.fill")
                                                     .resizable()
                                                     .frame(width: 30, height: 30)
+                                                    .foregroundStyle(.orange)
                                             }
                                             Image("arrowRight")
                                                 .resizable()
@@ -134,15 +131,21 @@ struct MainView: View {
                                                 Image(systemName: "sun.max.fill")
                                                     .resizable()
                                                     .frame(width: 30, height: 30)
+                                                    .foregroundStyle(.orange)
+                                                
                                             }
                                         }
                                         HStack(spacing: 16){
                                             VStack {
-                                                Text("Now")
+                                                HStack(alignment: .bottom, spacing: 0){
+                                                    Text("13").fontWeight(.bold)
+                                                    Text("PM").font(.system(size: 12))
+                                                }
                                                     .fontWeight(.bold)
                                                 Image(systemName: "sun.max.fill")
                                                     .resizable()
                                                     .frame(width: 30, height: 30)
+                                                    .foregroundStyle(.orange)
                                             }
                                             Image("arrowRight")
                                                 .resizable()
@@ -150,113 +153,145 @@ struct MainView: View {
                                                 .frame(width: 200)
                                             VStack {
                                                 HStack(alignment: .bottom, spacing: 0){
-                                                    Text("11").fontWeight(.bold)
-                                                    Text("AM").font(.system(size: 12))
+                                                    Text("14").fontWeight(.bold)
+                                                    Text("PM").font(.system(size: 12))
                                                 }
                                                 Image(systemName: "sun.max.fill")
                                                     .resizable()
                                                     .frame(width: 30, height: 30)
+                                                    .foregroundStyle(.orange)
                                             }
                                         }
                                         Section(isExpanded: $isExpandedTimes) {
                                             ScrollView(Axis.Set.horizontal) {
-                                                HStack{
+                                                HStack(spacing: 16){
                                                     VStack {
                                                         Text("Now")
                                                             .fontWeight(.bold)
                                                         Image(systemName: "sun.max.fill")
                                                             .resizable()
                                                             .frame(width: 30, height: 30)
+                                                            .foregroundStyle(.orange)
                                                         Text("29°")
                                                             .fontWeight(.bold)
                                                     }
                                                     VStack {
-                                                        Text("Now")
+                                                        Text("01")
                                                             .fontWeight(.bold)
                                                         Image(systemName: "sun.max.fill")
                                                             .resizable()
                                                             .frame(width: 30, height: 30)
+                                                            .foregroundStyle(.orange)
                                                         Text("29°")
                                                             .fontWeight(.bold)
                                                     }
                                                     VStack {
-                                                        Text("Now")
+                                                        Text("02")
                                                             .fontWeight(.bold)
                                                         Image(systemName: "sun.max.fill")
                                                             .resizable()
                                                             .frame(width: 30, height: 30)
+                                                            .foregroundStyle(.orange)
                                                         Text("29°")
                                                             .fontWeight(.bold)
                                                     }
                                                     VStack {
-                                                        Text("Now")
+                                                        Text("03")
                                                             .fontWeight(.bold)
                                                         Image(systemName: "sun.max.fill")
                                                             .resizable()
                                                             .frame(width: 30, height: 30)
+                                                            .foregroundStyle(.orange)
                                                         Text("29°")
                                                             .fontWeight(.bold)
                                                     }
                                                     VStack {
-                                                        Text("Now")
+                                                        Text("04")
                                                             .fontWeight(.bold)
                                                         Image(systemName: "sun.max.fill")
                                                             .resizable()
                                                             .frame(width: 30, height: 30)
+                                                            .foregroundStyle(.orange)
                                                         Text("29°")
                                                             .fontWeight(.bold)
                                                     }
                                                     VStack {
-                                                        Text("Now")
+                                                        Text("05")
                                                             .fontWeight(.bold)
                                                         Image(systemName: "sun.max.fill")
                                                             .resizable()
                                                             .frame(width: 30, height: 30)
+                                                            .foregroundStyle(.orange)
                                                         Text("29°")
                                                             .fontWeight(.bold)
                                                     }
                                                     VStack {
-                                                        Text("Now")
+                                                        Text("06")
                                                             .fontWeight(.bold)
                                                         Image(systemName: "sun.max.fill")
                                                             .resizable()
                                                             .frame(width: 30, height: 30)
+                                                            .foregroundStyle(.orange)
                                                         Text("29°")
                                                             .fontWeight(.bold)
                                                     }
                                                     VStack {
-                                                        Text("Now")
+                                                        Text("07")
                                                             .fontWeight(.bold)
                                                         Image(systemName: "sun.max.fill")
                                                             .resizable()
                                                             .frame(width: 30, height: 30)
+                                                            .foregroundStyle(.orange)
                                                         Text("29°")
                                                             .fontWeight(.bold)
                                                     }
                                                     VStack {
-                                                        Text("Now")
+                                                        Text("08")
                                                             .fontWeight(.bold)
                                                         Image(systemName: "sun.max.fill")
                                                             .resizable()
                                                             .frame(width: 30, height: 30)
+                                                            .foregroundStyle(.orange)
                                                         Text("29°")
                                                             .fontWeight(.bold)
                                                     }
                                                     VStack {
-                                                        Text("Now")
+                                                        Text("09")
                                                             .fontWeight(.bold)
                                                         Image(systemName: "sun.max.fill")
                                                             .resizable()
                                                             .frame(width: 30, height: 30)
+                                                            .foregroundStyle(.orange)
                                                         Text("29°")
                                                             .fontWeight(.bold)
                                                     }
                                                     VStack {
-                                                        Text("Now")
+                                                        Text("10")
                                                             .fontWeight(.bold)
                                                         Image(systemName: "sun.max.fill")
                                                             .resizable()
                                                             .frame(width: 30, height: 30)
+                                                            .foregroundStyle(.orange)
+                                                        Text("29°")
+                                                            .fontWeight(.bold)
+                                                    }
+                                                    VStack {
+                                                        Text("11")
+                                                            .fontWeight(.bold)
+                                                        Image(systemName: "sun.max.fill")
+                                                            .resizable()
+                                                            .frame(width: 30, height: 30)
+                                                            .foregroundStyle(.orange)
+                                                        Text("29°")
+                                                            .fontWeight(.bold)
+                                                    }
+                                                    VStack {
+                                                        Text("12")
+                                                            .fontWeight(.bold)
+                                                        Image(systemName: "sun.max.fill")
+                                                            .resizable()
+                                                            .frame(width: 30, height: 30)
+                                                            .foregroundStyle(.orange)
                                                         Text("29°")
                                                             .fontWeight(.bold)
                                                     }
@@ -266,6 +301,9 @@ struct MainView: View {
                                                         if !isExpandedDays && isExpandedTimes && frameHeight == 1000 {
                                                             print("changing!")
                                                             frameHeight = 1200
+                                                        } else if isExpandedDays && isExpandedTimes {
+                                                            print("More Big!")
+                                                            frameHeight = 1400
                                                         }
                                                     }
                                                 }
@@ -273,8 +311,9 @@ struct MainView: View {
                                                     withAnimation {
                                                         if !isExpandedDays && !isExpandedTimes && frameHeight != 1000 {
                                                             print("changing!")
-                                                            frameHeight = 1000
-                                                        } else if isExpandedDays && !isExpandedTimes && frameHeight != 1000 {
+                                                            frameHeight = 1100
+                                                        } else if isExpandedDays && !isExpandedTimes {
+                                                            print("More Big!")
                                                             frameHeight = 1300
                                                         }
                                                     }
@@ -290,6 +329,7 @@ struct MainView: View {
                                         Text("BEST DAYS THIS WEEK")
                                             .foregroundStyle(.header)
                                             .fontWeight(.bold)
+                                            .padding(.top, 10)
                                         NavigationLink {
                                             // Detail View
                                             WeeklyWeatherView().navigationTitle("Weekly Forecast").navigationBarTitleDisplayMode(.inline)
@@ -299,6 +339,8 @@ struct MainView: View {
                                                 HStack {
                                                     Image(systemName: "cloud.sun.fill")
                                                         .frame(width: 30,height: 30)
+                                                        .symbolRenderingMode(.palette)
+                                                        .foregroundStyle(.gray, .orange)
                                                     Text("Clody, great for a walk")
                                                 }
                                             }
@@ -400,7 +442,7 @@ struct MainView: View {
                                                 withAnimation {
                                                     if isExpandedDays {
                                                         if isExpandedTimes {
-                                                            frameHeight = 1400
+                                                            frameHeight = 1500
                                                         } else {
                                                             frameHeight = 1300
                                                         }
@@ -410,9 +452,9 @@ struct MainView: View {
                                             .onDisappear {
                                                 withAnimation {
                                                     if !isExpandedDays && !isExpandedTimes {
-                                                        frameHeight = 1000
+                                                        frameHeight = 1100
                                                     } else if !isExpandedDays && isExpandedTimes {
-                                                        frameHeight = 1000
+                                                        frameHeight = 1100
                                                     }
                                                 }
                                             }
@@ -422,11 +464,11 @@ struct MainView: View {
                                         }
                                     }
                                 }
-                                .scrollDisabled(true)
+//                                .scrollDisabled(true)
                                 .listStyle(.sidebar)
                                 .listSectionSpacing(.compact)
                                 .scrollContentBackground(.hidden)
-                                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height+100)
                                 Spacer()
                             } else if selection.id == "item-9" {
                                 InfoView()
@@ -441,7 +483,7 @@ struct MainView: View {
                                             isViewingTips.toggle()
                                         }
                                     }
-                                    .offset(y: -280)
+                                    .offset(y: -340)
                             }
                         }
                         .frame(height: frameHeight)
@@ -452,7 +494,7 @@ struct MainView: View {
 //                .searchable(text: $searchText)
 //                .toolbar(.hidden, for: .navigationBar)
             }
-            .symbolRenderingMode(.multicolor)
+//            .symbolRenderingMode(.multicolor)
             
         }
     }
