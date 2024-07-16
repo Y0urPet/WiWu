@@ -65,7 +65,8 @@ struct ContentView: View {
 //            
 //            
 //        }
-        DailyView()
+//        DailyView()
+        MainView()
 //            .preferredColorScheme(.light)
 //        WeeklyWeatherView()
 //        InfoView()
