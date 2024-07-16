@@ -17,11 +17,12 @@
 		2BA3DCEB2C3BA9840042C618 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BA3DCEA2C3BA9840042C618 /* Preview Assets.xcassets */; };
 		2BA3DD0F2C42999D0042C618 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA3DD0E2C42999D0042C618 /* MainView.swift */; };
 		2BA3DD132C42C8630042C618 /* WeeklyWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA3DD122C42C8630042C618 /* WeeklyWeatherView.swift */; };
-		2BA3DD1B2C44D9C40042C618 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA3DD192C44D9C40042C618 /* InfoView.swift */; };
 		A406000F2C41961200A891EE /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A406000E2C41961200A891EE /* LocationViewModel.swift */; };
 		A40600112C41962700A891EE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40600102C41962700A891EE /* Location.swift */; };
 		A40600172C44A87E00A891EE /* PrepItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40600162C44A87E00A891EE /* PrepItem.swift */; };
-		A45A06922C3CDCD700797DE2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A45A06912C3CDCD700797DE2 /* Localizable.xcstrings */; };
+		A41A35A12C46168700AFF499 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41A35A02C46168700AFF499 /* InfoView.swift */; };
+		A41A35A32C46168F00AFF499 /* WeatherAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41A35A22C46168F00AFF499 /* WeatherAnimation.swift */; };
+		A41A35A52C46174800AFF499 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A41A35A42C46174800AFF499 /* Localizable.xcstrings */; };
 		A45A06942C3E29B300797DE2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A06932C3E29B300797DE2 /* CardView.swift */; };
 		A45A069B2C3E2B8800797DE2 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A069A2C3E2B8800797DE2 /* ApiClient.swift */; };
 		A45A069D2C3E39DD00797DE2 /* DailySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A069C2C3E39DD00797DE2 /* DailySummary.swift */; };
@@ -55,7 +56,6 @@
 		1ADB537B2C3F8DC10011EE08 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1ADB537F2C3FD00A0011EE08 /* DayWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWeather.swift; sourceTree = "<group>"; };
 		1ADB53812C3FDC370011EE08 /* HourlyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeather.swift; sourceTree = "<group>"; };
-		2B4D20262C460EAE00C90BB1 /* WeatherAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherAnimation.swift; path = ../../../../../Downloads/WeatherAnimation.swift; sourceTree = "<group>"; };
 		2BA3DCE02C3BA9820042C618 /* Nano3_WeatherAppForParent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nano3_WeatherAppForParent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA3DCE32C3BA9820042C618 /* Nano3_WeatherAppForParentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano3_WeatherAppForParentApp.swift; sourceTree = "<group>"; };
 		2BA3DCE52C3BA9820042C618 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,11 +65,12 @@
 		2BA3DCFA2C3BA9840042C618 /* Nano3_WeatherAppForParentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Nano3_WeatherAppForParentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA3DD0E2C42999D0042C618 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2BA3DD122C42C8630042C618 /* WeeklyWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyWeatherView.swift; sourceTree = "<group>"; };
-		2BA3DD182C44D9C40042C618 /* WeatherAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherAnimation.swift; path = ../../../../../Downloads/WeatherAnimation.swift; sourceTree = "<group>"; };
-		2BA3DD192C44D9C40042C618 /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoView.swift; path = ../../../../../Downloads/InfoView.swift; sourceTree = "<group>"; };
 		A406000E2C41961200A891EE /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		A40600102C41962700A891EE /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		A40600162C44A87E00A891EE /* PrepItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepItem.swift; sourceTree = "<group>"; };
+		A41A35A02C46168700AFF499 /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		A41A35A22C46168F00AFF499 /* WeatherAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherAnimation.swift; sourceTree = "<group>"; };
+		A41A35A42C46174800AFF499 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		A45A068E2C3CDAFF00797DE2 /* Nano3_WeatherAppForParent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nano3_WeatherAppForParent.entitlements; sourceTree = "<group>"; };
 		A45A06912C3CDCD700797DE2 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		A45A06932C3E29B300797DE2 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -187,6 +188,7 @@
 				2BA3DD192C44D9C40042C618 /* InfoView.swift */,
 				2BA3DD182C44D9C40042C618 /* WeatherAnimation.swift */,
 				A48314532C41036700F3D1AB /* DailyView.swift */,
+				A41A35A02C46168700AFF499 /* InfoView.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -194,6 +196,7 @@
 		A45A068C2C3CD9E300797DE2 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A41A35A22C46168F00AFF499 /* WeatherAnimation.swift */,
 				A45A06932C3E29B300797DE2 /* CardView.swift */,
 				2B4D20262C460EAE00C90BB1 /* WeatherAnimation.swift */,
 			);
@@ -204,7 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				A45A068E2C3CDAFF00797DE2 /* Nano3_WeatherAppForParent.entitlements */,
-				A45A06912C3CDCD700797DE2 /* Localizable.xcstrings */,
+				A41A35A42C46174800AFF499 /* Localizable.xcstrings */,
 				2BA3DCE72C3BA9840042C618 /* Assets.xcassets */,
 				2BA3DCE92C3BA9840042C618 /* Preview Content */,
 			);
@@ -340,7 +343,7 @@
 			files = (
 				2BA3DCEB2C3BA9840042C618 /* Preview Assets.xcassets in Resources */,
 				2BA3DCE82C3BA9840042C618 /* Assets.xcassets in Resources */,
-				A45A06922C3CDCD700797DE2 /* Localizable.xcstrings in Resources */,
+				A41A35A52C46174800AFF499 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,12 +370,14 @@
 			files = (
 				2BA3DCE62C3BA9820042C618 /* ContentView.swift in Sources */,
 				2BA3DD0F2C42999D0042C618 /* MainView.swift in Sources */,
+				A41A35A32C46168F00AFF499 /* WeatherAnimation.swift in Sources */,
 				A483144F2C40E63B00F3D1AB /* WeatherViewModel.swift in Sources */,
 				A45A06942C3E29B300797DE2 /* CardView.swift in Sources */,
 				1ADB53822C3FDC370011EE08 /* HourlyWeather.swift in Sources */,
 				A48314542C41036700F3D1AB /* DailyView.swift in Sources */,
 				A406000F2C41961200A891EE /* LocationViewModel.swift in Sources */,
 				A48314522C40E80800F3D1AB /* WeatherManagerDelegate.swift in Sources */,
+				A41A35A12C46168700AFF499 /* InfoView.swift in Sources */,
 				A45A069D2C3E39DD00797DE2 /* DailySummary.swift in Sources */,
 				2BA3DCE42C3BA9820042C618 /* Nano3_WeatherAppForParentApp.swift in Sources */,
 				A48314742C41204600F3D1AB /* WeatherManager.swift in Sources */,
