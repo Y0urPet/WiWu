@@ -6,7 +6,5 @@
 //
 
 import Foundation
+import CoreLocation
 
-class LocationViewModel {
-    
-}

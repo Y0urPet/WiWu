@@ -14,6 +14,8 @@ struct MainView: View {
     @State var frameHeight: CGFloat = 1100
     @State var isViewingTips: Bool = false
     
+    @State private var weather = WeatherViewModel()
+    
     @State var selection = Item(id: "item-8", name: "Weather", image: "cloud.sun.fill")
     let weekDay: [Item] = [
         Item(id: "item-8", name: "Weather", image: "cloud.sun.fill"),
@@ -22,6 +24,8 @@ struct MainView: View {
     
     var body: some View {
         NavigationStack{
+            switch (weather.dataState) {
+            case .ready:
             ZStack{
                 WeatherAnimation(isViewingTips: isViewingTips, todaysWeather: "Cloudy")
                 ScrollView {
@@ -82,31 +86,33 @@ struct MainView: View {
 //                            VStack(spacing:30){
 ////                                SearchBarView(searchText: $searchText)
 //                            }
-                            
                             if selection.id == "item-8" {
-                                Text("Sampora")
+                                Text(weather.locationName)
                                     .font(.system(size: 20))
                                     .foregroundStyle(.titleText)
                                 VStack(spacing: 5) {
-                                    Text("Perfect for Outdoor Fun!")
+                                    Text(weather.dailyWeather.first?.dailySummary.summary ?? "...")
                                         .foregroundStyle(.titleText)
                                         .font(.system(size: 24))
                                         .fontWeight(.bold)
                                     
-                                    HStack(alignment: .bottom,spacing: 1) {
-                                        Text("Clear Skies until 11")
-                                            .font(.system(size: 24))
-                                            .fontWeight(.bold)
-                                            .foregroundStyle(.titleText)
-                                        Text("AM")
-                                            .font(.system(size: 18))
-                                            .fontWeight(.semibold)
-                                            .foregroundStyle(.titleText)
+                                    if // Only render if there are suggestions to go out
+                                        (weather.dailyWeather.first?.dailySummary.bestTimes.count != 0) {
+                                        HStack(alignment: .bottom,spacing: 1) {
+                                            Text("Clear Skies until 11")
+                                                .font(.system(size: 24))
+                                                .fontWeight(.bold)
+                                                .foregroundStyle(.titleText)
+                                            Text("AM")
+                                                .font(.system(size: 18))
+                                                .fontWeight(.semibold)
+                                                .foregroundStyle(.titleText)
+                                        }
                                     }
                                 }
                                 List {
                                     Section {
-                                        Text("BEST TIMES TODAY")
+                                        Text("BEST TIMES TODAY \(weather.dailyWeather.count), \(weather.dataState)")
                                             .foregroundStyle(.header)
                                             .fontWeight(.bold)
                                             .padding(.top, 10)
@@ -346,6 +352,22 @@ struct MainView: View {
                                             }
                                         }
                                         Section(isExpanded: $isExpandedDays) {
+//                                            ForEach(weather.dailyWeather) { daily in
+//                                                NavigationLink {
+//                                                    // Detail View
+//                                                    WeeklyWeatherView().navigationTitle(Text(String(localized: "Weekly Forecast"))).navigationBarTitleDisplayMode(.inline)
+//                                                } label: {
+//                                                    HStack(spacing: 10){
+//                                                        Text(Text(localized: daily.date.threeLetter()))
+//                                                        HStack {
+//                                                            Image(systemName: "cloud.sun.fill")
+//                                                                .frame(width: 30,height: 30)
+//                                                            Text(daily.dailySummary?.summaryAlt)
+//                                                        }
+//                                                    }
+//                                                }
+//                                            }
+                                            
                                             NavigationLink {
                                                 // Detail View
                                                 WeeklyWeatherView().navigationTitle("Weekly Forecast").navigationBarTitleDisplayMode(.inline)
@@ -495,8 +517,15 @@ struct MainView: View {
 //                .toolbar(.hidden, for: .navigationBar)
             }
 //            .symbolRenderingMode(.multicolor)
-            
+                
+            default:
+                Text("Loading")
+            }
         }
+        .onAppear{
+            weather.weatherManager.fetch()
+        }
+        
     }
 }
 

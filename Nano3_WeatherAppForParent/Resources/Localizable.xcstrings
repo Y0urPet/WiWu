@@ -103,7 +103,10 @@
     "Clothes" : {
 
     },
-    "DailyView" : {
+    "Condition: %@" : {
+
+    },
+    "Date: %@" : {
 
     },
     "Fri" : {
@@ -118,13 +121,13 @@
     "Items" : {
 
     },
+    "Loading" : {
+
+    },
     "Mon" : {
 
     },
     "Now" : {
-
-    },
-    "Perfect for Outdoor Fun!" : {
 
     },
     "Perfect to go out" : {
@@ -137,9 +140,6 @@
 
     },
     "Remember to use sunscreen" : {
-
-    },
-    "Sampora" : {
 
     },
     "Sat" : {

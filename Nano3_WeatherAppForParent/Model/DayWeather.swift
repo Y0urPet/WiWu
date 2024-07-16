@@ -22,8 +22,8 @@ struct DayWeather: Identifiable, Decodable, Encodable, Equatable {
     let moon: MoonEvents
     let uvIndex: UVIndex
     let wind: Wind
-    var hourlyWeather: [HourlyWeather]?
-    var dailySummary: DailySummary?
+    var hourlyWeather: [HourlyWeather] = []
+    var dailySummary: DailySummary
         
 }
 
