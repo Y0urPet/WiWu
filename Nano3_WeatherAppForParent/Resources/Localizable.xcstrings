@@ -43,7 +43,6 @@
       }
     },
     "BEST DAYS THIS WEEK" : {
-      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -62,6 +61,15 @@
           }
         }
       }
+    },
+    "Bring a blanket" : {
+
+    },
+    "Bring a first aid kit" : {
+
+    },
+    "Bring a flashlight" : {
+
     },
     "Bring a hat" : {
       "localizations" : {
@@ -92,6 +100,9 @@
           }
         }
       }
+    },
+    "Bring a reusable shopping bag" : {
+
     },
     "Bring a scarf" : {
       "localizations" : {
@@ -133,6 +144,9 @@
         }
       }
     },
+    "Bring insect repellent" : {
+
+    },
     "Bring light snacks" : {
       "comment" : "Tips-Barang-Clear/Partly cloudy/Cloudy",
       "extractionState" : "manual",
@@ -144,6 +158,12 @@
           }
         }
       }
+    },
+    "Bring MORE snacks" : {
+
+    },
+    "Bring snacks" : {
+
     },
     "Bring sunglasses" : {
       "localizations" : {
@@ -317,6 +337,9 @@
         }
       }
     },
+    "Rainproof hat" : {
+
+    },
     "Rainy day, stay indoors" : {
       "comment" : "Weekly details main page",
       "extractionState" : "manual",
@@ -479,6 +502,9 @@
     "Temperature: %.1f °C" : {
 
     },
+    "Thermal underwear" : {
+
+    },
     "Thick soled shoes or sandals" : {
 
     },
@@ -488,10 +514,10 @@
     "Thin and lightweight jacket" : {
 
     },
-    "THINGS TO PREPARE" : {
+    "Things to prepare" : {
 
     },
-    "Things to prepare %lld" : {
+    "THINGS TO PREPARE" : {
 
     },
     "Thu" : {
@@ -531,6 +557,9 @@
         }
       }
     },
+    "Warm winter coat" : {
+
+    },
     "Warm, wear light clothes" : {
       "comment" : "Weekly details main page",
       "extractionState" : "manual",
@@ -542,6 +571,9 @@
           }
         }
       }
+    },
+    "Waterproof boots" : {
+
     },
     "Weather Forecast" : {
 
@@ -573,6 +605,9 @@
           }
         }
       }
+    },
+    "Wool socks" : {
+
     }
   },
   "version" : "1.0"

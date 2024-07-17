@@ -11,10 +11,17 @@ struct MainView: View {
     @State var isExpandedTimes: Bool = false
     @State var isExpandedDays: Bool = false
     @State var searchText: String = ""
-    @State var frameHeight: CGFloat = 1100
+    @State var frameHeight: CGFloat = 800
     @State var isViewingTips: Bool = false
     @State var isReady: Bool = false
     var todaysWeather: String = "Clear"
+    @State var isNight: Bool = false
+    
+    let baseFrameHeight: CGFloat = 1000
+    let expandedDaysFrameH: CGFloat = 450
+    let expandedTimesFrameH: CGFloat = 50
+    
+    @State private var scrollViewContentSize: CGSize = .zero
     
     @State private var weather = WeatherViewModel()
     
@@ -27,21 +34,20 @@ struct MainView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                if isReady {
-                    WeatherAnimation(isViewingTips: isViewingTips, todaysWeather: todaysWeather, isNight: true)
+                if weather.dataState == .ready {
+                    WeatherAnimation(isViewingTips: isViewingTips, todaysWeather: todaysWeather, isNight: $isNight)
                 } else {
                     ShimmerView()
                         .clipShape(Circle())
                         .frame(width: 315)
                         .offset(y:-70)
-                    // ini untuk showcase nunggu loading 3 detik
-                        .onAppear{
-                            withAnimation {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                                    isReady = true
-                                }
-                            }
-                        }
+//                        .onAppear{
+//                            withAnimation {
+//                                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//                                    isReady = true
+//                                }
+//                            }
+//                        }
                 }
                 ScrollView {
                     ZStack {
@@ -105,20 +111,21 @@ struct MainView: View {
                         .position(CGPoint(x: UIScreen.main.bounds.midX, y: isViewingTips ? 770 : 1070))
                         
                         VStack(spacing: 10) {
-//                            VStack(spacing:30){
-////                                SearchBarView(searchText: $searchText)
-//                            }
                             if selection.id == "item-8" {
                                 if weather.dataState == .ready {
                                     Text(weather.locationName)
                                         .font(.system(size: 20))
                                         .foregroundStyle(.titleText)
                                     VStack(spacing: 5) {
-                                        Text(weather.dailyWeather.first?.dailySummary.summary ?? "")
-                                            .foregroundStyle(.titleText)
-                                            .font(.system(size: 24))
-                                            .fontWeight(.bold)
-                                        
+                                        HStack {
+                                            VStack {
+                                                Text(weather.dailyWeather.first?.dailySummary.summary ?? "")
+                                                    .foregroundStyle(.titleText)
+                                                    .font(.system(size: 24))
+                                                    .fontWeight(.bold)
+                                            }
+                                            .frame(maxWidth: .infinity)
+                                        }
                                         // TODO: Benerin ini sesuai sama best times
                                         HStack(alignment: .bottom,spacing: 1) {
                                             Text("\(weather.dailyWeather.first?.condition ?? "") until \(String( weather.dailyWeather.first?.date.getHourString()[0] ?? "")) ")
@@ -188,24 +195,13 @@ struct MainView: View {
                                                     }
                                                     .onAppear{
                                                         withAnimation {
-                                                            if !isExpandedDays && isExpandedTimes && frameHeight == 1000 {
-                                                                print("changing!")
-                                                                frameHeight = 1200
-                                                            } else if isExpandedDays && isExpandedTimes {
-                                                                print("More Big!")
-                                                                frameHeight = 1700
-                                                            }
+                                                            frameHeight = baseFrameHeight + (isExpandedDays ? expandedDaysFrameH : 0) + (isExpandedTimes ? expandedTimesFrameH : 0)
                                                         }
                                                     }
                                                     .onDisappear() {
                                                         withAnimation {
-                                                            if !isExpandedDays && !isExpandedTimes && frameHeight != 1000 {
-                                                                print("changing!")
-                                                                frameHeight = 1100
-                                                            } else if isExpandedDays && !isExpandedTimes {
-                                                                print("More Big!")
-                                                                frameHeight = 1300
-                                                            }
+                                                            
+                                                            frameHeight = baseFrameHeight + (isExpandedDays ? expandedDaysFrameH : 0) + (isExpandedTimes ? expandedTimesFrameH : 0)
                                                         }
                                                     }
                                                 }
@@ -217,7 +213,7 @@ struct MainView: View {
 
                                         // BEST DAYS THIS WEEK
                                         Section {
-                                            Text("BEST DAYS THIS WEEK | \(weather.dailyWeather.count) | \(weather.dataState)")
+                                            Text("BEST DAYS THIS WEEK")
                                                 .foregroundStyle(.header)
                                                 .fontWeight(.bold)
                                                 .padding(.top, 10)
@@ -241,22 +237,13 @@ struct MainView: View {
                                                     }
                                                     .onAppear{
                                                         withAnimation {
-                                                            if isExpandedDays {
-                                                                if isExpandedTimes {
-                                                                    frameHeight = 1500
-                                                                } else {
-                                                                    frameHeight = 1300
-                                                                }
-                                                            }
+                                                            
+                                                            frameHeight = baseFrameHeight + (isExpandedDays ? expandedDaysFrameH : 0) + (isExpandedTimes ? expandedTimesFrameH : 0)
                                                         }
                                                     }
                                                     .onDisappear {
                                                         withAnimation {
-                                                            if !isExpandedDays && !isExpandedTimes {
-                                                                frameHeight = 1100
-                                                            } else if !isExpandedDays && isExpandedTimes {
-                                                                frameHeight = 1100
-                                                            }
+                                                            frameHeight = baseFrameHeight + (isExpandedDays ? expandedDaysFrameH : 0) + (isExpandedTimes ? expandedTimesFrameH : 0)
                                                         }
                                                     }
                                                 }
@@ -282,57 +269,27 @@ struct MainView: View {
                                                         }
                                                         .onAppear{
                                                             withAnimation {
-                                                                if isExpandedDays {
-                                                                    if isExpandedTimes {
-                                                                        frameHeight = 1700
-                                                                    } else {
-                                                                        frameHeight = 1300
-                                                                    }
-                                                                }
+                                                                frameHeight = baseFrameHeight + (isExpandedDays ? expandedDaysFrameH : 0) + (isExpandedTimes ? expandedTimesFrameH : 0)
                                                             }
                                                         }
                                                         .onDisappear {
                                                             withAnimation {
-                                                                if !isExpandedDays && !isExpandedTimes {
-                                                                    frameHeight = 1100
-                                                                } else if !isExpandedDays && isExpandedTimes {
-                                                                    frameHeight = 1100
-                                                                }
+                                                                frameHeight = baseFrameHeight + (isExpandedDays ? expandedDaysFrameH : 0) + (isExpandedTimes ? expandedTimesFrameH : 0)
                                                             }
                                                         }
                                                     }
                                                     
                                                 }
-//                                                .onAppear{
-//                                                    withAnimation {
-//                                                        if isExpandedDays {
-//                                                            if isExpandedTimes {
-//                                                                frameHeight = 1500
-//                                                            } else {
-//                                                                frameHeight = 1300
-//                                                            }
-//                                                        }
-//                                                    }
-//                                                }
-//                                                .onDisappear {
-//                                                    withAnimation {
-//                                                        if !isExpandedDays && !isExpandedTimes {
-//                                                            frameHeight = 1100
-//                                                        } else if !isExpandedDays && isExpandedTimes {
-//                                                            frameHeight = 1100
-//                                                        }
-//                                                    }
-//                                                }
                                             } header: {
                                                 Text("WEEKLY FORECAST")
                                                     .padding(.vertical, 16)
                                             }
                                         }
                                     }
+                                    .scrollDisabled(true)
                                     .listStyle(.sidebar)
                                     .listSectionSpacing(.compact)
                                     .scrollContentBackground(.hidden)
-                                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height+100)
                                     Spacer()
                                 } else {
                                     VStack(spacing:20){
@@ -360,14 +317,16 @@ struct MainView: View {
                                     }
                                     .offset(y:-300)
                                 }
+                                
                             } else if selection.id == "item-9" {
                                 if let prepItems = weather.dailyWeather.first?.dailySummary.prepItems {
-                                InfoView(items: prepItems)
+                                    InfoView(items: prepItems, dataState: $weather.dataState)
                                     .transition(.slide)
                                     .onAppear {
                                         withAnimation {
                                             isViewingTips.toggle()
                                         }
+                                        print(prepItems.count)
                                     }
                                     .onDisappear {
                                         withAnimation {
@@ -381,26 +340,49 @@ struct MainView: View {
                         .frame(height: frameHeight)
                         .offset(y: isViewingTips ? 0 : 300)
                     }
+                    .background(
+                        GeometryReader { geo -> Color in
+                            DispatchQueue.main.async {
+                                scrollViewContentSize = geo.size
+                            }
+                            return Color.clear
+                        }
+                    )
                 }
                 .scrollIndicators(.hidden)
-//                .searchable(text: $searchText)
-//                .toolbar(.hidden, for: .navigationBar)
-//                Rectangle()
-//                    .frame(width: 355,height: 290)
-//                    .position(CGPoint(x: UIScreen.main.bounds.midX, y:450))
-//                    .animation(.none)
-                
-//                Rectangle()
-//                    .frame(width: 355,height: 160)
-//                    .position(CGPoint(x: UIScreen.main.bounds.midX, y:690))
-//                    .animation(.none)
+                .scrollDisabled(selection.id != "item-8")
             }
-//            .symbolRenderingMode(.multicolor)
-                
-
+        }
+        .onChange(of: selection) {
+            if selection.id == "item-8" {
+                frameHeight = baseFrameHeight + (isExpandedDays ? expandedDaysFrameH : 0) + (isExpandedTimes ? expandedTimesFrameH : 0)
+            } else {
+                frameHeight = 500
+            }
+            
+            print(frameHeight)
         }
         .onAppear{
             Task {
+                weather.weatherManager.fetch()
+                let currentDate = Date()
+                let calendar = Calendar.current
+                let currentHour = calendar.component(.hour, from: currentDate)
+
+                // Check if the current hour is less than 18 (6 PM)
+                isNight = currentHour >= 18 || currentHour <= 4
+                isReady = true
+            }
+        }
+        .refreshable {
+            Task {
+                weather.weatherManager.fetch()
+                let currentDate = Date()
+                let calendar = Calendar.current
+                let currentHour = calendar.component(.hour, from: currentDate)
+
+                // Check if the current hour is less than 18 (6 PM)
+                isNight = currentHour >= 18 || currentHour <= 4
                 weather.weatherManager.fetch()
             }
         }
