@@ -10,12 +10,22 @@
     "%@" : {
 
     },
-    "%@ until %@ " : {
+    "%@ %@" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "%1$@ until %2$@"
+            "value" : "%1$@ %2$@"
+          }
+        }
+      }
+    },
+    "%@ %@ %@ " : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@ %3$@ "
           }
         }
       }
@@ -63,13 +73,34 @@
       }
     },
     "Bring a blanket" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bawa selimut"
+          }
+        }
+      }
     },
     "Bring a first aid kit" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bawa kotak medis"
+          }
+        }
+      }
     },
     "Bring a flashlight" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bawa senter"
+          }
+        }
+      }
     },
     "Bring a hat" : {
       "localizations" : {
@@ -102,7 +133,14 @@
       }
     },
     "Bring a reusable shopping bag" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bawa tas belanja"
+          }
+        }
+      }
     },
     "Bring a scarf" : {
       "localizations" : {
@@ -145,7 +183,14 @@
       }
     },
     "Bring insect repellent" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bawa obat anti serangga"
+          }
+        }
+      }
     },
     "Bring light snacks" : {
       "comment" : "Tips-Barang-Clear/Partly cloudy/Cloudy",
@@ -160,10 +205,24 @@
       }
     },
     "Bring MORE snacks" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bawa LEBIH BANYAK makanan ringan"
+          }
+        }
+      }
     },
     "Bring snacks" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bawa makanan ringan"
+          }
+        }
+      }
     },
     "Bring sunglasses" : {
       "localizations" : {
@@ -207,12 +266,33 @@
         }
       }
     },
+    "Clear" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerah"
+          }
+        }
+      }
+    },
     "Clothes" : {
       "localizations" : {
         "id" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pakaian"
+          }
+        }
+      }
+    },
+    "Cloudy" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Berawan"
           }
         }
       }
@@ -246,8 +326,15 @@
         }
       }
     },
-    "from %@" : {
-
+    "from" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dari"
+          }
+        }
+      }
     },
     "Heavy rain, stay indoors" : {
       "comment" : "Weekly details main page",
@@ -292,6 +379,26 @@
         }
       }
     },
+    "None" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidak ada"
+          }
+        }
+      }
+    },
+    "Not recommended to go out today" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidal disarankan untuk keluar hari ini"
+          }
+        }
+      }
+    },
     "Now" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -299,6 +406,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Saat ini"
+          }
+        }
+      }
+    },
+    "Partly Cloudy" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sebagian Berawan"
           }
         }
       }
@@ -337,8 +454,25 @@
         }
       }
     },
+    "Rain" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hujan"
+          }
+        }
+      }
+    },
     "Rainproof hat" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Topi anti-hujan"
+          }
+        }
+      }
     },
     "Rainy day, stay indoors" : {
       "comment" : "Weekly details main page",
@@ -422,7 +556,14 @@
       }
     },
     "Short sleeved cotton or linen shirt" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kemeja katun atau linen lengan pendek"
+          }
+        }
+      }
     },
     "Shorts" : {
       "extractionState" : "stale",
@@ -459,8 +600,15 @@
         }
       }
     },
-    "Stay hydrated thorought the day" : {
-
+    "Snow" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salju"
+          }
+        }
+      }
     },
     "Summary: %@" : {
 
@@ -500,25 +648,74 @@
       }
     },
     "Temperature: %.1f °C" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temperatur: %.1f °C"
+          }
+        }
+      }
     },
     "Thermal underwear" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dalaman termal"
+          }
+        }
+      }
     },
     "Thick soled shoes or sandals" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sepatu atau sandal bersol tebal"
+          }
+        }
+      }
     },
     "Thigh to knee length pants" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Celana panjang"
+          }
+        }
+      }
     },
     "Thin and lightweight jacket" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jaket tipis dan ringan"
+          }
+        }
+      }
     },
     "Things to prepare" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yang harus dipersiapkan"
+          }
+        }
+      }
     },
     "THINGS TO PREPARE" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "YANG PERLU DIPERSIAPKAN"
+          }
+        }
+      }
     },
     "Thu" : {
       "extractionState" : "stale",
@@ -532,7 +729,14 @@
       }
     },
     "Time: %@" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Waktu: %@"
+          }
+        }
+      }
     },
     "Tips" : {
       "extractionState" : "stale",
@@ -541,6 +745,27 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tips"
+          }
+        }
+      }
+    },
+    "Unknown" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidak diketahui"
+          }
+        }
+      }
+    },
+    "until" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "hingga"
           }
         }
       }
@@ -558,7 +783,14 @@
       }
     },
     "Warm winter coat" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jaket musim dingin"
+          }
+        }
+      }
     },
     "Warm, wear light clothes" : {
       "comment" : "Weekly details main page",
@@ -573,10 +805,24 @@
       }
     },
     "Waterproof boots" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sepatu anti-air"
+          }
+        }
+      }
     },
     "Weather Forecast" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prediksi cuaca"
+          }
+        }
+      }
     },
     "Wed" : {
       "extractionState" : "stale",
@@ -590,10 +836,24 @@
       }
     },
     "Weekly Forecast" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prediksi Cuaca Mingguan"
+          }
+        }
+      }
     },
     "WEEKLY FORECAST" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PREDIKSI CUACA MINGGUAN"
+          }
+        }
+      }
     },
     "Windproof warm jacket" : {
       "extractionState" : "manual",
@@ -607,7 +867,14 @@
       }
     },
     "Wool socks" : {
-
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kaos kaki"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

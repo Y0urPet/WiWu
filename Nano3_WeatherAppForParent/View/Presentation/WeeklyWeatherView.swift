@@ -25,6 +25,7 @@ struct WeeklyWeatherView: View {
     @State var selectedDay = UUID()
     @State var todayData: DayWeather
     @State var selection = Item(id: "mon", name: "Mon", image: "sun.max.fill")
+    
     let weekDay: [Item] = [
         Item(id: "mon", name: "Mon", image: "sun.max.fill"),
         Item(id: "tue", name: "Tue", image: "sun.max.fill"),
@@ -105,7 +106,7 @@ struct WeeklyWeatherView: View {
                                     .font(.system(size: 25))
                                     .fontWeight(.bold)
                                 HStack(alignment: .bottom, spacing: 1){
-                                    Text("from \(todayData.dailySummary.bestTimes[0].startTime.getHour())")
+                                    Text("\(String(localized: "from")) \(todayData.dailySummary.bestTimes[0].startTime.getHour())")
                                         .font(.system(size: 25))
                                         .fontWeight(.bold)
 //                                    Text("AM")
@@ -202,13 +203,13 @@ struct WeeklyWeatherView: View {
                                 .foregroundStyle(.header)
                                 .fontWeight(.bold)
                                 .padding(.top, 10)
-                            ForEach(0..<4) { index in
+                            ForEach(todayData.dailySummary.prepItems) { item in
                                 HStack(spacing: 14){
-                                    Image(systemName: "bag.fill.badge.questionmark")
+                                    Image(systemName: item.icon)
                                         .resizable()
                                         .frame(width: 25, height: 25)
                                         .foregroundStyle(.defaultIcon)
-                                    Text("Stay hydrated thorought the day")
+                                    Text(item.title)
                                 }
                                 .padding(.leading, 2)
                             }

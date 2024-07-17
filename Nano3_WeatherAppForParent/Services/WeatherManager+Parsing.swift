@@ -21,33 +21,33 @@ extension WeatherManager {
     func precipitationToString(_ precipitation: Precipitation) -> String {
         switch precipitation {
         case .none:
-            return "None"
+            return String(localized: "None")
         case .rain:
-            return "Rain"
+            return String(localized: "Rain")
         case .snow:
-            return "Snow"
+            return String(localized: "Snow")
             
         // Add other cases as necessary
         default:
-            return "Unknown"
+            return String(localized: "Clear")
         }
     }
 
     func weatherConditionToString(_ condition: WeatherCondition) -> String {
         switch condition {
         case .clear:
-            return "Clear"
+            return String(localized: "Clear")
         case .cloudy:
-            return "Cloudy"
+            return String(localized: "Cloudy")
         case .partlyCloudy:
-            return "Partly Cloudy"
+            return String(localized: "Partly Cloudy")
         case .rain:
-            return "Rain"
+            return String(localized: "Rain")
         case .snow:
-            return "Snow"
+            return String(localized: "Snow")
         // Add other cases as necessary
         default:
-            return "Unknown"
+            return String(localized: "Clear")
         }
     }
     
