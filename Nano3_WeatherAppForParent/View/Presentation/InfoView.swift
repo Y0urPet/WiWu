@@ -54,7 +54,7 @@ struct InfoView: View {
             }
             
         }
-        .frame(width: UIScreen.main.bounds.width - 75)
+        .frame(width: UIScreen.main.bounds.width - 50)
         
     }
     

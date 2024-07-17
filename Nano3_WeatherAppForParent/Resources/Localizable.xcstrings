@@ -10,6 +10,16 @@
     "%@" : {
 
     },
+    "%@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@"
+          }
+        }
+      }
+    },
     "%@ %@ %@ " : {
       "localizations" : {
         "en" : {
@@ -316,8 +326,15 @@
         }
       }
     },
-    "from %@" : {
-
+    "from" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dari"
+          }
+        }
+      }
     },
     "Heavy rain, stay indoors" : {
       "comment" : "Weekly details main page",
@@ -733,6 +750,7 @@
       }
     },
     "Unknown" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {

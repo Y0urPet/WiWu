@@ -29,7 +29,7 @@ extension WeatherManager {
             
         // Add other cases as necessary
         default:
-            return String(localized: "Unknown")
+            return String(localized: "Clear")
         }
     }
 
@@ -47,7 +47,7 @@ extension WeatherManager {
             return String(localized: "Snow")
         // Add other cases as necessary
         default:
-            return String(localized: "Unknown")
+            return String(localized: "Clear")
         }
     }
     

@@ -106,7 +106,7 @@ struct WeeklyWeatherView: View {
                                     .font(.system(size: 25))
                                     .fontWeight(.bold)
                                 HStack(alignment: .bottom, spacing: 1){
-                                    Text("from \(todayData.dailySummary.bestTimes[0].startTime.getHour())")
+                                    Text("\(String(localized: "from")) \(todayData.dailySummary.bestTimes[0].startTime.getHour())")
                                         .font(.system(size: 25))
                                         .fontWeight(.bold)
 //                                    Text("AM")
