@@ -87,7 +87,7 @@ extension WeatherManager {
             return DayWeather(
                 date: weatherKitDayWeather.date,
                 condition: weatherConditionToString(weatherKitDayWeather.condition),
-                symbolName: weatherKitDayWeather.symbolName,
+                symbolName: "\(weatherKitDayWeather.symbolName).fill",
                 highTemperature: temperatureToDouble(weatherKitDayWeather.highTemperature),
                 lowTemperature: temperatureToDouble(weatherKitDayWeather.lowTemperature),
                 precipitation: precipitationToString(weatherKitDayWeather.precipitation),

@@ -10,6 +10,26 @@
     "%@" : {
 
     },
+    "%@ until %@ " : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ until %2$@ "
+          }
+        }
+      }
+    },
+    "%@, %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, %2$@"
+          }
+        }
+      }
+    },
     "%lld" : {
 
     },
@@ -23,9 +43,6 @@
 
     },
     "AM" : {
-
-    },
-    "BEST DAYS THIS WEEK" : {
 
     },
     "BEST TIMES TODAY" : {
@@ -61,12 +78,6 @@
     "Bring toddler safe sunscreen" : {
 
     },
-    "Clear Skies until 11" : {
-
-    },
-    "Clody, great for a walk" : {
-
-    },
     "Clothes" : {
 
     },
@@ -74,9 +85,6 @@
 
     },
     "Date: %@" : {
-
-    },
-    "Fri" : {
 
     },
     "from 9" : {
@@ -88,12 +96,6 @@
     "Items" : {
 
     },
-    "Loading" : {
-
-    },
-    "Mon" : {
-
-    },
     "Now" : {
 
     },
@@ -101,17 +103,6 @@
 
     },
     "Refresh Weather" : {
-
-    },
-
-    "Sampora" : {
-   
-    },
-    
-    "Remember to use sunscreen" : {
-
-    },
-    "Sat" : {
 
     },
     "Saturday, 13 July 2024" : {
@@ -132,9 +123,6 @@
     "Summary: %@" : {
 
     },
-    "Sun" : {
-
-    },
     "Temperature: %.1f °C" : {
 
     },
@@ -147,25 +135,16 @@
     "Thin and lightweight jacket" : {
       "extractionState" : "manual"
     },
-    "Things to prepare" : {
-
-    },
     "THINGS TO PREPARE" : {
 
     },
-    "Thu" : {
+    "Things to prepare %lld" : {
 
     },
     "Time: %@" : {
 
     },
-    "Tue" : {
-
-    },
     "Weather Forecast" : {
-
-    },
-    "Wed" : {
 
     },
     "Weekly Forecast" : {

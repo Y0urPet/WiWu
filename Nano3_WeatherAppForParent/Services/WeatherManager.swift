@@ -25,6 +25,8 @@ class WeatherManager {
     // Has a fetch function that gets the data from weather kit
     // Uses delegate to update the weather data in view model
     
+    private var count: Int = 0
+    
     static let shared = WeatherManager()
     private let locationManager = LocationManager.shared
     private let apiClient = ApiClient.shared
@@ -41,6 +43,7 @@ class WeatherManager {
     
     // TODO: Handle different locations
     func fetch(numOfDays: Double = 7)  {
+        count += 1
         // Fetch location first
         LocationManager.shared.requestLocation()
         
@@ -63,6 +66,8 @@ class WeatherManager {
                         // Notify WeatherViewModel to save the data
                         self.delegate?.getWeather(daily: dailyWeather, hourly: hourlyWeather)
                     }
+                    
+                    debugPrint("Fetched \(self.count) times")
                     
                 } catch {
                     print("Failed to fetch weather: \(error.localizedDescription)")

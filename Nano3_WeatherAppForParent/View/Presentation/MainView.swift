@@ -26,10 +26,8 @@ struct MainView: View {
     
     var body: some View {
         NavigationStack{
-            switch (weather.dataState) {
-            case .ready:
             ZStack{
-                if isReady {
+                if weather.dataState == .ready {
                     WeatherAnimation(isViewingTips: isViewingTips, todaysWeather: todaysWeather)
                 } else {
                     ShimmerView()
@@ -47,7 +45,7 @@ struct MainView: View {
                 }
                 ScrollView {
                     ZStack {
-                        if isReady {
+                        if weather.dataState == .ready {
                             CustomPickerForHome(items: weekDay, selection: $selection) { item in
                                 if selection == item {
                                     if selection.name == "Weather" {
@@ -111,22 +109,23 @@ struct MainView: View {
 ////                                SearchBarView(searchText: $searchText)
 //                            }
                             if selection.id == "item-8" {
-                                if isReady {
-                                    Text("Sampora")
+                                if weather.dataState == .ready {
+                                    Text(weather.locationName)
                                         .font(.system(size: 20))
                                         .foregroundStyle(.titleText)
                                     VStack(spacing: 5) {
-                                        Text("Perfect for Outdoor Fun!")
+                                        Text(weather.dailyWeather.first?.dailySummary.summary ?? "")
                                             .foregroundStyle(.titleText)
                                             .font(.system(size: 24))
                                             .fontWeight(.bold)
                                         
+                                        // TODO: Benerin ini sesuai sama best times
                                         HStack(alignment: .bottom,spacing: 1) {
-                                            Text("Clear Skies until 11")
+                                            Text("\(weather.dailyWeather.first?.condition ?? "") until \(String( weather.dailyWeather.first?.date.getHourString()[0] ?? "")) ")
                                                 .font(.system(size: 24))
                                                 .fontWeight(.bold)
                                                 .foregroundStyle(.titleText)
-                                            Text("AM")
+                                            Text(weather.dailyWeather.first?.date.getHourString()[1] ?? "")
                                                 .font(.system(size: 18))
                                                 .fontWeight(.semibold)
                                                 .foregroundStyle(.titleText)
@@ -212,7 +211,7 @@ struct MainView: View {
                                                                 frameHeight = 1200
                                                             } else if isExpandedDays && isExpandedTimes {
                                                                 print("More Big!")
-                                                                frameHeight = 1400
+                                                                frameHeight = 1700
                                                             }
                                                         }
                                                     }
@@ -236,152 +235,112 @@ struct MainView: View {
 
                                         // BEST DAYS THIS WEEK
                                         Section {
-                                            Text("BEST DAYS THIS WEEK")
+                                            Text("BEST DAYS THIS WEEK | \(weather.dailyWeather.count) | \(weather.dataState)")
                                                 .foregroundStyle(.header)
                                                 .fontWeight(.bold)
                                                 .padding(.top, 10)
 
-                                            NavigationLink {
-                                                // Detail View
-                                                WeeklyWeatherView().navigationTitle("Weekly Forecast").navigationBarTitleDisplayMode(.inline)
-                                            } label: {
-                                                HStack(spacing: 10){
-                                                    Text("Sat")
-                                                    HStack {
-                                                        Image(systemName: "cloud.sun.fill")
-                                                            .frame(width: 30,height: 30)
-                                                            .symbolRenderingMode(.palette)
-                                                            .foregroundStyle(.gray, .orange)
-                                                        Text("Clody, great for a walk")
-                                                    }
-                                                }
-                                            }
-                                            Section(isExpanded: $isExpandedDays) {
-                                                NavigationLink {
-                                                    // Detail View
-                                                    WeeklyWeatherView().navigationTitle("Weekly Forecast").navigationBarTitleDisplayMode(.inline)
-                                                } label: {
-                                                    HStack(spacing: 10){
-                                                        Text("Mon")
-                                                            .frame(width: 35)
-                                                        HStack {
-                                                            Image(systemName: "cloud.heavyrain.fill")
-                                                                .frame(width: 30,height: 30)
-                                                                .foregroundStyle(.gray)
-                                                            Text("Clody, great for a walk")
+                                            ForEach(weather.dailyWeather.sorted { $0.dailySummary.scoreOutOfTen > $1.dailySummary.scoreOutOfTen }.prefix(2).sorted { $0.date > $1.date }) { day in
+                                                if day.dailySummary.summary != "" {
+                                                    NavigationLink {
+                                                        // Detail View
+                                                        WeeklyWeatherView().navigationTitle("Weekly Forecast").navigationBarTitleDisplayMode(.inline)
+                                                    } label: {
+                                                        HStack(spacing: 10){
+                                                            Text(day.date.threeLetter())
+                                                                .frame(width: 35)
+                                                            HStack {
+                                                                Image(systemName: day.symbolName)
+                                                                    .frame(width: 30,height: 30)
+                                                                    .foregroundStyle(.orange, .gray)
+                                                                Text(day.dailySummary.summary)
+                                                            }
                                                         }
                                                     }
-                                                }
-                                                NavigationLink {
-                                                    // Detail View
-                                                    WeeklyWeatherView().navigationTitle("Weekly Forecast").navigationBarTitleDisplayMode(.inline)
-                                                } label: {
-                                                    HStack(spacing: 10){
-                                                        Text("Tue")
-                                                            .frame(width: 35)
-                                                        HStack {
-                                                            Image(systemName: "cloud.heavyrain.fill")
-                                                                .frame(width: 30,height: 30)
-                                                                .foregroundStyle(.gray)
-                                                            Text("Clody, great for a walk")
+                                                    .onAppear{
+                                                        withAnimation {
+                                                            if isExpandedDays {
+                                                                if isExpandedTimes {
+                                                                    frameHeight = 1500
+                                                                } else {
+                                                                    frameHeight = 1300
+                                                                }
+                                                            }
                                                         }
                                                     }
-                                                }
-                                                NavigationLink {
-                                                    // Detail View
-                                                    WeeklyWeatherView().navigationTitle("Weekly Forecast").navigationBarTitleDisplayMode(.inline)
-                                                } label: {
-                                                    HStack(spacing: 10){
-                                                        Text("Wed")
-                                                            .frame(width: 35)
-                                                        HStack {
-                                                            Image(systemName: "cloud.heavyrain.fill")
-                                                                .frame(width: 30,height: 30)
-                                                                .foregroundStyle(.gray)
-                                                            Text("Clody, great for a walk")
-                                                        }
-                                                    }
-                                                }
-                                                NavigationLink {
-                                                    // Detail View
-                                                    WeeklyWeatherView().navigationTitle("Weekly Forecast").navigationBarTitleDisplayMode(.inline)
-                                                } label: {
-                                                    HStack(spacing: 10){
-                                                        Text("Thu")
-                                                            .frame(width: 35)
-                                                        HStack {
-                                                            Image(systemName: "cloud.heavyrain.fill")
-                                                                .frame(width: 30,height: 30)
-                                                                .foregroundStyle(.gray)
-                                                            Text("Clody, great for a walk")
-                                                        }
-                                                    }
-                                                }
-                                                NavigationLink {
-                                                    // Detail View
-                                                    WeeklyWeatherView().navigationTitle("Weekly Forecast").navigationBarTitleDisplayMode(.inline)
-                                                } label: {
-                                                    HStack(spacing: 10){
-                                                        Text("Fri")
-                                                            .frame(width: 35)
-                                                        HStack {
-                                                            Image(systemName: "cloud.heavyrain.fill")
-                                                                .frame(width: 30,height: 30)
-                                                                .foregroundStyle(.gray)
-                                                            Text("Clody, great for a walk")
-                                                        }
-                                                    }
-                                                }
-                                                NavigationLink {
-                                                    // Detail View
-                                                    WeeklyWeatherView().navigationTitle("Weekly Forecast").navigationBarTitleDisplayMode(.inline)
-                                                } label: {
-                                                    HStack(spacing: 10){
-                                                        Text("Sat")
-                                                            .frame(width: 35)
-                                                        HStack {
-                                                            Image(systemName: "cloud.sun.fill")
-                                                                .frame(width: 30,height: 30)
-                                                                .foregroundStyle(.gray,.orange)
-                                                            Text("Clody, great for a walk")
-                                                        }
-                                                    }
-                                                }
-                                                NavigationLink {
-                                                    // Detail View
-                                                    WeeklyWeatherView().navigationTitle("Weekly Forecast").navigationBarTitleDisplayMode(.inline)
-                                                } label: {
-                                                    HStack(spacing: 10){
-                                                        Text("Sun")
-                                                            .frame(width: 35)
-                                                        HStack {
-                                                            Image(systemName: "cloud.heavyrain.fill")
-                                                                .frame(width: 30,height: 30)
-                                                                .foregroundStyle(.gray)
-                                                            Text("Clody, great for a walk")
-                                                        }
-                                                    }
-                                                }
-                                                .onAppear{
-                                                    withAnimation {
-                                                        if isExpandedDays {
-                                                            if isExpandedTimes {
-                                                                frameHeight = 1500
-                                                            } else {
-                                                                frameHeight = 1300
+                                                    .onDisappear {
+                                                        withAnimation {
+                                                            if !isExpandedDays && !isExpandedTimes {
+                                                                frameHeight = 1100
+                                                            } else if !isExpandedDays && isExpandedTimes {
+                                                                frameHeight = 1100
                                                             }
                                                         }
                                                     }
                                                 }
-                                                .onDisappear {
-                                                    withAnimation {
-                                                        if !isExpandedDays && !isExpandedTimes {
-                                                            frameHeight = 1100
-                                                        } else if !isExpandedDays && isExpandedTimes {
-                                                            frameHeight = 1100
+                                            }
+                                            
+                                            Section(isExpanded: $isExpandedDays) {
+                                                ForEach(weather.dailyWeather) { day in
+                                                    if day.dailySummary.summary != "" {
+                                                        NavigationLink {
+                                                            // Detail View
+                                                            WeeklyWeatherView().navigationTitle("Weekly Forecast").navigationBarTitleDisplayMode(.inline)
+                                                        } label: {
+                                                            HStack(spacing: 10){
+                                                                Text(day.date.threeLetter())
+                                                                    .frame(width: 35)
+                                                                HStack {
+                                                                    Image(systemName: day.symbolName)
+                                                                        .frame(width: 30,height: 30)
+                                                                        .foregroundStyle(.orange, .gray)
+                                                                    Text("\(day.condition), \(day.dailySummary.summary.lowercased())")
+                                                                }
+                                                            }
+                                                        }
+                                                        .onAppear{
+                                                            withAnimation {
+                                                                if isExpandedDays {
+                                                                    if isExpandedTimes {
+                                                                        frameHeight = 1700
+                                                                    } else {
+                                                                        frameHeight = 1300
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                        .onDisappear {
+                                                            withAnimation {
+                                                                if !isExpandedDays && !isExpandedTimes {
+                                                                    frameHeight = 1100
+                                                                } else if !isExpandedDays && isExpandedTimes {
+                                                                    frameHeight = 1100
+                                                                }
+                                                            }
                                                         }
                                                     }
+                                                    
                                                 }
+//                                                .onAppear{
+//                                                    withAnimation {
+//                                                        if isExpandedDays {
+//                                                            if isExpandedTimes {
+//                                                                frameHeight = 1500
+//                                                            } else {
+//                                                                frameHeight = 1300
+//                                                            }
+//                                                        }
+//                                                    }
+//                                                }
+//                                                .onDisappear {
+//                                                    withAnimation {
+//                                                        if !isExpandedDays && !isExpandedTimes {
+//                                                            frameHeight = 1100
+//                                                        } else if !isExpandedDays && isExpandedTimes {
+//                                                            frameHeight = 1100
+//                                                        }
+//                                                    }
+//                                                }
                                             } header: {
                                                 Text("WEEKLY FORECAST")
                                                     .padding(.vertical, 16)
@@ -420,9 +379,10 @@ struct MainView: View {
                                     .offset(y:-300)
                                 }
                             } else if selection.id == "item-9" {
-                                InfoView()
+                                if let prepItems = weather.dailyWeather.first?.dailySummary.prepItems {
+                                InfoView(items: prepItems)
                                     .transition(.slide)
-                                    .onAppear{
+                                    .onAppear {
                                         withAnimation {
                                             isViewingTips.toggle()
                                         }
@@ -433,6 +393,7 @@ struct MainView: View {
                                         }
                                     }
                                     .offset(y: -340)
+                                }
                             }
                         }
                         .frame(height: frameHeight)
@@ -454,12 +415,12 @@ struct MainView: View {
             }
 //            .symbolRenderingMode(.multicolor)
                 
-            default:
-                Text("Loading")
-            }
+
         }
         .onAppear{
-            weather.weatherManager.fetch()
+            Task {
+                weather.weatherManager.fetch()
+            }
         }
         
     }

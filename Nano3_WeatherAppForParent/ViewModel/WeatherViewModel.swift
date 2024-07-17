@@ -11,7 +11,9 @@ import CoreLocation
 
 enum WeatherDataState {
     case notReady
-    case fetching
+    case fetchingWeather
+    case fetchedWeather
+    case fetchingGPT
     case ready
 }
 
@@ -66,10 +68,10 @@ class WeatherViewModel : WeatherManagerDelegate {
         // Save locationName in viewModel
         Task {
             // Print hourlyWeather condition descriptions
-            for hourlyWeather in hourlyWeather {
-                print(hourlyWeather.condition.description)
-            }
-            
+//            for hourlyWeather in hourlyWeather {
+//                print(hourlyWeather.condition.description)
+//            }
+//            
             for day in dailyWeather {
                 let (todaysDayWeather, todaysHourlyWeather) = weatherManager.filterPerDay(dailyWeather: dailyWeather, hourlyWeather: hourlyWeather, date: day.date)
                 
@@ -105,13 +107,18 @@ class WeatherViewModel : WeatherManagerDelegate {
    
     private func fetchDailySummary(encodedWeatherData: String, for date: Date) async {
                do {
-                   let dailySummary: DailySummary = try await apiClient.fetchDailySummary(dataStr: encodedWeatherData)
+                   var dailySummary: DailySummary = try await apiClient.fetchDailySummary(dataStr: encodedWeatherData)
                    
                    if let index = dailyWeather.firstIndex(where: { Calendar.current.isDate($0.date, inSameDayAs: date) }) {
+                       
+                       // Generate prep items
+                       dailySummary.prepItems = generatePrepItems(dayWeather: dailyWeather[index], hourlyWeather: dailyWeather[index].hourlyWeather)
+                       
                        dailyWeather[index].dailySummary = dailySummary
-                       print("Daily Summary for \(date): \(dailySummary)")
                        
                        dataState = WeatherDataState.ready
+                       
+                       print(dailyWeather[index])
                    }
                } catch {
                    print("Failed to fetch daily summary for \(date): \(error.localizedDescription)")
