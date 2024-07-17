@@ -11,7 +11,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "ClearStar.png",
+      "filename" : "stars.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -22,6 +22,7 @@
           "value" : "dark"
         }
       ],
+      "filename" : "stars 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

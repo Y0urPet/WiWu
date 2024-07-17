@@ -9,21 +9,33 @@ import Foundation
 import WeatherKit
 import CoreLocation
 
+enum WeatherDataState {
+    case notReady
+    case fetchingWeather
+    case fetchedWeather
+    case fetchingGPT
+    case ready
+}
+
 @Observable
 class WeatherViewModel : WeatherManagerDelegate {
+
     
     // TODO: Implement caching for current location
     
     var weatherManager = WeatherManager.shared
+    var locationManager = LocationManager.shared
     let apiClient = ApiClient.shared
     
-    var locationName: String?
+    var locationName: String = ""
     var location: CLLocation?
     
     var dailyWeather: [DayWeather] = []
     var hourlyWeather: [HourlyWeather] = []
     
     var dailySummaries: [DailySummary]?
+    
+    var dataState = WeatherDataState.notReady
     
     init() {
         weatherManager.delegate = self
@@ -33,21 +45,43 @@ class WeatherViewModel : WeatherManagerDelegate {
         self.dailyWeather = daily
         self.hourlyWeather = hourly
         
+        if let latestLocation = LocationManager.shared.latestLocation {
+            debugPrint("Latest location: \(latestLocation)")
+            
+            // Get the location name
+            LocationManager.shared.reverseGeocodeLocation(location: latestLocation) { locationName in
+                if let locationName = locationName {
+                    self.locationName = locationName
+                } else {
+                    print("Failed to retrieve the location name.")
+                }
+            }
+        } else {
+            print("Failed to retrieve the latest location.")
+        }
+        
         processWeatherData()
     }
 
     private func processWeatherData() {
-            Task {
-                for day in dailyWeather {
-                    let (todaysDayWeather, todaysHourlyWeather) = weatherManager.filterPerDay(dailyWeather: dailyWeather, hourlyWeather: hourlyWeather, date: day.date)
-                    
-                    if let todaysDayWeather = todaysDayWeather {
-                        let encodedWeatherData = weatherManager.encodeWeatherData(dailyWeather: todaysDayWeather, hourlyWeather: todaysHourlyWeather)
-                        await fetchDailySummary(encodedWeatherData: encodedWeatherData, for: day.date)
-                    }
+        
+        // Save locationName in viewModel
+        Task {
+            // Print hourlyWeather condition descriptions
+//            for hourlyWeather in hourlyWeather {
+//                print(hourlyWeather.condition.description)
+//            }
+//            
+            for day in dailyWeather {
+                let (todaysDayWeather, todaysHourlyWeather) = weatherManager.filterPerDay(dailyWeather: dailyWeather, hourlyWeather: hourlyWeather, date: day.date)
+                
+                if let todaysDayWeather = todaysDayWeather {
+                    let encodedWeatherData = weatherManager.encodeWeatherData(dailyWeather: todaysDayWeather, hourlyWeather: todaysHourlyWeather)
+                    await fetchDailySummary(encodedWeatherData: encodedWeatherData, for: day.date)
                 }
             }
         }
+    }
 //    private func processWeatherData() {
 //        Task {
 //            dailySummaries = []
@@ -73,11 +107,18 @@ class WeatherViewModel : WeatherManagerDelegate {
    
     private func fetchDailySummary(encodedWeatherData: String, for date: Date) async {
                do {
-                   let dailySummary: DailySummary = try await apiClient.fetchDailySummary(dataStr: encodedWeatherData)
+                   var dailySummary: DailySummary = try await apiClient.fetchDailySummary(dataStr: encodedWeatherData)
                    
                    if let index = dailyWeather.firstIndex(where: { Calendar.current.isDate($0.date, inSameDayAs: date) }) {
+                       
+                       // Generate prep items
+                       dailySummary.prepItems = generatePrepItems(dayWeather: dailyWeather[index], hourlyWeather: dailyWeather[index].hourlyWeather)
+                       
                        dailyWeather[index].dailySummary = dailySummary
-                       print("Daily Summary for \(date): \(dailySummary)")
+                       
+                       dataState = WeatherDataState.ready
+                       
+                       print(dailyWeather[index])
                    }
                } catch {
                    print("Failed to fetch daily summary for \(date): \(error.localizedDescription)")

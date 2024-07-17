@@ -64,13 +64,18 @@ struct DailyView: View {
                 .font(.subheadline)
                 .padding(.bottom, 5)
 
-            if let summary = day.dailySummary {
-                Text("Summary: \(summary.summary)")
+//            if let summary = day.dailySummary {
+//                Text("Summary: \(summary.summary)")
+//                    .font(.subheadline)
+//                    .padding(.bottom, 5)
+//            }
+            
+            
+            Text("Summary: \(day.dailySummary.summary)")
                     .font(.subheadline)
                     .padding(.bottom, 5)
-            }
 
-            ForEach(day.hourlyWeather ?? []) { hour in
+            ForEach(day.hourlyWeather) { hour in
                 hourlyWeatherView(for: hour)
             }
         }

@@ -77,6 +77,11 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "OPENAI_API_KEY"
+            value = "sk-svcacct-1VK1MNnSJMUQj5SaSCTPT3BlbkFJhhCXKS8SdDMmkie0drYP"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "OPENAI_API_KEY_2"
             value = "sk-nano3-weather-app-73ZauTL43n4tKWsK3EW9T3BlbkFJiOvhTR6rAIfJLRRw8V2M"
             isEnabled = "YES">
          </EnvironmentVariable>

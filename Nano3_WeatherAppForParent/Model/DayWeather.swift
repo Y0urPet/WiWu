@@ -22,8 +22,8 @@ struct DayWeather: Identifiable, Decodable, Encodable, Equatable {
     let moon: MoonEvents
     let uvIndex: UVIndex
     let wind: Wind
-    var hourlyWeather: [HourlyWeather]?
-    var dailySummary: DailySummary?
+    var hourlyWeather: [HourlyWeather] = []
+    var dailySummary: DailySummary
         
 }
 
@@ -56,4 +56,21 @@ struct Wind: Decodable , Encodable, Equatable{
     let direction: Double
     let speed: Double
     let gust: Double?
+}
+
+
+extension DayWeather: CustomStringConvertible {
+    var description: String {
+        return """
+        \n
+        day: \(date) \n
+        symbol: \(symbolName) \n
+        cond: \(condition) \n
+        sum: \(dailySummary.summary) \n
+        alt: \(dailySummary.summaryAlt) \n
+        best: \(dailySummary.bestTimes) \n
+        prio: \(dailySummary.scoreOutOfTen) \n
+        prepItems: \(dailySummary.prepItems) \n
+        """
+    }
 }

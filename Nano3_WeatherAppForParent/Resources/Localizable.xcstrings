@@ -10,46 +10,33 @@
     "%@" : {
 
     },
-    "01" : {
+    "%@ until %@ " : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ until %2$@ "
+          }
+        }
+      }
+    },
+    "%@, %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, %2$@"
+          }
+        }
+      }
+    },
+    "%lld" : {
 
     },
-    "02" : {
-
-    },
-    "03" : {
-
-    },
-    "04" : {
-
-    },
-    "05" : {
-
-    },
-    "06" : {
-
-    },
-    "07" : {
-
-    },
-    "08" : {
-
-    },
-    "09" : {
-
-    },
-    "10" : {
+    "0%lld" : {
 
     },
     "11" : {
-
-    },
-    "12" : {
-
-    },
-    "13" : {
-
-    },
-    "14" : {
 
     },
     "29°" : {
@@ -214,12 +201,6 @@
         }
       }
     },
-    "Clear Skies until 11" : {
-
-    },
-    "Clody, great for a walk" : {
-
-    },
     "Clothes" : {
       "localizations" : {
         "id" : {
@@ -242,7 +223,7 @@
         }
       }
     },
-    "DailyView" : {
+    "Condition: %@" : {
 
     },
     "Fri" : {
@@ -369,6 +350,9 @@
           }
         }
       }
+    },
+    "Refresh Weather" : {
+
     },
     "Sampora" : {
       "localizations" : {
@@ -518,6 +502,7 @@
         }
       }
     },
+
     "Thu" : {
       "localizations" : {
         "id" : {
@@ -527,6 +512,8 @@
           }
         }
       }
+    "Things to prepare %lld" : {
+
     },
     "Time: %@" : {
 
@@ -683,6 +670,7 @@
         }
       }
     },
+
     "Weather Forecast" : {
       "localizations" : {
         "id" : {

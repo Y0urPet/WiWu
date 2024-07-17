@@ -11,6 +11,7 @@
 		1ADB53802C3FD00A0011EE08 /* DayWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADB537F2C3FD00A0011EE08 /* DayWeather.swift */; };
 		1ADB53822C3FDC370011EE08 /* HourlyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADB53812C3FDC370011EE08 /* HourlyWeather.swift */; };
 		2B4D20272C460EAE00C90BB1 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		2B9595702C4657180050CCE3 /* ShimmeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B95956F2C4657180050CCE3 /* ShimmeringView.swift */; };
 		2BA3DCE42C3BA9820042C618 /* Nano3_WeatherAppForParentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA3DCE32C3BA9820042C618 /* Nano3_WeatherAppForParentApp.swift */; };
 		2BA3DCE62C3BA9820042C618 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA3DCE52C3BA9820042C618 /* ContentView.swift */; };
 		2BA3DCE82C3BA9840042C618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BA3DCE72C3BA9840042C618 /* Assets.xcassets */; };
@@ -29,40 +30,24 @@
 		A483144A2C3F7CCD00F3D1AB /* ApiClient+GptRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48314492C3F7CCD00F3D1AB /* ApiClient+GptRequest.swift */; };
 		A483144F2C40E63B00F3D1AB /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A483144E2C40E63B00F3D1AB /* WeatherViewModel.swift */; };
 		A48314522C40E80800F3D1AB /* WeatherManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48314512C40E80800F3D1AB /* WeatherManagerDelegate.swift */; };
-		A48314542C41036700F3D1AB /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48314532C41036700F3D1AB /* DailyView.swift */; };
+		A48314542C41036700F3D1AB /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48314532C41036700F3D1AB /* DebugView.swift */; };
 		A48314742C41204600F3D1AB /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48314732C41204600F3D1AB /* WeatherManager.swift */; };
 		A48314762C41255D00F3D1AB /* WeatherManager+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48314752C41255D00F3D1AB /* WeatherManager+Parsing.swift */; };
+		A49FBBF02C46557A00CC787F /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49FBBEF2C46557A00CC787F /* Extension+Date.swift */; };
+		A4C329DC2C4758D6004207C9 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C329DB2C4758D6004207C9 /* Utils.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		2BA3DCF12C3BA9840042C618 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2BA3DCD82C3BA9820042C618 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2BA3DCDF2C3BA9820042C618;
-			remoteInfo = Nano3_WeatherAppForParent;
-		};
-		2BA3DCFB2C3BA9840042C618 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2BA3DCD82C3BA9820042C618 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2BA3DCDF2C3BA9820042C618;
-			remoteInfo = Nano3_WeatherAppForParent;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1ADB53762C3F5AAE0011EE08 /* Nano3-WeatherAppForParent-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Nano3-WeatherAppForParent-Info.plist"; sourceTree = SOURCE_ROOT; };
 		1ADB537B2C3F8DC10011EE08 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1ADB537F2C3FD00A0011EE08 /* DayWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWeather.swift; sourceTree = "<group>"; };
 		1ADB53812C3FDC370011EE08 /* HourlyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeather.swift; sourceTree = "<group>"; };
+		2B95956F2C4657180050CCE3 /* ShimmeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringView.swift; sourceTree = "<group>"; };
 		2BA3DCE02C3BA9820042C618 /* Nano3_WeatherAppForParent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nano3_WeatherAppForParent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA3DCE32C3BA9820042C618 /* Nano3_WeatherAppForParentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano3_WeatherAppForParentApp.swift; sourceTree = "<group>"; };
 		2BA3DCE52C3BA9820042C618 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2BA3DCE72C3BA9840042C618 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BA3DCEA2C3BA9840042C618 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		2BA3DCF02C3BA9840042C618 /* Nano3_WeatherAppForParentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Nano3_WeatherAppForParentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2BA3DCFA2C3BA9840042C618 /* Nano3_WeatherAppForParentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Nano3_WeatherAppForParentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA3DD0E2C42999D0042C618 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2BA3DD122C42C8630042C618 /* WeeklyWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyWeatherView.swift; sourceTree = "<group>"; };
 		A406000E2C41961200A891EE /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
@@ -78,27 +63,15 @@
 		A48314492C3F7CCD00F3D1AB /* ApiClient+GptRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApiClient+GptRequest.swift"; sourceTree = "<group>"; };
 		A483144E2C40E63B00F3D1AB /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		A48314512C40E80800F3D1AB /* WeatherManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManagerDelegate.swift; sourceTree = "<group>"; };
-		A48314532C41036700F3D1AB /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
+		A48314532C41036700F3D1AB /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
 		A48314732C41204600F3D1AB /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		A48314752C41255D00F3D1AB /* WeatherManager+Parsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherManager+Parsing.swift"; sourceTree = "<group>"; };
+		A49FBBEF2C46557A00CC787F /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
+		A4C329DB2C4758D6004207C9 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2BA3DCDD2C3BA9820042C618 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2BA3DCED2C3BA9840042C618 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2BA3DCF72C3BA9840042C618 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -120,8 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				2BA3DCE02C3BA9820042C618 /* Nano3_WeatherAppForParent.app */,
-				2BA3DCF02C3BA9840042C618 /* Nano3_WeatherAppForParentTests.xctest */,
-				2BA3DCFA2C3BA9840042C618 /* Nano3_WeatherAppForParentUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,6 +102,7 @@
 			children = (
 				1ADB53762C3F5AAE0011EE08 /* Nano3-WeatherAppForParent-Info.plist */,
 				2BA3DCE32C3BA9820042C618 /* Nano3_WeatherAppForParentApp.swift */,
+				A49FBBEE2C46556700CC787F /* Extensions */,
 				A45A068A2C3CD9BC00797DE2 /* View */,
 				A45A06892C3CD9B500797DE2 /* ViewModel */,
 				A45A06882C3CD9B000797DE2 /* Model */,
@@ -184,8 +156,9 @@
 				2BA3DCE52C3BA9820042C618 /* ContentView.swift */,
 				2BA3DD0E2C42999D0042C618 /* MainView.swift */,
 				2BA3DD122C42C8630042C618 /* WeeklyWeatherView.swift */,
-				A48314532C41036700F3D1AB /* DailyView.swift */,
 				A41A35A02C46168700AFF499 /* InfoView.swift */,
+				2B95956F2C4657180050CCE3 /* ShimmeringView.swift */,
+				A48314532C41036700F3D1AB /* DebugView.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -231,6 +204,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		A49FBBEE2C46556700CC787F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A49FBBEF2C46557A00CC787F /* Extension+Date.swift */,
+				A4C329DB2C4758D6004207C9 /* Utils.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -251,42 +233,6 @@
 			productReference = 2BA3DCE02C3BA9820042C618 /* Nano3_WeatherAppForParent.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2BA3DCEF2C3BA9840042C618 /* Nano3_WeatherAppForParentTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2BA3DD072C3BA9840042C618 /* Build configuration list for PBXNativeTarget "Nano3_WeatherAppForParentTests" */;
-			buildPhases = (
-				2BA3DCEC2C3BA9840042C618 /* Sources */,
-				2BA3DCED2C3BA9840042C618 /* Frameworks */,
-				2BA3DCEE2C3BA9840042C618 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2BA3DCF22C3BA9840042C618 /* PBXTargetDependency */,
-			);
-			name = Nano3_WeatherAppForParentTests;
-			productName = Nano3_WeatherAppForParentTests;
-			productReference = 2BA3DCF02C3BA9840042C618 /* Nano3_WeatherAppForParentTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		2BA3DCF92C3BA9840042C618 /* Nano3_WeatherAppForParentUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2BA3DD0A2C3BA9840042C618 /* Build configuration list for PBXNativeTarget "Nano3_WeatherAppForParentUITests" */;
-			buildPhases = (
-				2BA3DCF62C3BA9840042C618 /* Sources */,
-				2BA3DCF72C3BA9840042C618 /* Frameworks */,
-				2BA3DCF82C3BA9840042C618 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2BA3DCFC2C3BA9840042C618 /* PBXTargetDependency */,
-			);
-			name = Nano3_WeatherAppForParentUITests;
-			productName = Nano3_WeatherAppForParentUITests;
-			productReference = 2BA3DCFA2C3BA9840042C618 /* Nano3_WeatherAppForParentUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -299,14 +245,6 @@
 				TargetAttributes = {
 					2BA3DCDF2C3BA9820042C618 = {
 						CreatedOnToolsVersion = 15.4;
-					};
-					2BA3DCEF2C3BA9840042C618 = {
-						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 2BA3DCDF2C3BA9820042C618;
-					};
-					2BA3DCF92C3BA9840042C618 = {
-						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 2BA3DCDF2C3BA9820042C618;
 					};
 				};
 			};
@@ -326,8 +264,6 @@
 			projectRoot = "";
 			targets = (
 				2BA3DCDF2C3BA9820042C618 /* Nano3_WeatherAppForParent */,
-				2BA3DCEF2C3BA9840042C618 /* Nano3_WeatherAppForParentTests */,
-				2BA3DCF92C3BA9840042C618 /* Nano3_WeatherAppForParentUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -343,20 +279,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2BA3DCEE2C3BA9840042C618 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2BA3DCF82C3BA9840042C618 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -368,9 +290,11 @@
 				2BA3DD0F2C42999D0042C618 /* MainView.swift in Sources */,
 				A41A35A32C46168F00AFF499 /* WeatherAnimation.swift in Sources */,
 				A483144F2C40E63B00F3D1AB /* WeatherViewModel.swift in Sources */,
+				A49FBBF02C46557A00CC787F /* Extension+Date.swift in Sources */,
+				A4C329DC2C4758D6004207C9 /* Utils.swift in Sources */,
 				A45A06942C3E29B300797DE2 /* CardView.swift in Sources */,
 				1ADB53822C3FDC370011EE08 /* HourlyWeather.swift in Sources */,
-				A48314542C41036700F3D1AB /* DailyView.swift in Sources */,
+				A48314542C41036700F3D1AB /* DebugView.swift in Sources */,
 				A406000F2C41961200A891EE /* LocationViewModel.swift in Sources */,
 				A48314522C40E80800F3D1AB /* WeatherManagerDelegate.swift in Sources */,
 				A41A35A12C46168700AFF499 /* InfoView.swift in Sources */,
@@ -382,6 +306,7 @@
 				2BA3DD132C42C8630042C618 /* WeeklyWeatherView.swift in Sources */,
 				1ADB53802C3FD00A0011EE08 /* DayWeather.swift in Sources */,
 				A40600172C44A87E00A891EE /* PrepItem.swift in Sources */,
+				2B9595702C4657180050CCE3 /* ShimmeringView.swift in Sources */,
 				A40600112C41962700A891EE /* Location.swift in Sources */,
 				A45A069B2C3E2B8800797DE2 /* ApiClient.swift in Sources */,
 				1ADB537C2C3F8DC10011EE08 /* LocationManager.swift in Sources */,
@@ -389,34 +314,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2BA3DCEC2C3BA9840042C618 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2BA3DCF62C3BA9840042C618 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		2BA3DCF22C3BA9840042C618 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2BA3DCDF2C3BA9820042C618 /* Nano3_WeatherAppForParent */;
-			targetProxy = 2BA3DCF12C3BA9840042C618 /* PBXContainerItemProxy */;
-		};
-		2BA3DCFC2C3BA9840042C618 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2BA3DCDF2C3BA9820042C618 /* Nano3_WeatherAppForParent */;
-			targetProxy = 2BA3DCFB2C3BA9840042C618 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2BA3DD022C3BA9840042C618 /* Debug */ = {
@@ -544,10 +442,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Nano3_WeatherAppForParent/Resources/Nano3_WeatherAppForParent.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "Nano3_WeatherAppForParent/Resources/Preview\\ Content";
-				DEVELOPMENT_TEAM = 3G6F9PLS9D;
+				DEVELOPMENT_TEAM = N2K3R4X37B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Nano3-WeatherAppForParent-Info.plist";
@@ -564,8 +463,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rama-WeatherAppForParent";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.althafnafianwar.nano-3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -578,10 +478,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Nano3_WeatherAppForParent/Resources/Nano3_WeatherAppForParent.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "Nano3_WeatherAppForParent/Resources/Preview\\ Content";
-				DEVELOPMENT_TEAM = 3G6F9PLS9D;
+				DEVELOPMENT_TEAM = N2K3R4X37B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Nano3-WeatherAppForParent-Info.plist";
@@ -598,87 +499,12 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rama-WeatherAppForParent";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.althafnafianwar.nano-3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		2BA3DD082C3BA9840042C618 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N2K3R4X37B;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yourpet.Nano3-WeatherAppForParentTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nano3_WeatherAppForParent.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Nano3_WeatherAppForParent";
-			};
-			name = Debug;
-		};
-		2BA3DD092C3BA9840042C618 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N2K3R4X37B;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yourpet.Nano3-WeatherAppForParentTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nano3_WeatherAppForParent.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Nano3_WeatherAppForParent";
-			};
-			name = Release;
-		};
-		2BA3DD0B2C3BA9840042C618 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N2K3R4X37B;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yourpet.Nano3-WeatherAppForParentUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Nano3_WeatherAppForParent;
-			};
-			name = Debug;
-		};
-		2BA3DD0C2C3BA9840042C618 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N2K3R4X37B;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yourpet.Nano3-WeatherAppForParentUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Nano3_WeatherAppForParent;
 			};
 			name = Release;
 		};
@@ -699,24 +525,6 @@
 			buildConfigurations = (
 				2BA3DD052C3BA9840042C618 /* Debug */,
 				2BA3DD062C3BA9840042C618 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2BA3DD072C3BA9840042C618 /* Build configuration list for PBXNativeTarget "Nano3_WeatherAppForParentTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2BA3DD082C3BA9840042C618 /* Debug */,
-				2BA3DD092C3BA9840042C618 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2BA3DD0A2C3BA9840042C618 /* Build configuration list for PBXNativeTarget "Nano3_WeatherAppForParentUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2BA3DD0B2C3BA9840042C618 /* Debug */,
-				2BA3DD0C2C3BA9840042C618 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

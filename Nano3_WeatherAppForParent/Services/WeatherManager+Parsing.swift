@@ -87,7 +87,7 @@ extension WeatherManager {
             return DayWeather(
                 date: weatherKitDayWeather.date,
                 condition: weatherConditionToString(weatherKitDayWeather.condition),
-                symbolName: weatherKitDayWeather.symbolName,
+                symbolName: "\(weatherKitDayWeather.symbolName).fill",
                 highTemperature: temperatureToDouble(weatherKitDayWeather.highTemperature),
                 lowTemperature: temperatureToDouble(weatherKitDayWeather.lowTemperature),
                 precipitation: precipitationToString(weatherKitDayWeather.precipitation),
@@ -121,7 +121,8 @@ extension WeatherManager {
                     speed: weatherKitDayWeather.wind.speed.value,
                     gust: weatherKitDayWeather.wind.gust?.value
                 ),
-                hourlyWeather: todaysHourlyWeather
+                hourlyWeather: todaysHourlyWeather,
+                dailySummary: DailySummary()
             )
         }
     }
@@ -133,7 +134,7 @@ extension WeatherManager {
 //                   cloudCoverLow: 0,
 //                   cloudCoverMid: 0,
 //                   cloudCoverHigh: 0,
-                   condition: weatherConditionToString(weatherKitHourWeather.condition),
+                   condition: weatherKitHourWeather.condition.description,
                    symbolName: weatherKitHourWeather.symbolName,
                    dewPoint: temperatureToDouble(weatherKitHourWeather.dewPoint),
                    humidity: weatherKitHourWeather.humidity,
