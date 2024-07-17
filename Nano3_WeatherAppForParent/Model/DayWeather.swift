@@ -57,3 +57,20 @@ struct Wind: Decodable , Encodable, Equatable{
     let speed: Double
     let gust: Double?
 }
+
+
+extension DayWeather: CustomStringConvertible {
+    var description: String {
+        return """
+        \n
+        day: \(date) \n
+        symbol: \(symbolName) \n
+        cond: \(condition) \n
+        sum: \(dailySummary.summary) \n
+        alt: \(dailySummary.summaryAlt) \n
+        best: \(dailySummary.bestTimes) \n
+        prio: \(dailySummary.scoreOutOfTen) \n
+        prepItems: \(dailySummary.prepItems) \n
+        """
+    }
+}

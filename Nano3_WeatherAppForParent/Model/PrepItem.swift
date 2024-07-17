@@ -14,7 +14,7 @@ enum PrepCategory: String, Codable {
     case items
 }
 
-struct PrepItem: Identifiable, Codable,Equatable {
+struct PrepItem: Identifiable, Codable,Equatable, Hashable {
     var id = UUID()
     var title: String
     var category: PrepCategory
