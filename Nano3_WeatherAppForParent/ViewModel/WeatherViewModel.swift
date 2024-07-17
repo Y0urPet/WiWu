@@ -64,6 +64,7 @@ class WeatherViewModel : WeatherManagerDelegate {
     }
 
     private func processWeatherData() {
+        dataState = .notReady
         
         // Save locationName in viewModel
         Task {
@@ -80,30 +81,11 @@ class WeatherViewModel : WeatherManagerDelegate {
                     await fetchDailySummary(encodedWeatherData: encodedWeatherData, for: day.date)
                 }
             }
+            
+            dataState = .ready
         }
     }
-//    private func processWeatherData() {
-//        Task {
-//            dailySummaries = []
-//            for day in dailyWeather {
-//                
-//                // Fetch todays weather in a list of weaather data
-//                let (todaysDayWeather, todaysHourlyWeather) = weatherManager.filterPerDay(dailyWeather: dailyWeather, hourlyWeather: hourlyWeather, date: day.date)
-//                
-//                if let todaysDayWeather = todaysDayWeather {
-//                    let encodedWeatherData = weatherManager.encodeWeatherData(dailyWeather: todaysDayWeather, hourlyWeather: todaysHourlyWeather)
-//                    if var dailySummary = await fetchDailySummary(encodedWeatherData: encodedWeatherData, for: day.date) {
-//                        
-//                        // Generate prep items
-//                        dailySummary.prepItems =  generatePrepItems(dayWeather: todaysDayWeather, hourlyWeather: todaysHourlyWeather)
-//                        
-//                        // Append to dailySummaries array
-//                        dailySummaries?.append(dailySummary)
-//                    }
-//                }
-//            }
-//        }
-//    }
+
    
     private func fetchDailySummary(encodedWeatherData: String, for date: Date) async {
                do {
@@ -112,13 +94,12 @@ class WeatherViewModel : WeatherManagerDelegate {
                    if let index = dailyWeather.firstIndex(where: { Calendar.current.isDate($0.date, inSameDayAs: date) }) {
                        
                        // Generate prep items
-                       dailySummary.prepItems = generatePrepItems(dayWeather: dailyWeather[index], hourlyWeather: dailyWeather[index].hourlyWeather)
+                       dailySummary.prepItems = generatePrepItems(for: dailyWeather[index].hourlyWeather)
+
                        
                        dailyWeather[index].dailySummary = dailySummary
                        
-                       dataState = WeatherDataState.ready
-                       
-                       print(dailyWeather[index])
+                       print(dailyWeather[index].dailySummary.prepItems)
                    }
                } catch {
                    print("Failed to fetch daily summary for \(date): \(error.localizedDescription)")
@@ -136,34 +117,4 @@ class WeatherViewModel : WeatherManagerDelegate {
 //        }
 //    }
     
-    func generatePrepItems(dayWeather: DayWeather, hourlyWeather: [HourlyWeather]) -> [PrepItem] {
-        var prepItems = [PrepItem]()
-        
-        for weather in hourlyWeather {
-            if weather.uvIndex.value > 5 {
-                prepItems.append(PrepItemPresets.items.first { $0.title == String(localized: "Bring sunscreen") }!)
-                prepItems.append(PrepItemPresets.items.first { $0.title == String(localized: "Bring a hat") }!)
-                prepItems.append(PrepItemPresets.items.first { $0.title == String(localized: "Bring sunglasses") }!)
-            }
-            
-            if weather.temperature > 25 {
-                prepItems.append(PrepItemPresets.items.first { $0.title == String(localized: "Bring a water bottle") }!)
-                prepItems.append(PrepItemPresets.items.first { $0.title == String(localized: "Bring a portable fan") }!)
-            }
-            
-            if weather.precipitationChance > 0.5 {
-                prepItems.append(PrepItemPresets.items.first { $0.title == String(localized: "Bring an umbrella") }!)
-                prepItems.append(PrepItemPresets.items.first { $0.title == String(localized: "Bring a raincoat") }!)
-            }
-            
-            if weather.temperature < 5 {
-                prepItems.append(PrepItemPresets.items.first { $0.title == String(localized: "Bring gloves") }!)
-                prepItems.append(PrepItemPresets.items.first { $0.title == String(localized: "Bring a scarf") }!)
-            }
-            
-            prepItems.append(contentsOf: PrepItemPresets.clothes)
-        }
-        
-        return prepItems
-    }
 }

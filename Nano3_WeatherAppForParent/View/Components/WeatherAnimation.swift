@@ -11,13 +11,7 @@ struct WeatherAnimation: View {
     let totalDuration = 1.0
     let isViewingTips: Bool
     let todaysWeather: String
-    let isNight: Bool
-    
-    init(isViewingTips: Bool, todaysWeather: String, isNight: Bool) {
-        self.isViewingTips = isViewingTips
-        self.todaysWeather = todaysWeather
-        self.isNight = isNight
-    }
+    @Binding var isNight: Bool
     
     var body: some View {
         if isNight {
