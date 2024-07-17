@@ -7,9 +7,10 @@
 import Foundation
 
 
-struct BestTime: Decodable, Encodable, Equatable {
+struct BestTime: Decodable, Encodable, Equatable, Identifiable {
     let startTime: Date
     let endTime: Date
+    var id: UUID = UUID() // Unique identifier
     
     enum CodingKeys: String, CodingKey {
         case startTime = "start_time"
@@ -39,7 +40,7 @@ struct BestTime: Decodable, Encodable, Equatable {
 }
 
 
-struct DailySummary:  Decodable, Encodable, Equatable {
+struct DailySummary:  Decodable, Encodable, Equatable, Identifiable{
     static func == (lhs: DailySummary, rhs: DailySummary) -> Bool {
         return lhs.scoreOutOfTen == rhs.scoreOutOfTen &&
             lhs.bestTimes == rhs.bestTimes &&
@@ -47,7 +48,7 @@ struct DailySummary:  Decodable, Encodable, Equatable {
             lhs.summaryAlt == rhs.summaryAlt &&
             lhs.prepItems == rhs.prepItems
     }
-
+    var id: UUID = UUID() // Unique identifier
     var scoreOutOfTen: Int = 0
     var bestTimes: [BestTime] = []
     var summary: String = ""
