@@ -27,8 +27,8 @@ struct MainView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                if weather.dataState == .ready {
-                    WeatherAnimation(isViewingTips: isViewingTips, todaysWeather: todaysWeather)
+                if isReady {
+                    WeatherAnimation(isViewingTips: isViewingTips, todaysWeather: todaysWeather, isNight: true)
                 } else {
                     ShimmerView()
                         .clipShape(Circle())

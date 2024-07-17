@@ -446,7 +446,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "Nano3_WeatherAppForParent/Resources/Preview\\ Content";
-				DEVELOPMENT_TEAM = YTWBVW7W5F;
+				DEVELOPMENT_TEAM = N2K3R4X37B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Nano3-WeatherAppForParent-Info.plist";
@@ -482,7 +482,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "Nano3_WeatherAppForParent/Resources/Preview\\ Content";
-				DEVELOPMENT_TEAM = YTWBVW7W5F;
+				DEVELOPMENT_TEAM = N2K3R4X37B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Nano3-WeatherAppForParent-Info.plist";
