@@ -40,7 +40,9 @@ class WeatherViewModel : WeatherManagerDelegate {
     init() {
         weatherManager.delegate = self
     }
-    
+    func getDailyWeather(by id: UUID) -> DayWeather? {
+          return (dailyWeather.first { $0.id == id })
+      }
     func getWeather(daily: [DayWeather], hourly: [HourlyWeather]) {
         self.dailyWeather = daily
         self.hourlyWeather = hourly

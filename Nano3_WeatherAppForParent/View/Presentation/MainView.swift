@@ -226,7 +226,7 @@ struct MainView: View {
                                                 if day.dailySummary.summary != "" {
                                                     NavigationLink {
                                                         // Detail View
-                                                        WeeklyWeatherView().navigationTitle("Weekly Forecast").navigationBarTitleDisplayMode(.inline)
+                                                        WeeklyWeatherView(date: day.date,weather: weather, todayData: day).navigationTitle("Weekly Forecast").navigationBarTitleDisplayMode(.inline)
                                                     } label: {
                                                         HStack(spacing: 10){
                                                             Text(day.date.threeLetter())
@@ -267,7 +267,7 @@ struct MainView: View {
                                                     if day.dailySummary.summary != "" {
                                                         NavigationLink {
                                                             // Detail View
-                                                            WeeklyWeatherView().navigationTitle("Weekly Forecast").navigationBarTitleDisplayMode(.inline)
+                                                            WeeklyWeatherView(date: day.date,weather: weather, todayData: day).navigationTitle("Weekly Forecast").navigationBarTitleDisplayMode(.inline)
                                                         } label: {
                                                             HStack(spacing: 10){
                                                                 Text(day.date.threeLetter())

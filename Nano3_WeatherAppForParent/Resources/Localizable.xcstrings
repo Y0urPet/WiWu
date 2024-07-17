@@ -4,7 +4,7 @@
     "" : {
 
     },
-    " - 11" : {
+    " - %@" : {
 
     },
     "%@" : {
@@ -29,21 +29,6 @@
           }
         }
       }
-    },
-    "%lld" : {
-
-    },
-    "0%lld" : {
-
-    },
-    "11" : {
-
-    },
-    "29°" : {
-
-    },
-    "AM" : {
-
     },
     "Back" : {
       "comment" : "tombol back",
@@ -241,7 +226,7 @@
         }
       }
     },
-    "from 9" : {
+    "from %@" : {
 
     },
     "Heavy rain, stay indoors" : {
@@ -288,6 +273,7 @@
       }
     },
     "Now" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -321,6 +307,7 @@
       }
     },
     "Perfect to go out" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -377,9 +364,6 @@
           }
         }
       }
-    },
-    "Saturday, 13 July 2024" : {
-
     },
     "Scorching, stay indoors" : {
       "comment" : "Weekly details main page",
