@@ -62,14 +62,14 @@ func getDummyPrepItems() -> [PrepItem] {
     var prepItems = [PrepItem]()
     
     prepItems.append(contentsOf: [
-        PrepItemPresets.items.first { $0.title == "Bring an umbrella" }!,
-        PrepItemPresets.items.first { $0.title == "Bring a raincoat" }!,
-        PrepItemPresets.clothes.first { $0.title == "Rainproof hat" }!
+        PrepItemPresets.items.first { $0.title == String(localized: "Bring an umbrella") }!,
+        PrepItemPresets.items.first { $0.title == String(localized: "Bring a raincoat") }!,
+        PrepItemPresets.clothes.first { $0.title == String(localized: "Rainproof hat") }!
     ])
     
     prepItems.append(contentsOf: [
-        PrepItemPresets.items.first { $0.title == "Bring snacks" }!,
-        PrepItemPresets.items.first { $0.title == "Bring MORE snacks" }!,
+        PrepItemPresets.items.first { $0.title == String(localized: "Bring snacks") }!,
+        PrepItemPresets.items.first { $0.title == String(localized: "Bring MORE snacks") }!,
     ])
     
     
@@ -116,55 +116,55 @@ func generatePrepItems(for weatherData: [HourlyWeather]) -> [PrepItem] {
 
     if isRainy {
         prepItems.append(contentsOf: [
-            PrepItemPresets.items.first { $0.title == "Bring an umbrella" }!,
-            PrepItemPresets.items.first { $0.title == "Bring a raincoat" }!,
-            PrepItemPresets.clothes.first { $0.title == "Rainproof hat" }!
+            PrepItemPresets.items.first { $0.title == String(localized: "Bring an umbrella") }!,
+            PrepItemPresets.items.first { $0.title == String(localized: "Bring a raincoat") }!,
+            PrepItemPresets.clothes.first { $0.title == String(localized: "Rainproof hat") }!
         ])
     }
 
     if isSunny {
         prepItems.append(contentsOf: [
-            PrepItemPresets.items.first { $0.title == "Bring sunglasses" }!,
-            PrepItemPresets.items.first { $0.title == "Bring a hat" }!,
-            PrepItemPresets.items.first { $0.title == "Bring a water bottle" }!,
-            PrepItemPresets.items.first { $0.title == "Bring a portable fan" }!
+            PrepItemPresets.items.first { $0.title == String(localized: "Bring sunglasses") }!,
+            PrepItemPresets.items.first { $0.title == String(localized: "Bring a hat") }!,
+            PrepItemPresets.items.first { $0.title == String(localized: "Bring a water bottle") }!,
+            PrepItemPresets.items.first { $0.title == String(localized: "Bring a portable fan") }!
         ])
     }
 
     if highUVIndex {
         prepItems.append(contentsOf: [
-            PrepItemPresets.items.first { $0.title == "Bring sunscreen" }!,
-            PrepItemPresets.items.first { $0.title == "Bring toddler safe sunscreen" }!
+            PrepItemPresets.items.first { $0.title == String(localized: "Bring sunscreen") }!,
+            PrepItemPresets.items.first { $0.title == String(localized: "Bring toddler safe sunscreen") }!
         ])
     }
 
     if isWindy {
         prepItems.append(contentsOf: [
-            PrepItemPresets.items.first { $0.title == "Bring gloves" }!,
-            PrepItemPresets.items.first { $0.title == "Bring a scarf" }!
+            PrepItemPresets.items.first { $0.title == String(localized: "Bring gloves") }!,
+            PrepItemPresets.items.first { $0.title == String(localized: "Bring a scarf") }!
         ])
     }
 
     if isCold {
         prepItems.append(contentsOf: [
-            PrepItemPresets.clothes.first { $0.title == "Warm winter coat" }!,
-            PrepItemPresets.clothes.first { $0.title == "Thermal underwear" }!,
-            PrepItemPresets.clothes.first { $0.title == "Wool socks" }!,
-            PrepItemPresets.items.first { $0.title == "Bring a blanket" }!
+            PrepItemPresets.clothes.first { $0.title == String(localized: "Warm winter coat") }!,
+            PrepItemPresets.clothes.first { $0.title == String(localized: "Thermal underwear") }!,
+            PrepItemPresets.clothes.first { $0.title == String(localized: "Wool socks") }!,
+            PrepItemPresets.items.first { $0.title == String(localized: "Bring a blanket") }!
         ])
     }
 
     if isHot {
         prepItems.append(contentsOf: [
-            PrepItemPresets.clothes.first { $0.title == "Short sleeved cotton or linen shirt" }!,
-            PrepItemPresets.clothes.first { $0.title == "Thigh to knee length pants" }!,
-            PrepItemPresets.clothes.first { $0.title == "Thick soled shoes or sandals" }!
+            PrepItemPresets.clothes.first { $0.title == String(localized: "Short sleeved cotton or linen shirt") }!,
+            PrepItemPresets.clothes.first { $0.title == String(localized: "Thigh to knee length pants") }!,
+            PrepItemPresets.clothes.first { $0.title == String(localized: "Thick soled shoes or sandals") }!
         ])
     }
 
     // General items for all conditions
     prepItems.append(contentsOf: [
-        PrepItemPresets.items.first { $0.title == "Bring snacks" }!,
+        PrepItemPresets.items.first { $0.title == String(localized: "Bring snacks") }!,
     ])
 
     return getDummyPrepItems()

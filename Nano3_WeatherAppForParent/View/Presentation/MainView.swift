@@ -120,15 +120,17 @@ struct MainView: View {
                                             .frame(maxWidth: .infinity)
                                         }
                                         // TODO: Benerin ini sesuai sama best times
-                                        HStack(alignment: .bottom,spacing: 1) {
-                                            Text("\(weather.dailyWeather.first?.condition ?? "") until \(String( weather.dailyWeather.first?.date.getHourString()[0] ?? "")) ")
-                                                .font(.system(size: 24))
-                                                .fontWeight(.bold)
-                                                .foregroundStyle(.titleText)
-                                            Text(weather.dailyWeather.first?.date.getHourString()[1] ?? "")
-                                                .font(.system(size: 18))
-                                                .fontWeight(.semibold)
-                                                .foregroundStyle(.titleText)
+                                        if (weather.dailyWeather.first?.dailySummary.bestTimes != []) {
+                                            HStack(alignment: .bottom,spacing: 1) {
+                                                Text("\(weather.dailyWeather.first?.condition ?? "") \(String(localized: "until")) \(String( weather.dailyWeather.first?.date.getHourString()[0] ?? "")) ")
+                                                    .font(.system(size: 24))
+                                                    .fontWeight(.bold)
+                                                    .foregroundStyle(.titleText)
+                                                Text(weather.dailyWeather.first?.date.getHourString()[1] ?? "")
+                                                    .font(.system(size: 18))
+                                                    .fontWeight(.semibold)
+                                                    .foregroundStyle(.titleText)
+                                            }
                                         }
                                     }
                                     List {
@@ -137,36 +139,43 @@ struct MainView: View {
                                                 .foregroundStyle(.header)
                                                 .fontWeight(.bold)
                                                 .padding(.top, 10)
-                                            ForEach(weather.dailyWeather[0].dailySummary.bestTimes) { time in
-                                                HStack{
-                                                    VStack {
-                                                       
+                                            if (weather.dailyWeather.first?.dailySummary.bestTimes != []) {
+                                                ForEach(weather.dailyWeather[0].dailySummary.bestTimes) { time in
+                                                    HStack{
+                                                        VStack {
+                                                            
                                                             HStack(alignment:.bottom, spacing:0){
                                                                 Text("\(time.startTime.getHour())").fontWeight(.bold)
-//
+                                                                //
                                                             }
-                                                        
-                                                        Image(systemName: "sun.max.fill")
-                                                            .resizable()
-                                                            .frame(width: 30, height: 30)
-                                                            .foregroundStyle(.orange)
-                                                    }
-                                                    Image("arrowRight")
-                                                        .resizable()
-                                                        .scaledToFit()
-                                                        .frame(width: 200)
-                                                    VStack {
-                                                        HStack(alignment: .bottom, spacing: 0){
-                                                            Text("\(time.endTime.getHour())")
-                                                                    .fontWeight(.bold)
+                                                            
+                                                            Image(systemName: "sun.max.fill")
+                                                                .resizable()
+                                                                .frame(width: 30, height: 30)
+                                                                .foregroundStyle(.orange)
                                                         }
-                                                        Image(systemName: "sun.max.fill")
+                                                        Image("arrowRight")
                                                             .resizable()
-                                                            .frame(width: 30, height: 30)
-                                                            .foregroundStyle(.orange)
-                                                        
+                                                            .scaledToFit()
+                                                            .frame(width: 200)
+                                                        VStack {
+                                                            HStack(alignment: .bottom, spacing: 0){
+                                                                Text("\(time.endTime.getHour())")
+                                                                    .fontWeight(.bold)
+                                                            }
+                                                            Image(systemName: "sun.max.fill")
+                                                                .resizable()
+                                                                .frame(width: 30, height: 30)
+                                                                .foregroundStyle(.orange)
+                                                            
+                                                        }
                                                     }
                                                 }
+                                            } else {
+                                                HStack {
+                                                    Text("Not recommended to go out today")
+                                                }
+
                                             }
                                             Section(isExpanded: $isExpandedTimes) {
                                                 ScrollView(Axis.Set.horizontal) {

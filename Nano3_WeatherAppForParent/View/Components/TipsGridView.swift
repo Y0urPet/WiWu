@@ -36,8 +36,3 @@ struct TipsGridView: View {
     }
 }
 
-#Preview {
-    let items: [PrepItem] = getDummyPrepItems()
-    
-    return TipsGridView(filteredItems: items)
-}
