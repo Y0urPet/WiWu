@@ -41,13 +41,6 @@ struct MainView: View {
                         .clipShape(Circle())
                         .frame(width: 315)
                         .offset(y:-70)
-//                        .onAppear{
-//                            withAnimation {
-//                                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//                                    isReady = true
-//                                }
-//                            }
-//                        }
                 }
                 ScrollView {
                     ZStack {
