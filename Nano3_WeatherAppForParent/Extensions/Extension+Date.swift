@@ -16,7 +16,11 @@ extension Date {
         
         return dateFormatter.string(from: self)
     }
-    
+    func formattedDate() -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter.string(from: self)
+    }
     func getHourString() -> [String] {
         let languageCode = getCurrentLanguageCode()
         
@@ -38,4 +42,9 @@ extension Date {
         }
 
     }
+    func getHour() -> String {
+          let formatter = DateFormatter()
+          formatter.dateFormat = "HH" // 24-hour format
+          return formatter.string(from: self)
+      }
 }

@@ -20,6 +20,10 @@ struct DayWeatherView: View {
 }
 
 struct WeeklyWeatherView: View {
+    var date = Date()
+    let weather: WeatherViewModel
+    @State var selectedDay = UUID()
+    @State var todayData: DayWeather
     @State var selection = Item(id: "mon", name: "Mon", image: "sun.max.fill")
     let weekDay: [Item] = [
         Item(id: "mon", name: "Mon", image: "sun.max.fill"),
@@ -39,27 +43,49 @@ struct WeeklyWeatherView: View {
             ScrollView {
                 VStack(spacing: 10) {
                     ScrollView(Axis.Set.horizontal) {
-                        CustomPicker(items: weekDay, selection: $selection) { item in
-                            VStack(spacing:12) {
-                                Text("\(item.name)")
-                                    .fontWeight(.semibold)
-                                    .foregroundStyle(.iconNameDetail)
-                                if selection == item {
-                                    Image(systemName: "sun.max.fill")
-                                        .resizable()
-                                        .frame(width: 32,height: 32)
-                                    //                                    .foregroundStyle(.white)
-                                        .symbolRenderingMode(.palette)
-                                        .foregroundStyle(.orange, .gray)
-                                } else {
-                                    Image(systemName: "sun.max.fill")
-                                        .resizable()
-                                        .frame(width: 32,height: 32)
-                                        .foregroundStyle(.white)
+                        HStack{
+                        ForEach(weather.dailyWeather){ item in
+                                VStack(spacing:12) {
+                                    Text("\(item.date.threeLetter())")
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(.iconNameDetail)
+                                    if  item.condition == "Clear" {
+                                        Image(systemName: "sun.max.fill")
+                                            .resizable()
+                                            .frame(width: 32,height: 32)
+                                        //                                    .foregroundStyle(.white)
+                                            .symbolRenderingMode(.palette)
+                                            .foregroundStyle(.orange, .gray)
+                                    } else if item.condition == "Cloudy"{
+                                        Image(systemName: "cloud.fill")
+                                            .resizable()
+                                            .frame(width: 32,height: 32)
+                                            .foregroundStyle(.white)
+                                    }else if item.condition == "Partly Cloudy"{
+                                        Image(systemName: "cloud.sun.fill")
+                                            .resizable()
+                                            .frame(width: 32,height: 32)
+                                            .foregroundStyle(.white)
+                                    }else if item.condition == "Rain"{
+                                        Image(systemName: "cloud.heavyrain.fill")
+                                            .resizable()
+                                            .frame(width: 32,height: 32)
+                                            .foregroundStyle(.white)
+                                    }else{
+                                        Image(systemName: "icloud.slash")
+                                            .resizable()
+                                            .frame(width: 32,height: 32)
+                                            .foregroundStyle(.white)
+                                    }
                                 }
+                                .padding(12)
+                                .onTapGesture {
+                                    selectedDay = item.id
+                                    todayData = weather.getDailyWeather(by: selectedDay) ?? todayData
+                                    print("rama = \(todayData)")
+                                }
+                                //                            .padding(.bottom, 10)
                             }
-                            .padding(12)
-                            //                            .padding(.bottom, 10)
                         }
                     }
                     .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -72,25 +98,25 @@ struct WeeklyWeatherView: View {
                             .frame(width: 95,height: 95)
                             .foregroundStyle(.orange)
                         VStack(alignment: .leading, spacing: 10){
-                            Text("Saturday, 13 July 2024")
+                            Text("\(todayData.date.formattedDate())")
                                 .font(.system(size: 20))
                             VStack(alignment: .leading, spacing: 1){
-                                Text("Perfect to go out")
+                                Text(todayData.dailySummary.summary)
                                     .font(.system(size: 25))
                                     .fontWeight(.bold)
                                 HStack(alignment: .bottom, spacing: 1){
-                                    Text("from 9")
+                                    Text("from \(todayData.dailySummary.bestTimes[0].startTime.getHour())")
                                         .font(.system(size: 25))
                                         .fontWeight(.bold)
-                                    Text("AM")
-                                        .font(.system(size: 20))
-                                        .fontWeight(.semibold)
-                                    Text(" - 11")
+//                                    Text("AM")
+//                                        .font(.system(size: 20))
+//                                        .fontWeight(.semibold)
+                                    Text(" - \(todayData.dailySummary.bestTimes[0].endTime.getHour())")
                                         .font(.system(size: 25))
                                         .fontWeight(.bold)
-                                    Text("AM")
-                                        .font(.system(size: 20))
-                                        .fontWeight(.semibold)
+//                                    Text("AM")
+//                                        .font(.system(size: 20))
+//                                        .fontWeight(.semibold)
                                 }
                             }
                         }
@@ -107,7 +133,7 @@ struct WeeklyWeatherView: View {
                             ForEach(0..<1) { index in
                                 HStack(spacing: 16){
                                     VStack {
-                                        Text("Now")
+                                        Text("\(todayData.dailySummary.bestTimes[0].startTime.getHour())")
                                             .fontWeight(.bold)
                                         Image(systemName: "sun.max.fill")
                                             .resizable()
@@ -120,8 +146,8 @@ struct WeeklyWeatherView: View {
                                         .frame(width: 200)
                                     VStack {
                                         HStack(alignment: .bottom, spacing: 0){
-                                            Text("11").fontWeight(.bold)
-                                            Text("AM").font(.system(size: 12))
+                                            Text("\(todayData.dailySummary.bestTimes[0].endTime.getHour())").fontWeight(.bold)
+//                                            Text("AM").font(.system(size: 12))
                                         }
                                         Image(systemName: "sun.max.fill")
                                             .resizable()
@@ -133,22 +159,37 @@ struct WeeklyWeatherView: View {
                             Section(isExpanded: $isExpandedTimes) {
                                 ScrollView(Axis.Set.horizontal) {
                                     HStack(spacing: 16){
-                                        ForEach(0..<24) { index in
+                                        ForEach(todayData.hourlyWeather) { hour in
                                             VStack {
-                                                if index < 10 {
-                                                    Text("0\(index)")
+//
+                                                Text("\(hour.date.getHour())")
                                                         .fontWeight(.bold)
-                                                } else {
-                                                    Text("\(index)")
-                                                        .fontWeight(.bold)
-                                                }
+//
                                                 Image(systemName: "sun.max.fill")
                                                     .resizable()
                                                     .frame(width: 30, height: 30)
-                                                Text("29°")
+                                                    .foregroundStyle(.orange)
+                                                Text("\(hour.temperature.formattedTemperature())")
                                                     .fontWeight(.bold)
                                             }
                                         }
+                                      
+//                                        ForEach(0..<24) { index in
+//                                            VStack {
+//                                                if index < 10 {
+//                                                    Text("0\(index)")
+//                                                        .fontWeight(.bold)
+//                                                } else {
+//                                                    Text("\(index)")
+//                                                        .fontWeight(.bold)
+//                                                }
+//                                                Image(systemName: "sun.max.fill")
+//                                                    .resizable()
+//                                                    .frame(width: 30, height: 30)
+//                                                Text("29°")
+//                                                    .fontWeight(.bold)
+//                                            }
+//                                        }
                                     }
                                 }
                             } header: {
@@ -244,6 +285,4 @@ struct Item: Identifiable, Equatable {
     let image: String
 }
 
-#Preview {
-    WeeklyWeatherView()
-}
+

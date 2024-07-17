@@ -10,6 +10,7 @@
 		1ADB537C2C3F8DC10011EE08 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADB537B2C3F8DC10011EE08 /* LocationManager.swift */; };
 		1ADB53802C3FD00A0011EE08 /* DayWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADB537F2C3FD00A0011EE08 /* DayWeather.swift */; };
 		1ADB53822C3FDC370011EE08 /* HourlyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADB53812C3FDC370011EE08 /* HourlyWeather.swift */; };
+		1AE8B2D62C46FD380076A153 /* Extension+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE8B2D52C46FD380076A153 /* Extension+Double.swift */; };
 		2B4D20272C460EAE00C90BB1 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		2B9595702C4657180050CCE3 /* ShimmeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B95956F2C4657180050CCE3 /* ShimmeringView.swift */; };
 		2BA3DCE42C3BA9820042C618 /* Nano3_WeatherAppForParentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA3DCE32C3BA9820042C618 /* Nano3_WeatherAppForParentApp.swift */; };
@@ -42,6 +43,7 @@
 		1ADB537B2C3F8DC10011EE08 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1ADB537F2C3FD00A0011EE08 /* DayWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWeather.swift; sourceTree = "<group>"; };
 		1ADB53812C3FDC370011EE08 /* HourlyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeather.swift; sourceTree = "<group>"; };
+		1AE8B2D52C46FD380076A153 /* Extension+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Double.swift"; sourceTree = "<group>"; };
 		2B95956F2C4657180050CCE3 /* ShimmeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringView.swift; sourceTree = "<group>"; };
 		2BA3DCE02C3BA9820042C618 /* Nano3_WeatherAppForParent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nano3_WeatherAppForParent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA3DCE32C3BA9820042C618 /* Nano3_WeatherAppForParentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano3_WeatherAppForParentApp.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				A49FBBEF2C46557A00CC787F /* Extension+Date.swift */,
+				1AE8B2D52C46FD380076A153 /* Extension+Double.swift */,
 				A4C329DB2C4758D6004207C9 /* Utils.swift */,
 			);
 			path = Extensions;
@@ -296,6 +299,7 @@
 				1ADB53822C3FDC370011EE08 /* HourlyWeather.swift in Sources */,
 				A48314542C41036700F3D1AB /* DebugView.swift in Sources */,
 				A406000F2C41961200A891EE /* LocationViewModel.swift in Sources */,
+				1AE8B2D62C46FD380076A153 /* Extension+Double.swift in Sources */,
 				A48314522C40E80800F3D1AB /* WeatherManagerDelegate.swift in Sources */,
 				A41A35A12C46168700AFF499 /* InfoView.swift in Sources */,
 				A45A069D2C3E39DD00797DE2 /* DailySummary.swift in Sources */,
@@ -446,7 +450,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "Nano3_WeatherAppForParent/Resources/Preview\\ Content";
-				DEVELOPMENT_TEAM = N2K3R4X37B;
+				DEVELOPMENT_TEAM = 3G6F9PLS9D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Nano3-WeatherAppForParent-Info.plist";
@@ -463,7 +467,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.althafnafianwar.nano-3";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rama-WeatherAppForParent";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -482,7 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "Nano3_WeatherAppForParent/Resources/Preview\\ Content";
-				DEVELOPMENT_TEAM = N2K3R4X37B;
+				DEVELOPMENT_TEAM = 3G6F9PLS9D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Nano3-WeatherAppForParent-Info.plist";
@@ -499,7 +503,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.althafnafianwar.nano-3";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rama-WeatherAppForParent";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
