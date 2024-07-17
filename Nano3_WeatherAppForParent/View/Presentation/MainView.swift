@@ -138,24 +138,15 @@ struct MainView: View {
                                                 .foregroundStyle(.header)
                                                 .fontWeight(.bold)
                                                 .padding(.top, 10)
-                                            ForEach(0..<2) { index in
-                                                HStack(spacing: 16){
+                                            ForEach(weather.dailyWeather[0].dailySummary.bestTimes) { time in
+                                                HStack{
                                                     VStack {
-                                                        if index == 0 {
-                                                            Text("Now")
-                                                                .fontWeight(.bold)
-                                                        } else {
+                                                       
                                                             HStack(alignment:.bottom, spacing:0){
-                                                                if index < 10 {
-                                                                    Text("0\(index)")
-                                                                        .fontWeight(.bold)
-                                                                } else {
-                                                                    Text("\(index)")
-                                                                        .fontWeight(.bold)
-                                                                }
-                                                                Text("AM").font(.system(size: 12))
+                                                                Text("\(time.startTime.getHour())").fontWeight(.bold)
+//
                                                             }
-                                                        }
+                                                        
                                                         Image(systemName: "sun.max.fill")
                                                             .resizable()
                                                             .frame(width: 30, height: 30)
@@ -167,14 +158,8 @@ struct MainView: View {
                                                         .frame(width: 200)
                                                     VStack {
                                                         HStack(alignment: .bottom, spacing: 0){
-                                                            if index < 10 {
-                                                                Text("0\(index+1)")
+                                                            Text("\(time.endTime.getHour())")
                                                                     .fontWeight(.bold)
-                                                            } else {
-                                                                Text("\(index)")
-                                                                    .fontWeight(.bold)
-                                                            }
-                                                            Text("AM").font(.system(size: 12))
                                                         }
                                                         Image(systemName: "sun.max.fill")
                                                             .resizable()
@@ -187,20 +172,17 @@ struct MainView: View {
                                             Section(isExpanded: $isExpandedTimes) {
                                                 ScrollView(Axis.Set.horizontal) {
                                                     HStack(spacing: 16){
-                                                        ForEach(0..<24) { index in
+                                                        ForEach(weather.dailyWeather[0].hourlyWeather) { hour in
                                                             VStack {
-                                                                if index < 10 {
-                                                                    Text("0\(index)")
+//
+                                                                Text("\(hour.date.getHour())")
                                                                         .fontWeight(.bold)
-                                                                } else {
-                                                                    Text("\(index)")
-                                                                        .fontWeight(.bold)
-                                                                }
+//
                                                                 Image(systemName: "sun.max.fill")
                                                                     .resizable()
                                                                     .frame(width: 30, height: 30)
                                                                     .foregroundStyle(.orange)
-                                                                Text("29°")
+                                                                Text("\(hour.temperature.formattedTemperature())")
                                                                     .fontWeight(.bold)
                                                             }
                                                         }
