@@ -452,7 +452,7 @@
 				CODE_SIGN_ENTITLEMENTS = Nano3_WeatherAppForParent/Resources/Nano3_WeatherAppForParent.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "Nano3_WeatherAppForParent/Resources/Preview\\ Content";
 				DEVELOPMENT_TEAM = N2K3R4X37B;
 				ENABLE_PREVIEWS = YES;
@@ -489,7 +489,7 @@
 				CODE_SIGN_ENTITLEMENTS = Nano3_WeatherAppForParent/Resources/Nano3_WeatherAppForParent.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "Nano3_WeatherAppForParent/Resources/Preview\\ Content";
 				DEVELOPMENT_TEAM = N2K3R4X37B;
 				ENABLE_PREVIEWS = YES;
