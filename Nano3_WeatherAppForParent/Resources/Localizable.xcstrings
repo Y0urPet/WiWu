@@ -10,16 +10,6 @@
     "%@" : {
 
     },
-    "%@ %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$@ %2$@"
-          }
-        }
-      }
-    },
     "%@ %@ %@ " : {
       "localizations" : {
         "en" : {
@@ -327,6 +317,7 @@
       }
     },
     "from" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -335,6 +326,9 @@
           }
         }
       }
+    },
+    "from %@" : {
+
     },
     "Heavy rain, stay indoors" : {
       "comment" : "Weekly details main page",
