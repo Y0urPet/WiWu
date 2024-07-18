@@ -83,9 +83,7 @@ struct WeeklyWeatherView: View {
                                 .onTapGesture {
                                     selectedDay = item.id
                                     todayData = weather.getDailyWeather(by: selectedDay) ?? todayData
-                                    print("rama = \(todayData)")
                                 }
-                                //                            .padding(.bottom, 10)
                             }
                         }
                     }
@@ -96,7 +94,7 @@ struct WeeklyWeatherView: View {
                     HStack(alignment: .center,spacing:20) {
                         Image(systemName: "sun.max.fill")
                             .resizable()
-                            .frame(width: 95,height: 95)
+                            .frame(width: 80,height: 80)
                             .foregroundStyle(.orange)
                         VStack(alignment: .leading, spacing: 10){
                             Text("\(todayData.date.formattedDate())")
@@ -123,7 +121,8 @@ struct WeeklyWeatherView: View {
                         }
                         
                     }
-                    .offset(x: -18)
+                    .frame(maxWidth: UIScreen.main.bounds.width - 30)
+//                    .offset(x: -18)
                     
                     List {
                         Section {
@@ -133,6 +132,7 @@ struct WeeklyWeatherView: View {
                                 .padding(.top, 10)
                             ForEach(0..<1) { index in
                                 HStack(spacing: 16){
+                                    Spacer()
                                     VStack {
                                         Text("\(todayData.dailySummary.bestTimes[0].startTime.getHour())")
                                             .fontWeight(.bold)
@@ -155,6 +155,7 @@ struct WeeklyWeatherView: View {
                                             .frame(width: 30, height: 30)
                                             .foregroundStyle(.orange)
                                     }
+                                    Spacer()
                                 }
                             }
                             Section(isExpanded: $isExpandedTimes) {

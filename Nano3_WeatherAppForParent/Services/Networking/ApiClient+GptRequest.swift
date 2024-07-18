@@ -16,7 +16,7 @@ extension ApiClient {
         switch languageCode {
             case "en": // English language
             prompt = """
-                Analyze the weather data you are given and provide a summary. The summary should be one creative sentences like these, max 5 words (for example: Perfect for outdoor fun! or Cozy up indoors), that recommends the user best to go out or not. Also, recommend the best times (could be multiple) to go out, don't recommend times from before 06:00 or after 21:00 (data is in UTC+0, recommend times assuming its for UTC+7). start_time and end_time should be 1 to 3 hours long. (Use ISO8601)
+                Analyze the weather data you are given and provide a summary. The summary should be one creative sentences like these, max 4 words (for example: Perfect for outdoor fun! or Cozy up indoors), that recommends the user best to go out or not to go out. Also, recommend the best times (could be multiple) to go out (if any), don't recommend times from before 06:00 or after 21:00 (data is in UTC+0, recommend times assuming its for UTC+7). start_time and end_time should be 1 to 3 hours long. (Use ISO8601)
 
                 Output format:
                 {
@@ -36,7 +36,7 @@ extension ApiClient {
             """
             case "id": // Bahasa Indonesia language (id for Indonesian)
                 prompt = """
-                    Analyze the weather data you are given and provide a summary. The summary should be one creative sentences like these, max 5 words (for example: Perfect for outdoor fun! or Cozy up indoors), that recommends the user best to go out or not. Also, recommend the best times (could be multiple) to go out, don't recommend times from before 06:00 or after 21:00 (data is in UTC+0, recommend times assuming its for UTC+7). start_time and end_time should be 1 to 3 hours long. (Use ISO8601)
+                    Analyze the weather data you are given and provide a summary. The summary should be one creative sentences like these, max 4 words (for example: Perfect for outdoor fun! or Cozy up indoors), that recommends the user best to go out or not to go out. Also, recommend the best times (could be multiple) to go out (if any), don't recommend times from before 06:00 or after 21:00 (data is in UTC+0, recommend times assuming its for UTC+7). start_time and end_time should be 1 to 3 hours long. (Use ISO8601)
 
                     Output format:
                     {
@@ -53,7 +53,7 @@ extension ApiClient {
                         }
                       ]
                     }
-                Jawab dalam Bahasa Indonesia (bahasa pada format JSON tetap sama)
+                Jawab dalam Bahasa Indonesia, maksimal 3-4 kata (bahasa pada format JSON tetap sama)
                 """
             default:
               print("Unsupported language code: \(languageCode)")

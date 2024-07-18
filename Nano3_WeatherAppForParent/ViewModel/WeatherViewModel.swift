@@ -15,6 +15,8 @@ enum WeatherDataState {
     case fetchedWeather
     case fetchingGPT
     case ready
+    case weatherReady
+    case todayReady
 }
 
 @Observable

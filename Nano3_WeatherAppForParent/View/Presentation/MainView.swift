@@ -18,7 +18,7 @@ struct MainView: View {
     @State var isNight: Bool = false
     
     let baseFrameHeight: CGFloat = 1000
-    let expandedDaysFrameH: CGFloat = 450
+    let expandedDaysFrameH: CGFloat = 550
     let expandedTimesFrameH: CGFloat = 50
     
     @State private var scrollViewContentSize: CGSize = .zero
@@ -35,7 +35,7 @@ struct MainView: View {
         NavigationStack{
             ZStack{
                 if weather.dataState == .ready {
-                    WeatherAnimation(isViewingTips: isViewingTips, todaysWeather: todaysWeather, isNight: $isNight)
+                    WeatherAnimation(isViewingTips: isViewingTips, todaysWeather: weather.dailyWeather.first?.condition ?? "Clear", isNight: $isNight)
                 } else {
                     ShimmerView()
                         .clipShape(Circle())
@@ -116,17 +116,19 @@ struct MainView: View {
                                                     .foregroundStyle(.titleText)
                                                     .font(.system(size: 24))
                                                     .fontWeight(.bold)
+                                                    .frame(maxWidth: UIScreen.main.bounds.width - 40)
+                                                    .multilineTextAlignment(.center)
                                             }
                                             .frame(maxWidth: .infinity)
                                         }
                                         // TODO: Benerin ini sesuai sama best times
                                         if (weather.dailyWeather.first?.dailySummary.bestTimes != []) {
                                             HStack(alignment: .bottom,spacing: 1) {
-                                                Text("\(weather.dailyWeather.first?.condition ?? "") \(String(localized: "until")) \(String( weather.dailyWeather.first?.date.getHourString()[0] ?? "")) ")
+                                                Text("\(weather.dailyWeather.first?.condition ?? "") \(String(localized: "until")) \(String( weather.dailyWeather.first?.dailySummary.bestTimes[0].endTime.getHourString()[0] ?? "")) ")
                                                     .font(.system(size: 24))
                                                     .fontWeight(.bold)
                                                     .foregroundStyle(.titleText)
-                                                Text(weather.dailyWeather.first?.date.getHourString()[1] ?? "")
+                                                Text(weather.dailyWeather.first?.dailySummary.bestTimes[0].endTime.getHourString()[1] ?? "")
                                                     .font(.system(size: 18))
                                                     .fontWeight(.semibold)
                                                     .foregroundStyle(.titleText)
@@ -142,6 +144,7 @@ struct MainView: View {
                                             if (weather.dailyWeather.first?.dailySummary.bestTimes != []) {
                                                 ForEach(weather.dailyWeather[0].dailySummary.bestTimes) { time in
                                                     HStack{
+                                                        Spacer()
                                                         VStack {
                                                             
                                                             HStack(alignment:.bottom, spacing:0){
@@ -169,6 +172,7 @@ struct MainView: View {
                                                                 .foregroundStyle(.orange)
                                                             
                                                         }
+                                                        Spacer()
                                                     }
                                                 }
                                             } else {
@@ -179,34 +183,38 @@ struct MainView: View {
                                             }
                                             Section(isExpanded: $isExpandedTimes) {
                                                 ScrollView(Axis.Set.horizontal) {
-                                                    HStack(spacing: 16){
-                                                        ForEach(weather.dailyWeather[0].hourlyWeather) { hour in
-                                                            VStack {
-//
-                                                                Text("\(hour.date.getHour())")
+                                                    if (weather.dailyWeather.first?.hourlyWeather != []) {
+                                                        HStack(spacing: 16){
+                                                            ForEach(weather.dailyWeather.first?.hourlyWeather ?? []) { hour in
+                                                                VStack {
+                                                                    //
+                                                                    Text("\(hour.date.getHour())")
                                                                         .fontWeight(.bold)
-//
-                                                                Image(systemName: "sun.max.fill")
-                                                                    .resizable()
-                                                                    .frame(width: 30, height: 30)
-                                                                    .foregroundStyle(.orange)
-                                                                Text("\(hour.temperature.formattedTemperature())")
-                                                                    .fontWeight(.bold)
+                                                                    //
+                                                                    Image(systemName: "\(hour.symbolName).fill")
+                                                                        .resizable()
+                                                                        .frame(width: 30, height: 30)
+                                                                        .foregroundStyle(.orange)
+                                                                    Text("\(hour.temperature.formattedTemperature())")
+                                                                        .fontWeight(.bold)
+                                                                }
+                                                            }
+                                                        }
+                                                        .onAppear{
+                                                            withAnimation {
+                                                                frameHeight = baseFrameHeight + (isExpandedDays ? expandedDaysFrameH : 0) + (isExpandedTimes ? expandedTimesFrameH : 0)
+                                                            }
+                                                            print("hourly: ", weather.dailyWeather[0].hourlyWeather.count)
+                                                        }
+                                                        .onDisappear() {
+                                                            withAnimation {
+                                                                
+                                                                frameHeight = baseFrameHeight + (isExpandedDays ? expandedDaysFrameH : 0) + (isExpandedTimes ? expandedTimesFrameH : 0)
                                                             }
                                                         }
                                                     }
-                                                    .onAppear{
-                                                        withAnimation {
-                                                            frameHeight = baseFrameHeight + (isExpandedDays ? expandedDaysFrameH : 0) + (isExpandedTimes ? expandedTimesFrameH : 0)
-                                                        }
-                                                    }
-                                                    .onDisappear() {
-                                                        withAnimation {
-                                                            
-                                                            frameHeight = baseFrameHeight + (isExpandedDays ? expandedDaysFrameH : 0) + (isExpandedTimes ? expandedTimesFrameH : 0)
-                                                        }
-                                                    }
                                                 }
+                                                .scrollDisabled(false)
                                             } header: {
                                                 Text("HOURLY FORECAST")
                                                     .padding(.vertical, 16)
