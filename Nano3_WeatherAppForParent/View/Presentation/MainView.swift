@@ -149,26 +149,23 @@ struct MainView: View {
                                                             
                                                             HStack(alignment:.bottom, spacing:0){
                                                                 Text("\(time.startTime.getHourMinute())").fontWeight(.bold)
-//
+                                                                //
                                                             }
                                                             
                                                             Image(systemName: "sun.max.fill")
                                                                 .resizable()
                                                                 .frame(width: 30, height: 30)
                                                                 .foregroundStyle(.orange)
+                                                            
+                                                          
                                                         }
                                                         Image("arrowRight")
                                                             .resizable()
-                                                            .frame(width: 30, height: 30)
+                                                            .frame(width: 200, height: 30)
                                                             .foregroundStyle(.orange)
-                                                    }
-                                                    Image("arrowRight")
-                                                        .resizable()
-                                                        .scaledToFit()
-                                                        .frame(width: 200)
-                                                    VStack {
-                                                        HStack(alignment: .bottom, spacing: 0){
-                                                            Text("\(time.endTime.getHourMinute())")
+                                                        VStack {
+                                                            HStack(alignment: .bottom, spacing: 0){
+                                                                Text("\(time.endTime.getHourMinute())")
                                                                     .fontWeight(.bold)
                                                             }
                                                             Image(systemName: "sun.max.fill")
@@ -180,7 +177,7 @@ struct MainView: View {
                                                         Spacer()
                                                     }
                                                 }
-                                            } else {
+                                            }else {
                                                 HStack {
                                                     Text("Not recommended to go out today")
                                                 }
