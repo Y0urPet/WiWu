@@ -50,5 +50,12 @@ extension Date {
           let formatter = DateFormatter()
           formatter.dateFormat = "HH" // 24-hour format
           return formatter.string(from: self)
+        
+     
+      }
+    func getHourMinute() -> String {
+          let formatter = DateFormatter()
+          formatter.dateFormat = "HH.mm" // 24-hour format
+          return formatter.string(from: self)
       }
 }

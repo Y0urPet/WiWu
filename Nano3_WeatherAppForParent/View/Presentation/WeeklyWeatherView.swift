@@ -104,13 +104,13 @@ struct WeeklyWeatherView: View {
                                     .font(.system(size: 25))
                                     .fontWeight(.bold)
                                 HStack(alignment: .bottom, spacing: 1){
-                                    Text("\(String(localized: "from")) \(todayData.dailySummary.bestTimes[0].startTime.getHour())")
+                                    Text("from \(todayData.dailySummary.bestTimes[0].startTime.getHourMinute())")
                                         .font(.system(size: 25))
                                         .fontWeight(.bold)
 //                                    Text("AM")
 //                                        .font(.system(size: 20))
 //                                        .fontWeight(.semibold)
-                                    Text(" - \(todayData.dailySummary.bestTimes[0].endTime.getHour())")
+                                    Text(" - \(todayData.dailySummary.bestTimes[0].endTime.getHourMinute())")
                                         .font(.system(size: 25))
                                         .fontWeight(.bold)
 //                                    Text("AM")
@@ -134,7 +134,7 @@ struct WeeklyWeatherView: View {
                                 HStack(spacing: 16){
                                     Spacer()
                                     VStack {
-                                        Text("\(todayData.dailySummary.bestTimes[0].startTime.getHour())")
+                                        Text("\(todayData.dailySummary.bestTimes[0].startTime.getHourMinute())")
                                             .fontWeight(.bold)
                                         Image(systemName: "sun.max.fill")
                                             .resizable()
@@ -147,7 +147,7 @@ struct WeeklyWeatherView: View {
                                         .frame(width: 200)
                                     VStack {
                                         HStack(alignment: .bottom, spacing: 0){
-                                            Text("\(todayData.dailySummary.bestTimes[0].endTime.getHour())").fontWeight(.bold)
+                                            Text("\(todayData.dailySummary.bestTimes[0].endTime.getHourMinute())").fontWeight(.bold)
 //                                            Text("AM").font(.system(size: 12))
                                         }
                                         Image(systemName: "sun.max.fill")

@@ -148,8 +148,8 @@ struct MainView: View {
                                                         VStack {
                                                             
                                                             HStack(alignment:.bottom, spacing:0){
-                                                                Text("\(time.startTime.getHour())").fontWeight(.bold)
-                                                                //
+                                                                Text("\(time.startTime.getHourMinute())").fontWeight(.bold)
+//
                                                             }
                                                             
                                                             Image(systemName: "sun.max.fill")
@@ -159,11 +159,16 @@ struct MainView: View {
                                                         }
                                                         Image("arrowRight")
                                                             .resizable()
-                                                            .scaledToFit()
-                                                            .frame(width: 200)
-                                                        VStack {
-                                                            HStack(alignment: .bottom, spacing: 0){
-                                                                Text("\(time.endTime.getHour())")
+                                                            .frame(width: 30, height: 30)
+                                                            .foregroundStyle(.orange)
+                                                    }
+                                                    Image("arrowRight")
+                                                        .resizable()
+                                                        .scaledToFit()
+                                                        .frame(width: 200)
+                                                    VStack {
+                                                        HStack(alignment: .bottom, spacing: 0){
+                                                            Text("\(time.endTime.getHourMinute())")
                                                                     .fontWeight(.bold)
                                                             }
                                                             Image(systemName: "sun.max.fill")
